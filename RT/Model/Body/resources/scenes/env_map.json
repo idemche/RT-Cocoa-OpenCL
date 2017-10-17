@@ -1,0 +1,183 @@
+{
+	"objects": [
+		{
+			"type": "SPHERE",
+			"sphere": {
+				"pos": {"x": 500, "y": 500, "z": 750},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"material": "GLOSSY_REFR",
+			"refractive index": 250,
+			"kd": 0,
+			"glossiness": 0,
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		}
+	],
+	"spotlights": [
+		{
+			"pos": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"pos": {"x": 500, "y": 500, "z": 750},
+		"fov": 85,
+		"dir": {"x": 0, "y": 0, "z": 750},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"image height": 768,
+		"image width": 1024,
+		"spp per call": 1,
+		"indirect light": false,
+		"parallel light": false,
+		"spot light": false,
+		"depth of field": false,
+		"ambient light": {"r": 0, "g": 0, "b": 0},
+		"tone mapper": "standard",
+		"gamma": 2.2,
+		"map": "environment_maps/cathedral.hdr"
+	},
+	"Video sequence": {
+		"On/Off": false,
+		"fps": 30,
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
+	}
+}
+
+{
+			"type": "SPHERE",
+			"sphere": {
+				"pos": {"x": 500, "y": 500, "z": 750},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"material": "SPEC",
+			"kd": 0,
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "DISK",
+			"disk": {
+				"pos": {"x": 0, "y": 0, "z": 0},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r": 500,
+				"color": {"r": 0.78, "g": 0.87, "b": 0.3}
+			},
+			"material": "GLOSSY",
+			"glossiness": 0.0005,
+			"kd": 0,
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+,
+		{
+			"type": "CONE",
+			"cone": {
+				"pos": {"x": 0, "y": 0, "z": 300},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"angle": 15,
+				"top_height": 450,
+				"bottom_height": 450,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": 0, "z": 300},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"R": 75,
+				"r": 25,
+				"color": {"r": 0.75, "g": 0.65, "b": 1}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 0, "z": 0},
+				"norm": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.2, "g": 0.4, "b": 0.8}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 0, "z": 1200},
+				"norm": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.008, "g": 0.23, "b": 0.943}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 700, "y": 0, "z": 0},
+				"norm": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": -1900, "y": 0, "z": 0},
+				"norm": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.18, "g": 0.2, "b": 0.643}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 700, "z": 0},
+				"norm": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.35, "g": 0.2, "b": 0.83}
+			}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": -700, "z": 0},
+				"norm": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.54, "g": 0.2, "b": 0.543}
+			}
+		},
+		{
+			"type": "ELIPSOID",
+			"elipsoid": {
+				"point": {"x": 0, "y": 0, "z": 300},
+				"dir": {"x": 0, "y": 1, "z": 1},
+				"radius sum": 55,
+				"focal distance": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "ELIPSOID",
+			"elipsoid": {
+				"point": {"x": 100, "y": 0, "z": 400},
+				"dir": {"x": 1, "y": 0, "z": 1},
+				"radius sum": 55,
+				"focal distance": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "ELIPSOID",
+			"elipsoid": {
+				"point": {"x": 100, "y": 100, "z": 300},
+				"dir": {"x": 1, "y": 1, "z": 0},
+				"radius sum": 55,
+				"focal distance": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		}

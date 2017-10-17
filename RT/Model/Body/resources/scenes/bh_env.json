@@ -1,0 +1,61 @@
+{
+	"objects": [
+		{
+			"type": "CONE",
+			"cone": {
+				"pos": {"x": 0, "y": 0, "z": 300},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"angle": 15,
+				"top_height": 450,
+				"bottom_height": 450,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": 0, "z": 300},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"R": 75,
+				"r": 25,
+				"color": {"r": 0.75, "g": 0.65, "b": 1}
+			}
+		}
+	],
+	"spotlights": [
+		{
+			"pos": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"pos": {"x": 500, "y": 0, "z": 400},
+		"fov": 66.6,
+		"dir": {"x": 0, "y": 0, "z": 300},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"image height": 768,
+		"image width": 1024,
+		"spp per call": 1,
+		"indirect light": false,
+		"parallel light": false,
+		"spot light": false,
+		"depth of field": false,
+		"ambient light": {"r": 0, "g": 0, "b": 0},
+		"tone mapper": "standard",
+		"gamma": 2.2,
+		"map": "environment_maps/milky_way.png"
+	},
+	"Video sequence": {
+		"On/Off": false,
+		"fps": 30,
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
+	}
+}

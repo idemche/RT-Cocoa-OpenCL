@@ -1,0 +1,49 @@
+CLANG   = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+
+LINK    = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang 
+
+ARCH    = x86_64    
+MIN_VERSION = 10.8
+
+DEBUG_PATH  = bin/debug
+
+SYSROOT = /Applications/Xcode.app/Contests/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/
+
+IBTOOL  = /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool
+
+SDK = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+
+FRAME   = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks
+
+LIB = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib
+
+FLAGS   = -g -O0
+
+debug: $(DEBUG_PATH)/test.app
+
+run:
+    open $(DEBUG_PATH)/test.app
+
+$(DEBUG_PATH)/test.app: $(DEBUG_PATH)/test
+    cp $(DEBUG_PATH)/test $(DEBUG_PATH)/test.app/Contents/MacOS/test  
+    cp  en.lproj/credits.rtf  $(DEBUG_PATH)/test.app/Contents/Resources/en.lproj
+    cp  en.lproj/InfoPlist.strings $(DEBUG_PATH)/test.app/Contents/Resources/en.lproj
+    cp PkgInfo $(DEBUG_PATH)/test.app/Contents/
+    rm -f $(DEBUG_PATH)/test
+    cp test-core-text-Info.plist $(DEBUG_PATH)/test.app/Contents/Info.plist
+    touch $@
+
+$(DEBUG_PATH)/test: $(DEBUG_PATH)/AppDelegate.o $(DEBUG_PATH)/main.o
+    mkdir -p $(DEBUG_PATH)/test.app/Contents/MacOS/../Resources/en.lproj
+    $(CLANG) -arch $(ARCH) -isysroot $(SYSROOT) -L$(DEBUG_PATH)/ -L$(LIB) -mmacosx-version-min=$(MIN_VERSION) AppDelegate.o main.o -framework Cocoa -o $@ -F $(FRAME)
+    $(IBTOOL) --errors --warnings --notices --output-format human-readable-text --compile $(DEBUG_PATH)/test.app/Contents/Resources/en.lproj/MainMenu.nib en.lproj/MainMenu.xib --sdk $(SDK)
+
+clean:
+    rm -rf $(DEBUG_PATH)/test.app
+    rm -f $(DEBUG_PATH)/*
+
+$(DEBUG_PATH)/AppDelegate.o: src/AppDelegate.m
+    $(CLANG) -arch $(ARCH) $(FLAGS) -Wall -c $< -o $@
+
+$(DEBUG_PATH)/main.o:   src/main.m
+    $(CLANG) -arch $(ARCH) $(FLAGS) -Wall -c $< -o $@

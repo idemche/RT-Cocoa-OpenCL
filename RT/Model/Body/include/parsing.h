@@ -1,0 +1,105 @@
+#ifndef PARSING_H
+# define PARSING_H
+
+# include "rt.h"
+
+# define EPS 1e-4
+# define INF 1e20f
+# define PERLIN -3
+# define NORMAL -2
+# define CHECKERBOARD -4
+# define TRUE_CHECKER -5
+
+typedef enum	e_typename
+{
+	SPHERE, PLANE, CYLINDER, CONE, PARABOLOID, TORUS, DISK, TRIANGLE, CUBE,
+	BOX, BOCAL, MOEBIUS, ELIPSOID, DNA, HEART, CUBEHOLE, TETRAHEDRON, STAR,
+	OCTAHEDRON, CUBOHEDRON, TYPELESS
+}				t_typename;
+
+typedef enum	e_material
+{
+	DIFF, SPEC, REFR, GLOSSY, GLOSSY_REFR, TRANSPARENT, NONE
+}				t_material;
+
+typedef enum	e_tone_mapper
+{
+	STANDARD, UNCHARTED, STRONG
+}				t_tone_mapper;
+
+typedef struct	s_texture
+{
+	t_uch		*data;
+}				t_texture;
+
+typedef struct	s_tmp_tex
+{
+	t_uch		*tmp_rgba;
+	int			y;
+	int			x;
+	t_uint		width;
+	t_uint		height;
+	t_uch		*rgba_albedo;
+	t_uch		*rgba_normal;
+	char		*tex_path_albedo;
+	char		*tex_path_normal;
+}				t_tmp_tex;
+
+typedef struct	s_sequence
+{
+	t_quaternion	q;
+	cl_float3		axis;
+	cl_float3		look_at;
+	double			t;
+	int				fps;
+	int				is_on;
+	int				frame_n;
+	int				frame_max;
+	char			*buf;
+}				t_sequence;
+
+void			parse_scene(t_info *a, char *json_file);
+void			object_parsing(t_info *a, t_json_scene *js);
+void			get_object_type(t_info *a, cl_int i, char *type);
+void			tetrahedron_parsing(t_object *object, t_json_scene *js);
+void			octahedron_parsing(t_object *object, t_json_scene *js);
+void			cubohedron_parsing(t_object *object, t_json_scene *js);
+void			star_parsing(t_object *object, t_json_scene *js);
+void			plane_parsing(t_object *object, t_json_scene *js);
+void			box_parsing(t_object *object, t_json_scene *js);
+void			sphere_parsing(t_object *object, t_json_scene *js);
+void			cone_parsing(t_object *object, t_json_scene *js);
+void			cylinder_parsing(t_object *object, t_json_scene *js);
+void			mob_parsing(t_object *object, t_json_scene *js);
+void			paraboloid_parsing(t_object *object, t_json_scene *js);
+void			disk_parsing(t_object *object, t_json_scene *js);
+void			triangle_parsing(t_object *object, t_json_scene *js);
+void			light_parsing(t_info *a, t_json_scene *js);
+void			cam_parsing(t_info *a, cJSON *root);
+void			torus_parsing(t_object *object, t_json_scene *js);
+void			cube_parsing(t_object *object, t_json_scene *js);
+void			dna_parsing(t_object *object, t_json_scene *js);
+void			bocal_parsing(t_object *object, t_json_scene *js);
+void			elipsoid_parsing(t_object *object, t_json_scene *js);
+void			heart_parsing(t_object *object, t_json_scene *js);
+void			cubehole_parsing(t_object *object, t_json_scene *js);
+void			parse_color(VEC3 *result, cJSON *color);
+void			parse_point(VEC3 *result, cJSON *point);
+void			parse_material(t_info *a, int i, t_json_scene *js);
+void			parse_emission(VEC3 *result, cJSON *color);
+void			parse_environment_map(t_info *a, t_json_scene *js);
+void			parse_negative_object(t_info *a, t_json_scene *js);
+void			sequence_parse(t_info *a, cJSON *root);
+void			environment_parsing(t_info *a, t_json_scene *js);
+void			restructurize_objects(t_info *a);
+void			init_cam(t_info *a);
+bool			check_vec3(VEC3 v);
+int				parse_texture(t_info *a);
+void			get_unique_texture_number(t_info *a);
+void			check_unique_textures(t_info *a, int number);
+void			write_textures(t_info *a, int i, int x, int y);
+void			write_transform_matrix_to_object(t_object *object);
+void			parse_texture_config(t_info *a, int i, t_json_scene *js,
+														t_json_material *m);
+
+#endif

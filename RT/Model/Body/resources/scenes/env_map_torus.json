@@ -1,0 +1,165 @@
+{
+	"objects": [
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": 0, "z": 30},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 150, "y": 0, "z": 150},
+				"dir": {"x": 1, "y": 0, "z": 0},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": -150, "y": 0, "z": 150},
+				"dir": {"x": 1, "y": 0, "z": 0},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": 150, "z": 150},
+				"dir": {"x": 0, "y": 1, "z": 0},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": -150, "z": 150},
+				"dir": {"x": 0, "y": 1, "z": 0},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"torus": {
+				"pos": {"x": 0, "y": 0, "z": 305},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"R": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TRIANGLE",
+			"triangle": {
+				"point1": {"x": -300, "y": 300, "z": -30},
+				"point2": {"x": -300, "y": -300, "z": -30},
+				"point3": {"x": 300, "y": 300, "z": -30},
+				"color": {"r": 0.78, "g": 0.87, "b": 0.78}
+			}
+		},
+		{
+			"type": "TRIANGLE",
+			"triangle": {
+				"point1": {"x": -300, "y": -300, "z": -30},
+				"point2": {"x": 300, "y": -300, "z": -30},
+				"point3": {"x": 300, "y": 300, "z": -30},
+				"color": {"r": 0.78, "g": 0.87, "b": 0.78}
+			}
+		}
+	],
+	"spotlights": [
+		{
+			"pos": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"pos": {"x": 300, "y": 0, "z": 300},
+		"fov": 85,
+		"dir": {"x": 0, "y": 0, "z": 150},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"spp per call": 50,
+		"ambient light": {"r": 0, "g": 0, "b": 0},
+		"gamma": 2.2,
+		"map": "environment_maps/poland2.hdr"
+	},
+	"Video sequence": {
+		"On/Off": true,
+		"fps": 30,
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
+	}
+}

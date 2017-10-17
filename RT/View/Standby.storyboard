@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Kfc-sR-EYZ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="0lk-ba-XkQ">
+            <objects>
+                <viewController storyboardIdentifier="VoidView" id="Kfc-sR-EYZ" sceneMemberID="viewController">
+                    <view key="view" hidden="YES" id="gL9-7Y-K6j">
+                        <rect key="frame" x="0.0" y="0.0" width="391" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ub5-7r-sfz">
+                                <rect key="frame" x="154" y="141" width="83" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Processing..." id="5zc-3X-lCU">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ub5-7r-sfz" firstAttribute="centerX" secondItem="gL9-7Y-K6j" secondAttribute="centerX" id="4aj-ej-4wz"/>
+                            <constraint firstItem="ub5-7r-sfz" firstAttribute="centerY" secondItem="gL9-7Y-K6j" secondAttribute="centerY" id="FGD-C8-o6W"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="E6b-kw-Kjb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-602" y="-114"/>
+        </scene>
+    </scenes>
+</document>

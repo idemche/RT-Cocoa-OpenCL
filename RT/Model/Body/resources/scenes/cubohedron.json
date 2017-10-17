@@ -1,0 +1,50 @@
+{
+	"objects": [
+		{
+			"type": "CUBOHEDRON",
+			"cubohedron": {
+				"point": {"x": 0, "y": 0, "z": 0},
+				"vec1": {"x": 1, "y": 1, "z": 0},
+				"vec2": {"x": 0, "y": 1, "z": 1},
+				"length": 250,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		}
+	],
+	"spotlights": [
+		{
+			"pos": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"pos": {"x": 500, "y": 500, "z": 300},
+		"fov": 66.6,
+		"dir": {"x": 86.6, "y": 86.6, "z": 61.235},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"image height": 768,
+		"image width": 1024,
+		"spp per call": 1,
+		"indirect light": false,
+		"parallel light": false,
+		"spot light": false,
+		"depth of field": false,
+		"ambient light": {"r": 0, "g": 0, "b": 0},
+		"tone mapper": "standard",
+		"gamma": 2.2,
+		"map": "environment_maps/poland2.hdr"
+	},
+	"Video sequence": {
+		"On/Off": false,
+		"fps": 30,
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
+	}
+}

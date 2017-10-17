@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="N9V-Ut-LjL">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Client Standby View Controller-->
+        <scene sceneID="RUd-xu-R3M">
+            <objects>
+                <viewController storyboardIdentifier="ClientStandby" id="N9V-Ut-LjL" customClass="ClientStandbyViewController" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" canDrawConcurrently="YES" id="qTf-Ar-zdc">
+                        <rect key="frame" x="0.0" y="0.0" width="633" height="400"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <customView canDrawConcurrently="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oia-hy-nVx" customClass="DHCircularProgressView">
+                                <rect key="frame" x="172" y="92" width="288" height="288"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
+                            <textField canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-OP-5VK">
+                                <rect key="frame" x="239" y="20" width="154" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="I00-Eo-kLA">
+                                    <font key="font" metaFont="system" size="19"/>
+                                    <string key="title">Client is initiated.
+Please standby</string>
+                                    <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="oia-hy-nVx" id="wX0-K8-kUb"/>
+                    </connections>
+                </viewController>
+                <customObject id="SH5-Zb-dPo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-534.5" y="-638"/>
+        </scene>
+    </scenes>
+</document>

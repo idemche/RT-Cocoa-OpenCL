@@ -1,0 +1,125 @@
+{
+	"objects": [
+		{
+			"type": "DNA",
+			"dna": {
+				"start point": {"x": 0, "y": 0, "z": 0},
+				"direction": {"x": 0, "y": 0, "z": 1},
+				"width": 100,
+				"total length": 600,
+				"periods": 2,
+				"frequency": 10,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		}
+	],
+	"spotlights": [
+		{
+			"pos": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"pos": {"x": 250, "y": 0, "z": 300},
+		"fov": 80,
+		"dir": {"x": 0, "y": 0, "z": 300},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"spp per call": 40,
+		"ambient light": {"r": 0, "g": 0, "b": 0},
+		"gamma": 2.2,
+		"map": "environment_maps/poland2.hdr"
+	},
+	"Video sequence": {
+		"On/Off": true,
+		"fps": 30,
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
+	}
+}
+
+
+		{
+			"type": "SPHERE",
+			"sphere": {
+				"pos": {"x": 500, "y": 500, "z": 750},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"material": "DIFF",
+			"emission": {"r": 60, "g": 60, "b": 60},
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 0, "z": 0},
+				"norm": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.2, "g": 0.4, "b": 0.8}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 0, "z": 1200},
+				"norm": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.008, "g": 0.23, "b": 0.943}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 700, "y": 0, "z": 0},
+				"norm": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": -1900, "y": 0, "z": 0},
+				"norm": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.18, "g": 0.2, "b": 0.643}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": 700, "z": 0},
+				"norm": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.35, "g": 0.2, "b": 0.83}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "PLANE",
+			"plane": {
+				"point": {"x": 0, "y": -700, "z": 0},
+				"norm": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.54, "g": 0.2, "b": 0.543}
+			},
+			"material": "DIFF",
+			"texture": "None",
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},

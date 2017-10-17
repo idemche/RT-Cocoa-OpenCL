@@ -1,0 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_spotlights.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/02 17:52:58 by hshakula          #+#    #+#             */
+/*   Updated: 2017/10/17 02:35:52 by admin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "rt.h"
+
+static void		ibasis(t_info *a, cl_int i, t_json_lt *lt)
+{
+	VEC3	u;
+
+	a->spotlights[i].w = a->spotlights[i].dir;
+	if (!cJSON_IsNumber(lt->radius) || !(lt->radius->valuedouble >= 0))
+	{
+		ft_warning("invalid spotlight radius, default 50");
+		a->spotlights[i].radius = 50.0;
+	}
+	else
+		a->spotlights[i].radius = lt->radius->valuedouble;
+	u = cross_prod((fabs(a->spotlights[i].w.x) > 1e-6) ? i_3(0.f, 1.f, 0.f) :
+									i_3(1.f, 0.f, 0.f), a->spotlights[i].w);
+	normalise_vec3(&u);
+	a->spotlights[i].u = u;
+	a->spotlights[i].v = cross_prod(a->spotlights[i].w, a->spotlights[i].u);
+	a->spotlights[i].u = mult_3(a->spotlights[i].u,
+													a->spotlights[i].radius);
+	a->spotlights[i].v = mult_3(a->spotlights[i].v,
+													a->spotlights[i].radius);
+	a->spotlights[i].w = mult_3(a->spotlights[i].w,
+													a->spotlights[i].radius);
+}
+
+static void		parse_light(t_info *a, t_json_scene *js, t_json_lt *lt, int i)
+{
+	lt->pos = cJSON_GetObjectItemCaseSensitive(js->light, "pos");
+	lt->dir = cJSON_GetObjectItemCaseSensitive(js->light, "dir");
+	lt->alpha = cJSON_GetObjectItemCaseSensitive(js->light, "alpha");
+	lt->emission = cJSON_GetObjectItemCaseSensitive(js->light, "emission");
+	lt->radius = cJSON_GetObjectItemCaseSensitive(js->light, "radius");
+	parse_point(&a->spotlights[i].pos, lt->pos);
+	parse_point(&a->spotlights[i].dir, lt->dir);
+	if (!check_vec3(a->spotlights[i].dir))
+		ft_error("Direction vector of spotlight can not be a zero vector");
+	normalise_vec3(&a->spotlights[i].dir);
+	if (!cJSON_IsNumber(lt->alpha) || !(lt->alpha->valuedouble >= 0.0f) ||
+											!(lt->alpha->valuedouble <= 30.0f))
+	{
+		ft_warning("invalid spotlight angle, default 15");
+		a->spotlights[i].alpha = 15 * M_PI / 180.0f;
+	}
+	else
+		a->spotlights[i].alpha = lt->alpha->valuedouble * M_PI / 180.0f;
+	parse_emission(&(a->spotlights[i].emission), lt->emission);
+	ibasis(a, i, lt);
+}
+
+void			light_parsing(t_info *a, t_json_scene *js)
+{
+	cl_int			i;
+	t_json_lt		lt;
+
+	js->spotlights = cJSON_GetObjectItemCaseSensitive(js->root, "spotlights");
+	if (cJSON_IsArray(js->spotlights))
+	{
+		a->scene->amount_of_spotlights = cJSON_GetArraySize(js->spotlights);
+		a->spotlights = (t_spotlight*)malloc(sizeof(t_spotlight) *
+										a->scene->amount_of_spotlights);
+		i = -1;
+		while (++i < a->scene->amount_of_spotlights)
+		{
+			js->light = cJSON_GetArrayItem(js->spotlights, i);
+			parse_light(a, js, &lt, i);
+		}
+	}
+	else
+		a->scene->amount_of_spotlights = 0;
+}
