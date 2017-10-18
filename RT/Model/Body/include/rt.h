@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:32:14 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 20:13:09 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 02:24:40 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ struct			s_info
 	double			len;
 	double			scale_angle;
 	double			scale_speed;
+	int				log_fd;
 	int				*unique_tex;
 	int				amount_of_unique_tex;
 	int				spp_per_call;
@@ -76,11 +77,17 @@ struct			s_info
 	char			save_image;
 	char			quit;
 	char			num_scene;
+	char			scene_is_valid;
 };
 
 void			init(t_info *a, char *json_file);
 void			init_scene(t_info *a);
 void			quit(t_info *a);
 void			reset_keys(t_info *a);
+void			scene_error(t_info *a, char *str);
+void			object_error(t_info *a, int i, char *str);
+void			object_warning(t_info *a, int i, char *str);
+void			warning(t_info *a, char *str);
+int				validate_scene(char *file_path);
 
 #endif

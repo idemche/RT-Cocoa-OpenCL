@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_8.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 20:10:54 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 14:56:21 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static VEC3		get_vector(t_object *o, VEC3 k)
+static VEC3	get_vector(t_object *o, VEC3 k)
 {
 	VEC3	res;
 
@@ -23,7 +23,7 @@ static VEC3		get_vector(t_object *o, VEC3 k)
 	return (res);
 }
 
-static void		get_octahedron_info(t_object *o)
+static void	get_octahedron_info(t_object *o)
 {
 	VEC3		tmp;
 
@@ -46,35 +46,40 @@ static void		get_octahedron_info(t_object *o)
 	o->radius2 = o->radius * o->radius;
 }
 
-static void		get_cube_info(t_object *o, t_json_object *t)
+static void	get_cube_info(t_info *a, int i, t_object *o, t_json_object *t)
 {
-	t->p1 = cJSON_GetObjectItemCaseSensitive(t->obj, "point");
-	t->vec1 = cJSON_GetObjectItemCaseSensitive(t->obj, "vec1");
-	t->vec2 = cJSON_GetObjectItemCaseSensitive(t->obj, "vec2");
-	t->length = cJSON_GetObjectItemCaseSensitive(t->obj, "length");
-	t->color = cJSON_GetObjectItemCaseSensitive(t->obj, "color");
-	parse_color(&o->color, t->color);
+	parse_color(a, i, &o->color, t->color);
 	if (!cJSON_IsNumber(t->length) || t->length->valuedouble < 0)
-		ft_error("Invalid box length");
-	parse_point(&o->point1, t->p1);
-	parse_point(&o->edge0, t->vec1);
-	parse_point(&o->edge1, t->vec2);
+	{
+		o->radius = 300.0;
+		object_warning(a, i, "invalid length, default 300");
+	}
+	else
+		o->radius = t->length->valuedouble;
+	if (!parse_point(&o->point1, t->p1) || !parse_point(&o->edge0, t->vec1) ||
+		!parse_point(&o->edge1, t->vec2))
+		object_error(a, i, "invalid xyz field");
 	o->edge2 = cross_prod(o->edge0, o->edge1);
 	if (!check_vec3(o->edge0) || !check_vec3(o->edge1) ||
 														!check_vec3(o->edge2))
-		ft_error("Invalid cube configuration");
-	o->edge1 = cross_prod(o->edge0, o->edge2);
-	normalise_vec3(&o->edge0);
-	normalise_vec3(&o->edge1);
-	normalise_vec3(&o->edge2);
-	o->radius = t->length->valuedouble;
+	{
+		object_error(a, i, "invalid vector configuration");
+		return ;
+	}
+	else
+	{
+		o->edge1 = cross_prod(o->edge0, o->edge2);
+		normalise_vec3(&o->edge0);
+		normalise_vec3(&o->edge1);
+		normalise_vec3(&o->edge2);
+	}
 }
 
-void			cubohedron_parsing(t_object *object, t_json_scene *js)
+void		cubohedron_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 {
 	t_json_object	t;
 
-	t.obj = cJSON_GetObjectItemCaseSensitive(js->object, "cubohedron");
-	get_cube_info(object, &t);
-	get_octahedron_info(object);
+	get_object_info(&t, js);
+	get_cube_info(a, i, o, &t);
+	get_octahedron_info(o);
 }

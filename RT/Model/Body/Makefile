@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+         #
+#    By: admin <admin@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/10 19:14:50 by hshakula          #+#    #+#              #
-#    Updated: 2017/10/17 20:11:16 by hshakula         ###   ########.fr        #
+#    Updated: 2017/10/18 14:24:03 by admin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC_NAME =	parsing/parse_cam.c \
 			parsing/parse_objects_7.c \
 			parsing/parse_objects_8.c \
 			parsing/parse_objects_9.c \
+			parsing/parse_object_info.c \
 			parsing/parse_material.c \
 			parsing/parse_spotlights.c \
 			parsing/parse_scene.c \
@@ -40,6 +41,7 @@ SRC_NAME =	parsing/parse_cam.c \
 			parsing/parse_environment.c \
 			parsing/parse_negative_obj.c \
 			parsing/matrix_init.c \
+			parsing/scene_validate.c \
 			client/loop.c \
 			client/init.c \
 			client/main.c \

@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 20:09:17 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 01:23:07 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-// static void			validate_scene(char *file_path)
-// {
-// 	t_info	*a;
-// 	char	*json_file;
-
-// 	ft_putstr("Validate mode on\n");
-// 	a = (t_info*)malloc(sizeof(t_info));
-// 	get_file(file_path, &json_file);
-// 	init_scene(a);
-// 	parse_scene(a, json_file);
-// 	parse_texture(a);
-// 	ft_putstr("Scene is valid\n");
-// }
 
 static void		establish_connection(t_info *a, char *buffer)
 {
@@ -48,20 +34,6 @@ static void		establish_connection(t_info *a, char *buffer)
 	a->server.socket = sock;
 }
 
-static void		client(t_info *a, const char *ip, const char *is_last)
-{
-	char	*ip_;
-
-	ip_ = (char*)ip;
-	if (!__builtin_strcmp(ip, "l"))
-		ip_ = "127.0.0.1";
-	a->server.port = 4444;
-	a->server.port = udp_connection(ip_, a->server.port, is_last);
-	establish_connection(a, ip_);
-	client_init(a);
-	client_loop(a);
-}
-
 static int		validate_params(char **av)
 {
 	struct sockaddr_in	sa;
@@ -77,15 +49,22 @@ static int		validate_params(char **av)
 int				main(int ac, char **av)
 {
 	t_info	*a;
+	char	*ip_;
 
-	// if (ac == 3 && !ft_strcmp(av[2], "validate"))
-	// 	validate_scene(av[1]);
 	if (ac == 3)
 	{
 		a = (t_info*)malloc(sizeof(t_info));
 		if (!validate_params(av))
 			ft_usage();
-		client(a, av[1], av[2]);
+		if (!__builtin_strcmp(av[1], "l"))
+			ip_ = "127.0.0.1";
+		else
+			ip_ = av[1];
+		a->server.port = 4444;
+		a->server.port = udp_connection(ip_, a->server.port, av[2]);
+		establish_connection(a, ip_);
+		client_init(a);
+		client_loop(a);
 	}
 	else
 		ft_usage();

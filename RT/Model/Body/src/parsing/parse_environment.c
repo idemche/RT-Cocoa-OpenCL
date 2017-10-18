@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_environment.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 20:07:11 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 15:40:00 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void		get_type(t_info *a, t_json_env *e)
 	else if (ft_strstr(e->m->valuestring, ".png"))
 	{
 		if (lodepng_decode32_file(&tmp, &w, &h, e->m->valuestring))
-			ft_error("lodepng_decode32_file error: environment map");
+			scene_error(a, "lodepng_decode32_file error: environment map");
 		write_float3(a, tmp, w, h);
 		a->scene->radiance_env_map = 0;
 		a->scene->env_map_w = (int)w;
@@ -58,7 +58,7 @@ static void		get_type(t_info *a, t_json_env *e)
 		free(tmp);
 	}
 	else
-		ft_error("Invalid file type");
+		scene_error(a, "invalid file type");
 }
 
 void			parse_environment_map(t_info *a, t_json_scene *js)
@@ -68,35 +68,47 @@ void			parse_environment_map(t_info *a, t_json_scene *js)
 	e.e = cJSON_GetObjectItemCaseSensitive(js->root, "environment");
 	e.m = cJSON_GetObjectItemCaseSensitive(e.e, "map");
 	if (!e.m)
-		ft_error("Missing environment map field");
-	if (ft_strcmp(e.m->valuestring, "None"))
-	{
-		get_type(a, &e);
-		if (!a->environment_map)
-			exit(-2);
-		else
-			a->scene->env_map = 1;
-	}
-	else
 		a->scene->env_map = 0;
+	else
+	{
+		if (!cJSON_IsString(e.m))
+			scene_error(a, "invalid environment map field, wtf how?");
+		else
+		{
+			if (ft_strcmp(e.m->valuestring, "None"))
+			{
+				get_type(a, &e);
+				if (!a->environment_map)
+					scene_error(a, "invalid environment map file");
+				else
+					a->scene->env_map = 1;
+			}
+			else
+				a->scene->env_map = 0;
+		}
+	}
 }
 
 static void		validate_env_parameters(t_json_env *e, t_info *a)
 {
 	if (!cJSON_IsNumber(e->spppc) || e->spppc->valueint < 1)
+	{
+		warning(a, "invalid spp per call field, default value 1");
 		a->spp_per_call = 1;
+	}
 	else
 		a->spp_per_call = e->spppc->valueint;
 	if (e->ambient)
-		parse_color(&a->scene->ambient, e->ambient);
+		parse_color(a, -1, &a->scene->ambient, e->ambient);
 	else
 		a->scene->ambient = i_3(0, 0, 0);
 	if (e->p_l_e && e->p_l_d)
 	{
-		parse_emission(&a->scene->parallel_emis, e->p_l_e);
-		parse_point(&a->scene->parallel_dir, e->p_l_d);
+		parse_emission(a, &a->scene->parallel_emis, e->p_l_e);
+		if (!parse_point(&a->scene->parallel_dir, e->p_l_d))
+			scene_error(a, "missing parallel light direction");
 		if (!check_vec3(a->scene->parallel_dir))
-			ft_error("Direction vector of parallel light can't be a zero vec");
+			scene_error(a, "invalid dir vector of parallel light");
 	}
 	if (!e->p_l_e)
 		a->scene->parallel_emis = i_3(4, 4, 4);
@@ -117,7 +129,10 @@ void			environment_parsing(t_info *a, t_json_scene *js)
 	validate_env_parameters(&e, a);
 	e.gamma = cJSON_GetObjectItemCaseSensitive(e.e, "gamma");
 	if (!cJSON_IsNumber(e.gamma) || e.gamma->valuedouble < 1.0f)
+	{
+		warning(a, "invalid gamma value, default 2.2");
 		a->scene->gamma = 2.2;
+	}
 	else
 		a->scene->gamma = e.gamma->valuedouble;
 }

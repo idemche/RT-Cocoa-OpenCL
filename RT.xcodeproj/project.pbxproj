@@ -185,6 +185,8 @@
 		5161E74D1F8F91A600C0D592 /* DHCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5161E74C1F8F91A600C0D592 /* DHCircularProgressView.m */; };
 		5175CDD31F96239800EDC611 /* octa.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5175CDD21F96239800EDC611 /* octa.gif */; };
 		5175CDD51F9624F400EDC611 /* octa.html in Resources */ = {isa = PBXBuildFile; fileRef = 5175CDD41F9624F400EDC611 /* octa.html */; };
+		845FE3E11F97716A009970CB /* scene_validate.c in Sources */ = {isa = PBXBuildFile; fileRef = 845FE3DF1F97716A009970CB /* scene_validate.c */; };
+		845FE3E21F97716A009970CB /* parse_object_info.c in Sources */ = {isa = PBXBuildFile; fileRef = 845FE3E01F97716A009970CB /* parse_object_info.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -402,6 +404,8 @@
 		51AEAE031F95148E00EE6E5F /* 173_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173_norm.png; sourceTree = "<group>"; };
 		51AEAE041F95148E00EE6E5F /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
 		51AEAE051F95148E00EE6E5F /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
+		845FE3DF1F97716A009970CB /* scene_validate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scene_validate.c; sourceTree = "<group>"; };
+		845FE3E01F97716A009970CB /* parse_object_info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse_object_info.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,6 +609,8 @@
 		137056F01F9381C000D9C77F /* parsing */ = {
 			isa = PBXGroup;
 			children = (
+				845FE3DF1F97716A009970CB /* scene_validate.c */,
+				845FE3E01F97716A009970CB /* parse_object_info.c */,
 				13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */,
 				137056F11F9381C000D9C77F /* parse_objects_5.c */,
 				137056F21F9381C000D9C77F /* parse_material.c */,
@@ -1071,6 +1077,7 @@
 				51181BC91F953754008AEC25 /* ft_strdup.c in Sources */,
 				51181BA11F953725008AEC25 /* parse_cam.c in Sources */,
 				51181C011F953754008AEC25 /* ft_strmapi.c in Sources */,
+				845FE3E11F97716A009970CB /* scene_validate.c in Sources */,
 				51181BB71F953754008AEC25 /* ft_merge.c in Sources */,
 				5161E7441F8F8B0400C0D592 /* ClientStandbyViewController.m in Sources */,
 				51181BEC1F953754008AEC25 /* ft_lstiter.c in Sources */,
@@ -1108,6 +1115,7 @@
 				51181BAF1F95373B008AEC25 /* cJSON.c in Sources */,
 				51181BFA1F953754008AEC25 /* ft_strncpy.c in Sources */,
 				51181BA71F953725008AEC25 /* parse_objects.c in Sources */,
+				845FE3E21F97716A009970CB /* parse_object_info.c in Sources */,
 				51181BA31F953725008AEC25 /* parse_objects_4.c in Sources */,
 				51181BF21F953754008AEC25 /* ft_putendl_fd.c in Sources */,
 				51181BC21F953754008AEC25 /* ft_memmove.c in Sources */,
@@ -1259,7 +1267,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UKXRLEPM96;
+				DEVELOPMENT_TEAM = 874YR33ZM8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
@@ -1290,7 +1298,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UKXRLEPM96;
+				DEVELOPMENT_TEAM = 874YR33ZM8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",

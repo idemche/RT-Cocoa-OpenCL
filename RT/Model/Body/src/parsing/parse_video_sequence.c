@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_video_sequence.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:49 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/15 19:23:43 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 14:58:15 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void		sequence_parse(t_info *a, cJSON *root)
 	s.axis = cJSON_GetObjectItemCaseSensitive(s.s, "axis");
 	s.time = cJSON_GetObjectItemCaseSensitive(s.s, "time");
 	s.fps = cJSON_GetObjectItemCaseSensitive(s.s, "fps");
-	parse_point(&a->sequence.axis, s.axis);
+	if (!parse_point(&a->sequence.axis, s.axis))
+		scene_error(a, "video sequence - invalid axis");
 	if (!check_vec3(a->sequence.axis))
 		ft_error("Invalid axis in video sequence configuration");
 	normalise_vec3(&a->sequence.axis);

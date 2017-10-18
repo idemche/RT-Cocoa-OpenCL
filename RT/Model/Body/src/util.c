@@ -6,11 +6,23 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 02:10:27 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 15:27:11 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+void		print_time(int fd)
+{
+	time_t		timer;
+    char		buffer[26];
+    struct tm*	tm_info;
+
+    time(&timer);
+    tm_info = localtime(&timer);
+    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+    ft_putendl_fd(buffer, fd);
+}
 
 int			ft_usage(void)
 {
@@ -27,14 +39,14 @@ size_t		get_file(const char *name, char **str)
 
 	if (!(file = fopen(name, "r")))
 	{
-		ft_putstr("open failed: ");
-		ft_error((char*)name);
+		ft_putstr("get_file(): fail to open ");
+		ft_putendl((char*)name);
+		return (0);
 	}
 	fseek(file, 0, SEEK_END);
 	len = ftell(file);
 	fseek(file, 0, SEEK_SET);
-	if (!(*str = (char*)malloc(sizeof(char) * (len + 1))))
-		ft_error("get_file(): malloc error");
+	*str = (char*)malloc(sizeof(char) * (len + 1));
 	fread(*str, len, 1, file);
 	(*str)[len] = '\0';
 	fclose(file);

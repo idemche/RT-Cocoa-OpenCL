@@ -6,84 +6,91 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 11:31:26 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 14:54:37 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	validate_dna(t_object *object, t_json_object *d)
+static void	dna_parsing_(t_info *a, int i, t_object *o, t_json_object *d)
 {
-	parse_color(&object->color, d->color);
-	parse_point(&object->point1, d->p1);
-	parse_point(&object->dir, d->dir);
-	if (!check_vec3(object->dir))
-		ft_error("DNA direction could not be a zero vector");
-	normalise_vec3(&object->dir);
-	if (!cJSON_IsNumber(d->period) || !cJSON_IsNumber(d->length) ||
-		!cJSON_IsNumber(d->freq) || !cJSON_IsNumber(d->width) ||
-		d->period->valueint < 1 || d->period->valueint > 10 ||
-		d->freq->valueint < 4 || d->length->valuedouble <= 0.0 ||
-		d->width->valuedouble <= 0.0)
+	if (!cJSON_IsNumber(d->period) ||
+		d->period->valueint < 1 || d->period->valueint > 10)
 	{
-		ft_warning("invalid DNA config, default values goes in");
-		object->radius = 50.0;
-		object->period = 1;
-		object->frequency = 10;
-		object->top = 250.0;
+		object_warning(a, i, "invalid period, default 1");
+		o->period = 1;
 	}
 	else
+		o->period = d->period->valueint;
+	if (!cJSON_IsNumber(d->length) || d->length->valuedouble <= 0.0)
 	{
-		object->radius = d->width->valuedouble;
-		object->period = d->period->valueint;
-		object->frequency = d->freq->valuedouble;
-		object->top = d->length->valuedouble;
+		object_warning(a, i, "invalid length, default 250");
+		o->top = 250.0;
 	}
+	else
+		o->top = d->length->valuedouble;
+	if (!cJSON_IsNumber(d->width) || d->width->valuedouble <= 0.0)
+	{
+		object_warning(a, i, "invalid width, default 50");
+		o->radius = 50.0;
+	}
+	else
+		o->radius = d->width->valuedouble;
 }
 
-void		dna_parsing(t_object *object, t_json_scene *js)
+void		dna_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 {
 	t_json_object	d;
 
-	d.obj = cJSON_GetObjectItemCaseSensitive(js->object, "dna");
-	d.period = cJSON_GetObjectItemCaseSensitive(d.obj, "periods");
-	d.freq = cJSON_GetObjectItemCaseSensitive(d.obj, "frequency");
-	d.length = cJSON_GetObjectItemCaseSensitive(d.obj, "total length");
-	d.p1 = cJSON_GetObjectItemCaseSensitive(d.obj, "start point");
-	d.dir = cJSON_GetObjectItemCaseSensitive(d.obj, "direction");
-	d.width = cJSON_GetObjectItemCaseSensitive(d.obj, "width");
-	d.color = cJSON_GetObjectItemCaseSensitive(d.obj, "color");
-	validate_dna(object, &d);
-	object->k = object->top / (object->period * object->frequency);
-	object->top += object->k;
-	object->bot = -object->k;
-	object->radius2 = object->k * object->k * 0.15f;
-	write_transform_matrix_to_object(object);
+	get_object_info(&d, js);
+	parse_color(a, i, &o->color, d.color);
+	if (!parse_point(&o->point1, d.p1) || !parse_point(&o->dir, d.dir))
+		object_error(a, i, "invalid xyz field");
+	if (!check_vec3(o->dir))
+		object_error(a, i, "invalid dir");
+	else
+		normalise_vec3(&o->dir);
+	if (!cJSON_IsNumber(d.freq) || d.freq->valueint < 4)
+	{
+		object_warning(a, i, "invalid frequency, default 10");
+		o->frequency = 10;
+	}
+	else
+		o->frequency = d.freq->valuedouble;
+	dna_parsing_(a, i, o, &d);
+	o->k = o->top / (o->period * o->frequency);
+	o->top += o->k;
+	o->bot = -o->k;
+	o->radius2 = o->k * o->k * 0.15f;
+	write_transform_matrix_to_object(o);
 }
 
-void		heart_parsing(t_object *object, t_json_scene *js)
+void		heart_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 {
 	t_json_object h;
 
-	h.obj = cJSON_GetObjectItemCaseSensitive(js->object, "heart");
-	h.p1 = cJSON_GetObjectItemCaseSensitive(h.obj, "point");
-	h.n = cJSON_GetObjectItemCaseSensitive(h.obj, "normal");
-	h.width = cJSON_GetObjectItemCaseSensitive(h.obj, "size");
-	parse_point(&object->point1, h.p1);
-	h.p1 = cJSON_GetObjectItemCaseSensitive(h.obj, "color");
-	parse_color(&object->color, h.p1);
-	parse_point(&object->n, h.n);
-	if (!check_vec3(object->n))
-		ft_error("Heart's normal could not be a zero vector");
-	normalise_vec3(&object->n);
+	get_object_info(&h, js);
+	if (!parse_point(&o->point1, h.p1) || !parse_point(&o->n, h.n))
+		object_error(a, i, "invalid xyz field");
+	parse_color(a, i, &o->color, h.p1);
+	if (!check_vec3(o->n))
+		object_error(a, i, "invalid n");
+	else
+	{
+		normalise_vec3(&o->n);
+		o->edge0 = cross_prod((fabs(o->n.x) > 1e-6 ?
+			i_3(0, 1, 0) : i_3(1, 0, 0)), o->n);
+		normalise_vec3(&o->edge0);
+		o->edge1 = cross_prod(o->n, o->edge0);
+		normalise_vec3(&o->edge1);
+	}
 	if (!cJSON_IsNumber(h.width) || h.width->valuedouble < 1.0)
-		ft_error("Invalid size of heart");
-	object->radius = h.width->valuedouble;
-	object->edge0 = cross_prod((fabs(object->n.x) > 1e-6 ?
-		i_3(0, 1, 0) : i_3(1, 0, 0)), object->n);
-	normalise_vec3(&object->edge0);
-	object->edge1 = cross_prod(object->n, object->edge0);
-	normalise_vec3(&object->edge1);
+	{
+		o->radius = 30;
+		object_warning(a, i, "invalid width, default 30");
+	}
+	else
+		o->radius = h.width->valuedouble;
 }
 
 static void	anti_norminette(t_info *a, cl_int i, char *type)
@@ -109,7 +116,7 @@ static void	anti_norminette(t_info *a, cl_int i, char *type)
 	else if (!ft_strcmp(type, "CUBOHEDRON"))
 		a->objects[i].type = CUBOHEDRON;
 	else
-		ft_error("Object type error");
+		object_error(a, i, "unknown o type");
 }
 
 void		get_object_type(t_info *a, cl_int i, char *type)

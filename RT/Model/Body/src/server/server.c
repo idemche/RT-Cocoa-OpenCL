@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 19:59:03 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 01:34:00 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void		init_server(t_info *a)
 void		server(t_info *a)
 {
 	a->json_len = get_file(a->scenes[a->num_scene], &a->json_file);
+	if (!a->json_len)
+		exit(2);
 	init_threads(a, a->json_file, a->json_len);
 	init_server(a);
 	collect_peers(a);

@@ -1,4 +1,5 @@
 *.hdr
 *.png
 *.o
-
+log
+*.a

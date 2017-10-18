@@ -61,7 +61,7 @@ cl_float3 *read_hdr(const char *filename, int *w, int *h)
     FILE *fp;
     if (!(fp = fopen(filename, "r")))
     {
-        perror("get_file(): open failed");
+        perror("hdrReader: ");
         return NULL;
     }
 

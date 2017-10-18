@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 02:32:52 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 15:40:35 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		parse_scene(t_info *a, char *json_file)
 	js.root = cJSON_Parse(json_file);
 	js.objects = cJSON_GetObjectItemCaseSensitive(js.root, "objects");
 	if (!cJSON_IsArray(js.objects))
-		ft_error("map error: need more objects");
+		scene_error(a, "syntax error");
 	js.n_object = cJSON_GetObjectItemCaseSensitive(js.root, "negative object");
 	if (!cJSON_IsArray(js.n_object))
 		a->scene->n_negative_obj = 0;

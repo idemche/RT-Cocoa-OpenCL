@@ -1291,9 +1291,9 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 	// float3	point1 = object.point1 + object.upsilon * ray.t;
 	float3	point1 = object.point1;
 
+	q.x = ray.o - point1;
 	float xd = dot(q.x, object.dir);
 	float dd = dot(ray.d, object.dir);
-	q.x = ray.o - point1;
 	q.a = 1.0f - dd * dd;
 	q.b = 2.0f * (dot(ray.d, q.x) - dd * (xd + 2.0f * object.k));
 	q.c = dot(q.x, q.x) - xd * (xd + 4.0f * object.k);

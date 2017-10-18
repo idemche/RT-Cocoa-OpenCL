@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   kernel_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 19:24:23 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 19:56:38 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 01:31:33 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static void		init_kernel_(t_cl *cl, int err, char *src_file)
 	size_t size;
 
 	size = get_file("kernels.lol", &src_file);
+	if (size == 0)
+		exit(-2);
 	cl->program = clCreateProgramWithSource(cl->context,
 					1, (const char **)&src_file, (const size_t *)&size, &err);
 	free(src_file);

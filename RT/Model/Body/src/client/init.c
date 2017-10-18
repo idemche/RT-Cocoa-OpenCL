@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 19:58:49 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 15:55:13 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,19 @@ void			client_init(t_info *a)
 
 void			init(t_info *a, char *json_file)
 {
+	system("rm -f log");
+	if ((a->log_fd = open("log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD)) == -1)
+		ft_putstr("Could not open log file");
+	print_time(a->log_fd);
 	init_scene(a);
 	a->scene->image_width = a->client.width;
 	a->scene->image_height = a->client.height;
+	a->scene_is_valid = 1;
 	parse_scene(a, json_file);
+	if (!a->scene_is_valid)
+		ft_error("Invalid scene");
+	ft_putendl_fd("Scene is valid", a->log_fd);
+	close(a->log_fd);
 	parse_texture(a);
 	init_perlin(a, 800, 800);
 	init_opencl(a);

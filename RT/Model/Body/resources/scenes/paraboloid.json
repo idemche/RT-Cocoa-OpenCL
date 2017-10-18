@@ -2,8 +2,8 @@
 	"objects": [
 		{
 			"type": "SPHERE",
-			"sphere": {
-				"pos": {"x": 0, "y": 0, "z": 1000},
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 1000},
 				"r": 200,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
@@ -15,9 +15,9 @@
 		{
 			"type": "PARABOLOID",
 			"paraboloid": {
-				"pos": {"x": 0, "y": 0, "z": 350},
+				"point1": {"x": 0, "y": 0, "z": 350},
 				"k": 10,
-				"height": 50,
+				"top":: 50,
 				"dir": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.95, "g": 0.25, "b": 0.25}
 			},
@@ -30,9 +30,9 @@
 		{
 			"type": "PARABOLOID",
 			"paraboloid": {
-				"pos": {"x": 0, "y": 0, "z": 350},
+				"point1": {"x": 0, "y": 0, "z": 350},
 				"k": 10,
-				"height": 50,
+				"top":: 50,
 				"dir": {"x": -1, "y": 0, "z": 0},
 				"color": {"r": 0.25, "g": 0.25, "b": 0.95}
 			},
@@ -45,9 +45,9 @@
 		{
 			"type": "PARABOLOID",
 			"paraboloid": {
-				"pos": {"x": 0, "y": 0, "z": 350},
+				"point1": {"x": 0, "y": 0, "z": 350},
 				"k": 10,
-				"height": 50,
+				"top":: 50,
 				"dir": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.25, "g": 0.95, "b": 0.25}
 			},
@@ -60,9 +60,9 @@
 		{
 			"type": "PARABOLOID",
 			"paraboloid": {
-				"pos": {"x": 0, "y": 0, "z": 350},
+				"point1": {"x": 0, "y": 0, "z": 350},
 				"k": 10,
-				"height": 50,
+				"top":: 50,
 				"dir": {"x": 0, "y": -1, "z": 0},
 				"color": {"r": 0.77, "g": 0.65, "b": 0.56}
 			},
@@ -74,9 +74,9 @@
 		},
 		{
 			"type": "PLANE",
-			"plane": {
-				"point": {"x": 0, "y": 0, "z": 0},
-				"norm": {"x": 0, "y": 0, "z": 1},
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 0},
+				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
 			"material": "DIFF",
@@ -91,18 +91,18 @@
 	"negative object": [
 		{
 			"type": "CYLINDER",
-			"cylinder": {
-				"pos": {"x": -500, "y": 0, "z": 350},
+			"config": {
+				"point1": {"x": -500, "y": 0, "z": 350},
 				"dir": {"x": 1, "y": 0, "z": 0},
 				"r": 200,
-				"height": 1000,
+				"top":: 1000,
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			}
 		}
 	],
 	"spotlights": [
 		{
-			"pos": {"x": -100, "y": -650, "z": 550},
+			"point1": {"x": -100, "y": -650, "z": 550},
 			"dir": {"x": 50, "y": 310, "z": -120},
 			"emission": {"r": 20, "g": 20, "b": 20},
 			"radius": 75,
@@ -110,7 +110,7 @@
 		}
 	],
 	"cam": {
-		"pos": {"x": 450, "y": 450, "z": 450},
+		"point1": {"x": 450, "y": 450, "z": 450},
 		"fov": 66.6,
 		"dir": {"x": 0, "y": 0, "z": 1000},
 		"exposition time": 1,

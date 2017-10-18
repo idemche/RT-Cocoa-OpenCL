@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/16 14:00:01 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/18 02:35:49 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,49 @@
 static void	norm_please(t_info *a, int i, t_json_scene *js)
 {
 	if (a->objects[i].type == TORUS)
-		torus_parsing(&(a->objects[i]), js);
+		torus_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == ELIPSOID)
-		elipsoid_parsing(&(a->objects[i]), js);
+		elipsoid_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == DNA)
-		dna_parsing(&(a->objects[i]), js);
+		dna_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == HEART)
-		heart_parsing(&(a->objects[i]), js);
+		heart_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == CUBEHOLE)
-		cubehole_parsing(&(a->objects[i]), js);
+		cubehole_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == TETRAHEDRON)
-		tetrahedron_parsing(&(a->objects[i]), js);
+		tetrahedron_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == STAR)
-		star_parsing(&(a->objects[i]), js);
+		star_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == OCTAHEDRON)
-		octahedron_parsing(&(a->objects[i]), js);
+		octahedron_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == CUBOHEDRON)
-		cubohedron_parsing(&(a->objects[i]), js);
+		cubohedron_parsing(a, i, &(a->objects[i]), js);
 }
 
 static void	goto_parsing(t_info *a, int i, t_json_scene *js)
 {
 	if (a->objects[i].type == SPHERE)
-		sphere_parsing(&(a->objects[i]), js);
+		sphere_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == PLANE)
-		plane_parsing(&(a->objects[i]), js);
+		plane_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == CYLINDER)
-		cylinder_parsing(&(a->objects[i]), js);
+		cylinder_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == CONE)
-		cone_parsing(&(a->objects[i]), js);
+		cone_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == PARABOLOID)
-		paraboloid_parsing(&(a->objects[i]), js);
+		paraboloid_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == DISK)
-		disk_parsing(&(a->objects[i]), js);
+		disk_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == TRIANGLE)
-		triangle_parsing(&(a->objects[i]), js);
+		triangle_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == CUBE)
-		cube_parsing(&(a->objects[i]), js);
+		cube_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == BOX)
-		box_parsing(&(a->objects[i]), js);
+		box_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == BOCAL)
-		bocal_parsing(&(a->objects[i]), js);
+		bocal_parsing(a, i, &(a->objects[i]), js);
 	else if (a->objects[i].type == MOEBIUS)
-		mob_parsing(&(a->objects[i]), js);
+		mob_parsing(a, i, &(a->objects[i]), js);
 	else
 		norm_please(a, i, js);
 }
@@ -115,7 +115,10 @@ void		object_parsing(t_info *a, t_json_scene *js)
 		js->object = cJSON_GetArrayItem(js->objects, i);
 		js->type = cJSON_GetObjectItemCaseSensitive(js->object, "type");
 		if (!cJSON_IsString(js->type))
-			ft_error_int("Object type error: #", i);
+		{
+			object_error(a, i, "invalid type");
+			continue ;
+		}
 		get_object_type(a, i, js->type->valuestring);
 		parse_material(a, i, js);
 		goto_parsing(a, i, js);

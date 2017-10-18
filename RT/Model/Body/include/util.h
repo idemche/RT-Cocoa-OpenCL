@@ -13,5 +13,6 @@ void			ft_warning(char *str);
 void			ft_error_int(char *str, int d);
 int				ft_usage(void);
 size_t			get_file(const char *name, char **str);
+void			print_time(int fd);
 
 #endif

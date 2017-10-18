@@ -1,2 +1,2 @@
-image width+image height init -> server window
 change scene -> change num_scene
+convert in.gif -alpha on -channel rgba -coalesce -resize 150x150 -layers OptimizeFrame -treedepth 8 -colors 32 out.gif
