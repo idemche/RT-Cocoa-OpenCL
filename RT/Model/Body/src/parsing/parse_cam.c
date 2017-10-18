@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:49 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:09:07 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 00:15:01 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	validate_cam(t_info *a, t_json_cam *jc)
 	else
 		a->camera->focal_length = jc->focal->valuedouble;
 	a->camera->aspectratio = (float)a->scene->image_width /
-												(float)(a->scene->image_width);
+												(float)(a->scene->image_height);
 	a->camera->angle = tan(M_PI * 0.5 * a->camera->fov / 180);
 }
 

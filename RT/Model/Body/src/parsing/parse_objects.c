@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 22:01:40 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 00:39:58 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void		object_parsing(t_info *a, t_json_scene *js)
 			continue ;
 		}
 		get_object_type(a, i, js->type->valuestring);
-		printf("object #%d, type %d\n", i, a->objects[i].type);
 		parse_material(a, i, js);
 		g_parse_object[a->objects[i].type](a, i, &(a->objects[i]), js);
 	}

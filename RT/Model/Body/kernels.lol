@@ -2520,8 +2520,8 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 
 	float r1 = get_random(&seed0, &seed1) - .5f;
 	float r2 = get_random(&seed0, &seed1) - .5f;
-	float xx = 2.0f * ((x + r1) * camera->inv_width - .5f) * camera->angle * scene->image_width / (float)scene->image_height;
-	float yy = 2.0f * (.5f - (y + r2) * camera->inv_height) * camera->angle;
+	float xx = 2.0f * ((x + r1) * camera->inv_width - .5f) * camera->aspectratio;
+	float yy = 2.0f * (.5f - (y + r2) * camera->inv_height);
 
 	// float Px = (2 * ((x + 0.5) / imageWidth) - 1) * a->camera->angle * a->scene->image_width / (float)a->scene->image_height;
 	// float Py = (1 - 2 * ((y + 0.5) / imageHeight) * a->camera->angle;
@@ -2535,24 +2535,44 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 	states[id].glossy_bounce = 0;
 
 	t_ray ray;
+	ray.d = 0;
+	ray.o = camera->pos;
 	ray.t = camera->t * get_random(&seed0, &seed1);
 
 	if (!scene->dof)
-	{
-		ray.d = fast_normalize(camera->right * xx + camera->up * yy + camera->dir);
-		ray.o = camera->pos;
-	}
-	else
+		ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
+	else if (scene->dof == 1)
 	{
 		t_ray tmp_ray;
-		tmp_ray.d = fast_normalize(camera->right * xx + camera->up * yy + camera->dir);
+		tmp_ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
 		tmp_ray.o = camera->pos;
 		float rand1 = my_clamp(get_random(&seed0, &seed1));
 		float rand2 = my_clamp(get_random(&seed0, &seed1));
 		float3 offset = camera->aperture * (rand1 * cos((float)TWO_PI * rand2) * camera->right + rand1 * sin((float)TWO_PI * rand2) * camera->up);
 		float3 focalPlaneIntersection = tmp_ray.o + tmp_ray.d * camera->focal_length / dot(camera->dir, tmp_ray.d);
-		ray.o = offset + camera->pos;
+		ray.o += offset;
 		ray.d = fast_normalize(focalPlaneIntersection - ray.o);
+	}
+	else if (scene->dof == 2)
+	{
+		float x2 = xx * xx;
+		float r = sqrt(x2 + yy * yy);
+		if (r > 1.0f)
+			states[id].is_survive = 0;
+		else
+		{
+			float nr = sqrt(1.0f - r * r);
+			nr = (r + (1.0f - nr)) * 0.5f;
+			if (nr > 1.0f)
+				states[id].is_survive = 0;
+			else
+			{
+				float theta = atan2(xx, yy);
+				float nx = nr * cos(theta);
+				float ny = nr * sin(theta);
+				ray.d = fast_normalize(camera->right * nx + camera->up * ny + camera->dir);
+			}
+		}
 	}
 
 	output[id] = ray;
