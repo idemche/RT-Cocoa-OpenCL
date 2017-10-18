@@ -14,7 +14,7 @@ typedef enum	e_typename
 {
 	SPHERE, PLANE, CYLINDER, CONE, PARABOLOID, TORUS, DISK, TRIANGLE, CUBE,
 	BOX, BOCAL, MOEBIUS, ELIPSOID, DNA, HEART, CUBEHOLE, TETRAHEDRON, STAR,
-	OCTAHEDRON, CUBOHEDRON, TYPELESS
+	OCTAHEDRON, CUBOHEDRON, RING, TYPELESS
 }				t_typename;
 
 typedef enum	e_material
@@ -85,6 +85,7 @@ void		bocal_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		elipsoid_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		heart_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		cubehole_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
+void		ring_parsing(t_info *a, int i, t_object *o, t_json_scene *js);
 void		tetrahedron_parsing(t_info *a, int i, t_object *o,
 															t_json_scene *j);
 void		parse_color(t_info *a, int i, VEC3 *result, cJSON *color);

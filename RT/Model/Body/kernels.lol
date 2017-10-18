@@ -23,6 +23,7 @@
 # define STAR 17
 # define OCTAHEDRON 18
 # define CUBOHEDRON 19
+# define RING 20
 
 # define DIFF 0
 # define SPEC 1
@@ -300,6 +301,7 @@ float			intersect_torus(t_object obj, t_ray ray, float3 *normal_tmp, float3 *hit
 float			intersect_moebius(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp);
 float			intersect_dna(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp);
 float			intersect_heart(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp);
+float			intersect_ring(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp);
 int				intersect_in_range(__constant t_object *objects, __constant t_scene *scene, t_ray r, const float maxt, t_intersection issect, float3 *path_capacity, __global float3 *albedo_textures, int k, __global float *perlin, t_negative negative);
 int				solve_quadratic(t_quad *q);
 void			float_swap(float *a, float *b);
@@ -1359,6 +1361,19 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 	return (-1);
 }
 
+float			intersect_ring(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp)
+{
+	int dummy;
+
+	t_object cylinder;
+	cylinder.dir = object.dir;
+	cylinder.point1 = object.point1;
+	cylinder.radius = object.k;
+	cylinder.top = object.top;
+	t_negative negative = range_cylinder(cylinder, ray);
+	return (intersect_cylinder(object, ray, normal_tmp, hit_point_tmp, negative, &dummy));
+}
+
 float			intersect_triangle(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp)
 {
 	float	denom, t;
@@ -2006,6 +2021,8 @@ float			intersect(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_po
 			return (intersect_moebius(object, ray, normal_tmp, hit_point_tmp));
 		case TORUS:
 			return (intersect_torus(object, ray, normal_tmp, hit_point_tmp));
+		case RING:
+			return (intersect_ring(object, ray, normal_tmp, hit_point_tmp));
 		default:
 			return (-1);
 	}

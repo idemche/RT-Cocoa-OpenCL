@@ -37,7 +37,6 @@
 		"spot light": false,
 		"depth of field": false,
 		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"tone mapper": "standard",
 		"gamma": 2.2,
 		"map": "environment_maps/poland2.hdr"
 	},

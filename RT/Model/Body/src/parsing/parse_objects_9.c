@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:56:42 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 01:12:47 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,46 @@ void		octahedron_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	o->c2 = dot_3(o->point3, o->point3);
 	o->radius = diag_len;
 	o->radius2 = diag_len * diag_len;
+}
+
+void		ring_parsing_(t_info *a, int i, t_object *o, t_json_object *r)
+{
+	if (!cJSON_IsNumber(r->top) || r->top->valuedouble < 0)
+	{
+		object_warning(a, i, "invalid top, default 35");
+		o->top = 35.0;
+	}
+	else
+		o->top = r->top->valuedouble;
+	if (!cJSON_IsNumber(r->r) || r->r->valuedouble < 0 ||
+		r->r->valuedouble > o->radius)
+	{
+		object_warning(a, i, "invalid r, default 0.95 * r_big");
+		o->k = 0.95 * o->radius;
+	}
+	else
+		o->k = r->r->valuedouble;
+}
+
+void		ring_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
+{
+	t_json_object	r;
+
+	get_object_info(&r, js);
+	parse_color(a, i, &o->color, r.color);
+	if (!parse_point(&o->point1, r.p1) || !parse_point(&o->dir, r.dir))
+		object_error(a, i, "invalid xyz field");
+	if (!check_vec3(o->dir))
+		object_error(a, i, "invalid direction vector");
+	else
+		normalise_vec3(&o->dir);
+	if (!cJSON_IsNumber(r.r_big) || !(r.r_big->valuedouble > 0.0))
+	{
+		object_warning(a, i, "invalid r_big, default 150");
+		o->radius = 150.0;
+	}
+	else
+		o->radius = r.r_big->valuedouble;
+	o->radius2 = o->radius * o->radius;
+	ring_parsing_(a, i, o, &r);
 }

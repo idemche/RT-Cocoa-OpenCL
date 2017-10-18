@@ -16,13 +16,9 @@
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
-			"material": "DIFF",
-			"glossiness": 0,
-			"kd": 0.3,
 			"texture": "174.png",
 			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			"Shift coefficient": 0
 		},
 		{
 			"type": "PLANE",
@@ -30,12 +26,7 @@
 				"point1": {"x": 0, "y": 0, "z": 1200},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 0.008, "g": 0.23, "b": 0.943}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PLANE",
@@ -43,12 +34,7 @@
 				"point1": {"x": 700, "y": 0, "z": 0},
 				"n": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PLANE",
@@ -56,12 +42,7 @@
 				"point1": {"x": -1200, "y": 0, "z": 0},
 				"n": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.18, "g": 0.2, "b": 0.643}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PLANE",
@@ -69,12 +50,7 @@
 				"point1": {"x": 0, "y": 700, "z": 0},
 				"n": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.35, "g": 0.2, "b": 0.83}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PLANE",
@@ -82,12 +58,7 @@
 				"point1": {"x": 0, "y": -700, "z": 0},
 				"n": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.54, "g": 0.2, "b": 0.543}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "CYLINDER",
@@ -98,11 +69,9 @@
 				"top":: 300,
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			},
-			"material": "DIFF",
 			"texture": "173.png",
 			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			"Shift coefficient": 0
 		}
 	],
 	"spotlights": [
@@ -123,23 +92,10 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"image height": 768,
-		"image width": 1024,
 		"spp per call": 1,
-		"indirect light": false,
-		"parallel light": false,
-		"spot light": false,
-		"depth of field": false,
 		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"tone mapper": "standard",
 		"gamma": 2.2,
 		"map": "None"
-	},
-	"Video sequence": {
-		"On/Off": false,
-		"fps": 30,
-		"time": 4,
-		"axis": {"x": 0, "y": 0, "z": 1}
 	}
 }
 

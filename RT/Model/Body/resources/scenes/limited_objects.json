@@ -91,15 +91,8 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"image height": 768,
-		"image width": 1024,
 		"spp per call": 1,
-		"indirect light": false,
-		"parallel light": false,
-		"spot light": false,
-		"depth of field": false,
 		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"tone mapper": "standard",
 		"gamma": 2.2,
 		"map": "environment_maps/poland2.hdr"
 	},

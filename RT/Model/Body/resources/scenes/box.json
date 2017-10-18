@@ -7,10 +7,7 @@
 				"r": 150,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
-			"material": "DIFF",
 			"emission": {"r": 10.5, "g": 10.5, "b": 10.5},
-			"texture": "None",
-			"Speed": {"x": 0, "y": 0, "z": 0}
 		},
 		{
 			"type": "PLANE",
@@ -79,15 +76,8 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"image height": 768,
-		"image width": 1024,
 		"spp per call": 1,
-		"indirect light": false,
-		"parallel light": false,
-		"spot light": false,
-		"depth of field": false,
 		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"tone mapper": "standard",
 		"gamma": 2.2,
 		"map": "None"
 	},

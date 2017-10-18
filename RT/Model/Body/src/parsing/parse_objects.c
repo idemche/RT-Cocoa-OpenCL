@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 00:39:58 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 01:02:27 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static parse_func const g_parse_object[] = {sphere_parsing, plane_parsing,
 	disk_parsing, triangle_parsing, cube_parsing, box_parsing, bocal_parsing,
 	mob_parsing, elipsoid_parsing, dna_parsing, heart_parsing,
 	cubehole_parsing, tetrahedron_parsing, star_parsing, octahedron_parsing,
-	cubohedron_parsing, typeless_parsing};
+	cubohedron_parsing, ring_parsing, typeless_parsing};
 
 static char * const g_types[] = {"SPHERE", "PLANE", "CYLINDER", "CONE",
 	"PARABOLOID", "TORUS", "DISK", "TRIANGLE", "CUBE", "BOX", "BOCAL",
 	"MOEBIUS", "ELIPSOID", "DNA", "HEART", "CUBEHOLE", "TETRAHEDRON", "STAR",
-	"OCTAHEDRON", "CUBOHEDRON"};
+	"OCTAHEDRON", "CUBOHEDRON", "RING"};
 
 void		typeless_parsing(t_info *a, int i, t_object *o, t_json_scene *j)
 {

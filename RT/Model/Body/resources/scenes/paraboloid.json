@@ -7,10 +7,7 @@
 				"r": 200,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
-			"material": "DIFF",
-			"emission": {"r": 15, "g": 15, "b": 15},
-			"texture": "None",
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			"emission": {"r": 15, "g": 15, "b": 15}
 		},
 		{
 			"type": "PARABOLOID",
@@ -20,12 +17,7 @@
 				"top":: 50,
 				"dir": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.95, "g": 0.25, "b": 0.25}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PARABOLOID",
@@ -35,12 +27,7 @@
 				"top":: 50,
 				"dir": {"x": -1, "y": 0, "z": 0},
 				"color": {"r": 0.25, "g": 0.25, "b": 0.95}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PARABOLOID",
@@ -50,12 +37,7 @@
 				"top":: 50,
 				"dir": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.25, "g": 0.95, "b": 0.25}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PARABOLOID",
@@ -65,12 +47,7 @@
 				"top":: 50,
 				"dir": {"x": 0, "y": -1, "z": 0},
 				"color": {"r": 0.77, "g": 0.65, "b": 0.56}
-			},
-			"material": "DIFF",
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "PLANE",
@@ -78,14 +55,7 @@
 				"point1": {"x": 0, "y": 0, "z": 0},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 1, "g": 1, "b": 1}
-			},
-			"material": "DIFF",
-			"glossiness": 0.001,
-			"kd": 0.5,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0.3,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		}
 	],
 	"negative object": [
@@ -118,23 +88,10 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"image height": 768,
-		"image width": 1024,
 		"spp per call": 1,
-		"indirect light": false,
-		"parallel light": false,
-		"spot light": false,
-		"depth of field": false,
 		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"tone mapper": "standard",
 		"gamma": 2.2,
 		"map": "None"
-	},
-	"Video sequence": {
-		"On/Off": false,
-		"fps": 30,
-		"time": 4,
-		"axis": {"x": 0, "y": 0, "z": 1}
 	}
 }
 
