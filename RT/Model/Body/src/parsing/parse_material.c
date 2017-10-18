@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:58:54 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 20:20:32 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void			parse_glossy_refr(t_info *a, t_json_scene *js, int i,
 		m->refr_index = cJSON_GetObjectItemCaseSensitive(js->object, "n");
 		if (!cJSON_IsNumber(m->refr_index) || m->refr_index->valuedouble < 1.0)
 		{
-			object_warning(a, i ,"invalid n (refractive index), default 2.5");
+			object_warning(a, i, "invalid n (refractive index), default 2.5");
 			a->objects[i].refr_index = 2.5;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:54:37 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 19:11:45 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,56 +91,4 @@ void		heart_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	}
 	else
 		o->radius = h.width->valuedouble;
-}
-
-static void	anti_norminette(t_info *a, cl_int i, char *type)
-{
-	if (!ft_strcmp(type, "MOEBIUS"))
-		a->objects[i].type = MOEBIUS;
-	else if (!ft_strcmp(type, "TORUS"))
-		a->objects[i].type = TORUS;
-	else if (!ft_strcmp(type, "ELIPSOID"))
-		a->objects[i].type = ELIPSOID;
-	else if (!ft_strcmp(type, "DNA"))
-		a->objects[i].type = DNA;
-	else if (!ft_strcmp(type, "HEART"))
-		a->objects[i].type = HEART;
-	else if (!ft_strcmp(type, "CUBEHOLE"))
-		a->objects[i].type = CUBEHOLE;
-	else if (!ft_strcmp(type, "TETRAHEDRON"))
-		a->objects[i].type = TETRAHEDRON;
-	else if (!ft_strcmp(type, "STELLATED OCTAHEDRON"))
-		a->objects[i].type = STAR;
-	else if (!ft_strcmp(type, "OCTAHEDRON"))
-		a->objects[i].type = OCTAHEDRON;
-	else if (!ft_strcmp(type, "CUBOHEDRON"))
-		a->objects[i].type = CUBOHEDRON;
-	else
-		object_error(a, i, "unknown o type");
-}
-
-void		get_object_type(t_info *a, cl_int i, char *type)
-{
-	if (!ft_strcmp(type, "SPHERE"))
-		a->objects[i].type = SPHERE;
-	else if (!ft_strcmp(type, "PLANE"))
-		a->objects[i].type = PLANE;
-	else if (!ft_strcmp(type, "CYLINDER"))
-		a->objects[i].type = CYLINDER;
-	else if (!ft_strcmp(type, "CONE"))
-		a->objects[i].type = CONE;
-	else if (!ft_strcmp(type, "PARABOLOID"))
-		a->objects[i].type = PARABOLOID;
-	else if (!ft_strcmp(type, "DISK"))
-		a->objects[i].type = DISK;
-	else if (!ft_strcmp(type, "TRIANGLE"))
-		a->objects[i].type = TRIANGLE;
-	else if (!ft_strcmp(type, "CUBE"))
-		a->objects[i].type = CUBE;
-	else if (!ft_strcmp(type, "BOX"))
-		a->objects[i].type = BOX;
-	else if (!ft_strcmp(type, "BOCAL"))
-		a->objects[i].type = BOCAL;
-	else
-		anti_norminette(a, i, type);
 }

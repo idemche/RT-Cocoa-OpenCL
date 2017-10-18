@@ -6,60 +6,45 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 02:35:49 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 22:01:40 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	norm_please(t_info *a, int i, t_json_scene *js)
+static parse_func const g_parse_object[] = {sphere_parsing, plane_parsing,
+	cylinder_parsing, cone_parsing, paraboloid_parsing, torus_parsing,
+	disk_parsing, triangle_parsing, cube_parsing, box_parsing, bocal_parsing,
+	mob_parsing, elipsoid_parsing, dna_parsing, heart_parsing,
+	cubehole_parsing, tetrahedron_parsing, star_parsing, octahedron_parsing,
+	cubohedron_parsing, typeless_parsing};
+
+static char * const g_types[] = {"SPHERE", "PLANE", "CYLINDER", "CONE",
+	"PARABOLOID", "TORUS", "DISK", "TRIANGLE", "CUBE", "BOX", "BOCAL",
+	"MOEBIUS", "ELIPSOID", "DNA", "HEART", "CUBEHOLE", "TETRAHEDRON", "STAR",
+	"OCTAHEDRON", "CUBOHEDRON"};
+
+void		typeless_parsing(t_info *a, int i, t_object *o, t_json_scene *j)
 {
-	if (a->objects[i].type == TORUS)
-		torus_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == ELIPSOID)
-		elipsoid_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == DNA)
-		dna_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == HEART)
-		heart_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == CUBEHOLE)
-		cubehole_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == TETRAHEDRON)
-		tetrahedron_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == STAR)
-		star_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == OCTAHEDRON)
-		octahedron_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == CUBOHEDRON)
-		cubohedron_parsing(a, i, &(a->objects[i]), js);
+	o->material = NONE;
+	j->object = NULL;
+	object_error(a, i, "invalid object type");
 }
 
-static void	goto_parsing(t_info *a, int i, t_json_scene *js)
+void		get_object_type(t_info *a, cl_int i, char *type_str)
 {
-	if (a->objects[i].type == SPHERE)
-		sphere_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == PLANE)
-		plane_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == CYLINDER)
-		cylinder_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == CONE)
-		cone_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == PARABOLOID)
-		paraboloid_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == DISK)
-		disk_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == TRIANGLE)
-		triangle_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == CUBE)
-		cube_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == BOX)
-		box_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == BOCAL)
-		bocal_parsing(a, i, &(a->objects[i]), js);
-	else if (a->objects[i].type == MOEBIUS)
-		mob_parsing(a, i, &(a->objects[i]), js);
-	else
-		norm_please(a, i, js);
+	t_typename	type;
+
+	type = SPHERE - 1;
+	while (++type < TYPELESS)
+	{
+		if (!ft_strcmp(type_str, g_types[type]))
+		{
+			a->objects[i].type = type;
+			break ;
+		}
+	}
+	a->objects[i].type = type;
 }
 
 static void	init_objects_(t_info *a, int i)
@@ -120,7 +105,8 @@ void		object_parsing(t_info *a, t_json_scene *js)
 			continue ;
 		}
 		get_object_type(a, i, js->type->valuestring);
+		printf("object #%d, type %d\n", i, a->objects[i].type);
 		parse_material(a, i, js);
-		goto_parsing(a, i, js);
+		g_parse_object[a->objects[i].type](a, i, &(a->objects[i]), js);
 	}
 }

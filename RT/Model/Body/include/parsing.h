@@ -27,6 +27,8 @@ typedef enum	e_tone_mapper
 	STANDARD, UNCHARTED, STRONG
 }				t_tone_mapper;
 
+typedef void	(*parse_func)(t_info *a, int i, t_object *o, t_json_scene *j);
+
 typedef struct	s_texture
 {
 	t_uch		*data;
@@ -65,6 +67,7 @@ void		object_parsing(t_info *a, t_json_scene *js);
 void		get_object_type(t_info *a, cl_int i, char *type);
 void		octahedron_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		cubohedron_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
+void		typeless_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		star_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		plane_parsing(t_info *a, int i, t_object *o, t_json_scene *j);
 void		box_parsing(t_info *a, int i, t_object *o, t_json_scene *j);

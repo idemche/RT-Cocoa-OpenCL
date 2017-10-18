@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:11 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:50:26 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/18 20:20:50 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		cube_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	o->edge1 = cross_prod(o->edge0, o->edge2);
 	normalise_vec3(&o->edge0);
 	normalise_vec3(&o->edge1);
-	normalise_vec3(&o->edge2);	
+	normalise_vec3(&o->edge2);
 }
 
 void		bocal_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
