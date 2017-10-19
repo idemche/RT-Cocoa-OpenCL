@@ -15,8 +15,9 @@
 
 @property(nonatomic, readonly) int SCREEN_HEIGHT;
 @property(nonatomic, readonly) int SCREEN_WIDTH;
-@property (weak) IBOutlet NSPopUpButton *mapSelection;
+@property(nonatomic, strong) NSString *path;
 @property (weak) IBOutlet NSTextField *portField;
+@property (weak) IBOutlet NSPopUpButton *mapSelection;
 @property (weak) IBOutlet NSPopUpButton *resolutionPopUP;
 
 @end
@@ -33,9 +34,10 @@
 
 - (IBAction)didPressButton:(NSButton *)sender {
 	
-	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
-	
 	int item = (int)[_resolutionPopUP indexOfSelectedItem];
+	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
+	_path = [self searchObjectPath];
+	char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
 	
 	switch (item) {
 		
@@ -52,7 +54,7 @@
 			_SCREEN_HEIGHT = 800;
 	}
 
-    if (port_field)
+    if (port_field || validate_scene(scene))
         [OperationsManager displayError: @"Empty parameters" : @"Please enter valid parameters"];
     else
     {
@@ -90,12 +92,9 @@
             }
         }
 		
-		
-		NSString *path = [self searchObjectPath];
-		
 		RenderViewController *data = (RenderViewController *)segue.destinationController;
 		
-		const char *map_path = [path cStringUsingEncoding:[NSString defaultCStringEncoding]];
+		const char *map_path = [_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		const char *port = [_portField.stringValue cStringUsingEncoding:[NSString defaultCStringEncoding]];
 		
 		data.port = __builtin_strdup(port);
