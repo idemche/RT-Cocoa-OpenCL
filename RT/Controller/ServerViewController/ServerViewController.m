@@ -54,12 +54,12 @@
 			_SCREEN_HEIGHT = 800;
 	}
 
-    if (port_field || validate_scene(scene))
-        [OperationsManager displayError: @"Empty parameters" : @"Please enter valid parameters"];
+	if (port_field)
+		[OperationsManager displayError: @"Empty port" : @"Please enter valid port"];
+    else if (validate_scene(scene))
+        [OperationsManager displayError: @"Not valid scene" : @"Please read log file for more details"];
     else
-    {
 		[self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
 }
 
 -(void)viewWillDisappear {
