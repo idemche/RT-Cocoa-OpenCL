@@ -3,7 +3,7 @@
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point1": {"x": 200, "y": 0, "z": 0},
+				"point1": {"x": 250, "y": 0, "z": 0},
 				"vec1": {"x": -1, "y": -1, "z": 1},
 				"vec2": {"x": -1, "y": 1, "z": 1},
 				"length": 282.84
@@ -12,12 +12,13 @@
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point1": {"x": 400, "y": 0, "z": 0},
+				"point1": {"x": 500, "y": 0, "z": 0},
 				"vec1": {"x": -1, "y": -1, "z": 1},
 				"vec2": {"x": -1, "y": 1, "z": 1},
 				"length": 282.84
 			}
 		},
+		//.  
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
@@ -28,9 +29,41 @@
 			}
 		},
 		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 250, "z": 0},
+				"r": 50,
+				"color": {"r": 0.53, "g": 0.313, "b": 0.53}
+			},
+			"material": "SPEC",
+			"kd": 0
+		},
+		{
+			"type": "CUBE",
+			"config": {
+				"point1": {"x": -50, "y": 300, "z": 0},
+				"vec1": {"x": 1, "y": 0, "z": 0},
+				"vec2": {"x": 0, "y": 1, "z": 0},
+				"length": 100,
+				"color": {"r": 0.54, "g": 0.828, "b": 0.309}
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 350, "z": 150},
+				"r": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"material": "REFR",
+			"n": 2.5,
+			"kd": 0
+		},
+		//.  
+		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point1": {"x": -200, "y": 0, "z": 0},
+				"point1": {"x": -250, "y": 0, "z": 0},
 				"vec1": {"x": -1, "y": -1, "z": 1},
 				"vec2": {"x": -1, "y": 1, "z": 1},
 				"length": 282.84
