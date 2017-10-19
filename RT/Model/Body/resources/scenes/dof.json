@@ -1,0 +1,70 @@
+{
+	"objects": [
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": 200, "y": 0, "z": 0},
+				"vec1": {"x": -1, "y": -1, "z": 1},
+				"vec2": {"x": -1, "y": 1, "z": 1},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": 400, "y": 0, "z": 0},
+				"vec1": {"x": -1, "y": -1, "z": 1},
+				"vec2": {"x": -1, "y": 1, "z": 1},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 0},
+				"vec1": {"x": -1, "y": -1, "z": 1},
+				"vec2": {"x": -1, "y": 1, "z": 1},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": -200, "y": 0, "z": 0},
+				"vec1": {"x": -1, "y": -1, "z": 1},
+				"vec2": {"x": -1, "y": 1, "z": 1},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 0},
+				"n": {"x": 0, "y": 0, "z": 1}
+			},
+			"material": "DIFF",
+			"glossiness": 0.005,
+			"kd": 0
+		}
+	],
+	"spotlights": [
+		{
+			"point1": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"point1": {"x": 800, "y": 800, "z": 300},
+		"fov": 66.6,
+		"dir": {"x": 100, "y": 100, "z": 100},
+		"exposition time": 1,
+		"focal length": 300.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"spp per call": 1
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:27 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:36:13 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 11:30:57 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,20 @@ void			parse_color(t_info *a, int i, VEC3 *result, cJSON *color)
 	r = cJSON_GetObjectItemCaseSensitive(color, "r");
 	g = cJSON_GetObjectItemCaseSensitive(color, "g");
 	b = cJSON_GetObjectItemCaseSensitive(color, "b");
-	if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b))
-		object_error(a, i, "color field error");
-	else
+	if (!r && !g && !b)
 	{
-		*result = i_3(r->valuedouble, g->valuedouble, b->valuedouble);
-		if (result->x > 1 || result->x < 0 ||
-			result->y > 1 || result->y < 0 ||
-			result->z > 1 || result->z < 0)
-			object_error(a, i, "RGB must be in range [0;1]");
+		object_warning(a, i, "color field missing, default white");
+		*result = i_3(1, 1, 1);
 	}
+	else if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b) ||
+		r->valuedouble > 1 || r->valuedouble < 0 || g->valuedouble > 1 ||
+		g->valuedouble < 0 || b->valuedouble > 1 || -b>valuedouble < 0)
+	{
+		object_error(a, i, "RGB must be in range [0;1]");
+		*result = i_3(0, 0, 0);
+	}
+	else
+		*result = i_3(r->valuedouble, g->valuedouble, b->valuedouble);
 }
 
 void			parse_emission(t_info *a, VEC3 *result, cJSON *color)
@@ -49,14 +53,14 @@ void			parse_emission(t_info *a, VEC3 *result, cJSON *color)
 	r = cJSON_GetObjectItemCaseSensitive(color, "r");
 	g = cJSON_GetObjectItemCaseSensitive(color, "g");
 	b = cJSON_GetObjectItemCaseSensitive(color, "b");
-	if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b))
+	if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b) ||
+		r->valuedouble < 0 || g->valuedouble < 0 || b->valuedouble < 0)
 	{
 		scene_error(a, "invalid emission");
-		return ;
+		*result = i_3(0, 0, 0);
 	}
-	*result = i_3(r->valuedouble, g->valuedouble, b->valuedouble);
-	if (result->x < 0 || result->y < 0 || result->z < 0)
-		scene_error(a, "emission must be >= 0");
+	else
+		*result = i_3(r->valuedouble, g->valuedouble, b->valuedouble);
 }
 
 int				parse_point(VEC3 *result, cJSON *point)

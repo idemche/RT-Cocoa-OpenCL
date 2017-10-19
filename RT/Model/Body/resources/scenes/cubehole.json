@@ -2,7 +2,7 @@
 	"objects": [
 		{
 			"type": "CUBEHOLE",
-			"cubehole": {
+			"config": {
 				"point1": {"x": 0, "y": 0, "z": 0},
 				"vec1": {"x": 1, "y": 1, "z": 0},
 				"vec2": {"x": 0, "y": 1, "z": 1},
@@ -31,8 +31,6 @@
 	},
 	"environment": {
 		"spp per call": 1,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
 		"map": "environment_maps/poland2.hdr"
 	},
 	"Video sequence": {

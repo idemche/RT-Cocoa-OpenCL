@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:40:00 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 11:29:25 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static void		validate_env_parameters(t_json_env *e, t_info *a)
 	else
 		a->spp_per_call = e->spppc->valueint;
 	if (e->ambient)
-		parse_color(a, -1, &a->scene->ambient, e->ambient);
+		parse_emission(a, &a->scene->ambient, e->ambient);
 	else
 		a->scene->ambient = i_3(0, 0, 0);
 	if (e->p_l_e && e->p_l_d)

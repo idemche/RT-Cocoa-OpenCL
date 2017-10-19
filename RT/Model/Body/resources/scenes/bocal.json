@@ -103,11 +103,7 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"spp per call": 1,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
-		"gamma": 2.2,
-		"map": "None"
+		"spp per call": 1
 	}
 }
 

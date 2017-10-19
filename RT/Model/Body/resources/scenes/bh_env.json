@@ -41,8 +41,6 @@
 	},
 	"environment": {
 		"spp per call": 1,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
 		"map": "environment_maps/milky_way.png"
 	}
 }

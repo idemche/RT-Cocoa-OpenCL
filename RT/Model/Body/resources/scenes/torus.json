@@ -7,10 +7,7 @@
 				"r": 200,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
-			"material": "DIFF",
-			"emission": {"r": 15, "g": 15, "b": 15},
-			"texture": "None",
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			"emission": {"r": 15, "g": 15, "b": 15}
 		},
 		{
 			"type": "PLANE",
@@ -18,14 +15,7 @@
 				"point1": {"x": 0, "y": 0, "z": 0},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 1, "g": 1, "b": 1}
-			},
-			"material": "DIFF",
-			"glossiness": 0.001,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0.3,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -35,16 +25,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -54,16 +35,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -73,16 +45,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -92,16 +55,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -111,16 +65,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		},
 		{
 			"type": "TORUS",
@@ -130,16 +75,7 @@
 				"r_big": 100,
 				"r": 25,
 				"color": {"r": 0.75, "g": 0.65, "b": 1}
-			},
-			"material": "DIFF",
-			"refractive index": 1.5,
-			"absorption": {"r": 0, "g": 0, "b": 0},
-			"glossiness": 0.005,
-			"kd": 0,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			}
 		}
 	],
 	"spotlights": [
@@ -160,9 +96,6 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"spp per call": 1,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
-		"map": "None"
+		"spp per call": 1
 	}
 }

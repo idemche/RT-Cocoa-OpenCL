@@ -46,29 +46,17 @@
 			"material": "GLOSSY",
 			"glossiness": 0.001,
 			"kd": 0.5,
-			"texture": "None",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0.3,
-			"Speed": {"x": 0, "y": 0, "z": 0}
-		},
+		}
+	],
+	"negative object": [
 		{
 			"type": "CYLINDER",
 			"config": {
 				"point1": {"x": -450, "y": 0, "z": 300},
 				"dir": {"x": 1, "y": 0, "z": 0},
 				"r": 150,
-				"top":: 800,
-				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
-			},
-			"material": "DIFF",
-			"refractive index": 2.5,
-			"glossiness": 0.005,
-			"kd": 0,
-
-			"texture": "173.png",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-			"Speed": {"x": 0, "y": 0, "z": 0}
+				"top": 800
+			}
 		}
 	],
 	"spotlights": [
@@ -89,10 +77,7 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"spp per call": 1,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
-		"map": "None"
+		"spp per call": 1
 	}
 }
 

@@ -35,9 +35,7 @@
 		"indirect light": true,
 		"parallel light": false,
 		"spot light": false,
-		"depth of field": false,
-		"ambient light": {"r": 0, "g": 0, "b": 0},
-		"gamma": 2.2,
+		"depth of field": false
 		"map": "environment_maps/poland2.hdr"
 	},
 	"Video sequence": {
