@@ -17,8 +17,9 @@
 @property(nonatomic, readonly) int SCREEN_WIDTH;
 @property(nonatomic, strong) NSString *path;
 @property (weak) IBOutlet NSTextField *portField;
-@property (weak) IBOutlet NSPopUpButton *mapSelection;
+//@property (weak) IBOutlet NSPopUpButton *mapSelection;
 @property (weak) IBOutlet NSPopUpButton *resolutionPopUP;
+@property (weak) IBOutlet WebView *webView;
 
 @end
 
@@ -30,13 +31,18 @@
     
     _SCREEN_HEIGHT = 480;
     _SCREEN_WIDTH = 480;
+	dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
+	
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (IBAction)didPressButton:(NSButton *)sender {
 	
 	int item = (int)[_resolutionPopUP indexOfSelectedItem];
 	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
-	_path = [self searchObjectPath];
+	//_path = [self searchObjectPath];
 	char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
 	
 	switch (item) {
@@ -56,10 +62,10 @@
 
 	if (port_field)
 		[OperationsManager displayError: @"Empty port" : @"Please enter valid port"];
-    else if (validate_scene(scene))
-        [OperationsManager displayError: @"Not valid scene" : @"Please read log file for more details"];
+//    else if (validate_scene(scene))
+//        [OperationsManager displayError: @"Not valid scene" : @"Please read log file for more details"];
     else
-		[self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+		[self performSegueWithIdentifier: @"ShowScenesVC" sender: self];
 }
 
 -(void)viewWillDisappear {
@@ -101,99 +107,98 @@
 		data.map_path = __builtin_strdup(map_path);
 		data.SCREEN_WIDTH = _SCREEN_WIDTH;
 		data.SCREEN_HEIGHT = _SCREEN_HEIGHT;
-		 [self removeFromParentViewController];
-		
+		[self removeFromParentViewController];
     }
 }
 
--(NSString*)searchObjectPath {
-	
-	NSString *pathString;
-	
-	switch ([_mapSelection indexOfSelectedItem]) {
-		case 1:
-			pathString = @"paraboloid";
-			break;
-		case 2:
-			pathString = @"bh";
-			break;
-		case 3:
-			pathString = @"bocuelipse_env";
-			break;
-		case 4:
-			pathString = @"refl_transp";
-			break;
-		case 5:
-			pathString = @"limited_objects";
-			break;
-		case 6:
-			pathString = @"dna";
-			break;
-		case 7:
-			pathString = @"bocuelipse";
-			break;
-		case 8:
-			pathString = @"disturbances";
-			break;
-		case 9:
-			pathString = @"negative_check";
-			break;
-		case 10:
-			pathString = @"ex_obj";
-			break;
-		case 11:
-			pathString = @"tetrahedron";
-			break;
-		case 12:
-			pathString = @"octahedron";
-			break;
-		case 13:
-			pathString = @"bocal_env";
-			break;
-		case 14:
-			pathString = @"textures";
-			break;
-		case 15:
-			pathString = @"env_map_torus";
-			break;
-		case 16:
-			pathString = @"cubehole";
-			break;
-		case 17:
-			pathString = @"solar";
-			break;
-		case 18:
-			pathString = @"sphere";
-			break;
-		case 19:
-			pathString = @"cubohedron";
-			break;
-		case 20:
-			pathString = @"env_map";
-			break;
-		case 21:
-			pathString = @"heart";
-			break;
-		case 22:
-			pathString = @"moebius";
-			break;
-		case 23:
-			pathString = @"box";
-			break;
-		case 24:
-			pathString = @"rgb";
-			break;
-		case 25:
-			pathString = @"bocal";
-			break;
-		default:
-			pathString = @"torus";
-			break;
-	}
-	
-	NSString *path = [[NSBundle mainBundle] pathForResource: pathString ofType:@"json"];
-	
-	return path;
-}
+//-(NSString*)searchObjectPath {
+//
+//	NSString *pathString;
+//
+//	switch ([_mapSelection indexOfSelectedItem]) {
+//		case 1:
+//			pathString = @"paraboloid";
+//			break;
+//		case 2:
+//			pathString = @"bh";
+//			break;
+//		case 3:
+//			pathString = @"bocuelipse_env";
+//			break;
+//		case 4:
+//			pathString = @"refl_transp";
+//			break;
+//		case 5:
+//			pathString = @"limited_objects";
+//			break;
+//		case 6:
+//			pathString = @"dna";
+//			break;
+//		case 7:
+//			pathString = @"bocuelipse";
+//			break;
+//		case 8:
+//			pathString = @"disturbances";
+//			break;
+//		case 9:
+//			pathString = @"negative_check";
+//			break;
+//		case 10:
+//			pathString = @"ex_obj";
+//			break;
+//		case 11:
+//			pathString = @"tetrahedron";
+//			break;
+//		case 12:
+//			pathString = @"octahedron";
+//			break;
+//		case 13:
+//			pathString = @"bocal_env";
+//			break;
+//		case 14:
+//			pathString = @"textures";
+//			break;
+//		case 15:
+//			pathString = @"env_map_torus";
+//			break;
+//		case 16:
+//			pathString = @"cubehole";
+//			break;
+//		case 17:
+//			pathString = @"solar";
+//			break;
+//		case 18:
+//			pathString = @"sphere";
+//			break;
+//		case 19:
+//			pathString = @"cubohedron";
+//			break;
+//		case 20:
+//			pathString = @"env_map";
+//			break;
+//		case 21:
+//			pathString = @"heart";
+//			break;
+//		case 22:
+//			pathString = @"moebius";
+//			break;
+//		case 23:
+//			pathString = @"box";
+//			break;
+//		case 24:
+//			pathString = @"rgb";
+//			break;
+//		case 25:
+//			pathString = @"bocal";
+//			break;
+//		default:
+//			pathString = @"torus";
+//			break;
+//	}
+//
+//	NSString *path = [[NSBundle mainBundle] pathForResource: pathString ofType:@"json"];
+//
+//	return path;
+//}
 
 @end

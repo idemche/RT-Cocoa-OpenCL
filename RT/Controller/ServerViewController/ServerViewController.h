@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
 #define CASE(str)                       if ([__s__ isEqualToString:(str)])
 #define SWITCH(s)                       for (NSString *__s__ = (s); ; )

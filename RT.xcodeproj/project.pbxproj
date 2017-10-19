@@ -22,10 +22,6 @@
 		51181B5A1F953388008AEC25 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1069F3481F8D163400D7C448 /* SDL2.framework */; };
 		51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51181B5D1F9533EC008AEC25 /* ScenesViewController.storyboard */; };
 		51181B621F953426008AEC25 /* ScenesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181B611F953426008AEC25 /* ScenesViewController.m */; };
-		51181B631F9536F2008AEC25 /* 174.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE021F95148E00EE6E5F /* 174.png */; };
-		51181B641F9536F6008AEC25 /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE031F95148E00EE6E5F /* 173_norm.png */; };
-		51181B651F9536F6008AEC25 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE041F95148E00EE6E5F /* 173.png */; };
-		51181B661F9536F6008AEC25 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE051F95148E00EE6E5F /* 174_norm.png */; };
 		51181B671F953700008AEC25 /* torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B11F9381C000D9C77F /* torus.json */; };
 		51181B681F953700008AEC25 /* paraboloid.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B21F9381C000D9C77F /* paraboloid.json */; };
 		51181B691F953700008AEC25 /* bh.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B31F9381C000D9C77F /* bh.json */; };
@@ -184,6 +180,10 @@
 		5161E74D1F8F91A600C0D592 /* DHCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5161E74C1F8F91A600C0D592 /* DHCircularProgressView.m */; };
 		5175CDD31F96239800EDC611 /* octa.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5175CDD21F96239800EDC611 /* octa.gif */; };
 		5175CDD51F9624F400EDC611 /* octa.html in Resources */ = {isa = PBXBuildFile; fileRef = 5175CDD41F9624F400EDC611 /* octa.html */; };
+		51F9EF961F9920A100298C8D /* 174.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F9EF921F9920A100298C8D /* 174.png */; };
+		51F9EF971F9920A100298C8D /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F9EF931F9920A100298C8D /* 173_norm.png */; };
+		51F9EF981F9920A100298C8D /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F9EF941F9920A100298C8D /* 173.png */; };
+		51F9EF991F9920A100298C8D /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F9EF951F9920A100298C8D /* 174_norm.png */; };
 		845FE3E11F97716A009970CB /* scene_validate.c in Sources */ = {isa = PBXBuildFile; fileRef = 845FE3DF1F97716A009970CB /* scene_validate.c */; };
 		845FE3E21F97716A009970CB /* parse_object_info.c in Sources */ = {isa = PBXBuildFile; fileRef = 845FE3E01F97716A009970CB /* parse_object_info.c */; };
 /* End PBXBuildFile section */
@@ -398,10 +398,10 @@
 		5161E74C1F8F91A600C0D592 /* DHCircularProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DHCircularProgressView.m; sourceTree = "<group>"; };
 		5175CDD21F96239800EDC611 /* octa.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = octa.gif; sourceTree = "<group>"; };
 		5175CDD41F9624F400EDC611 /* octa.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = octa.html; sourceTree = "<group>"; };
-		51AEAE021F95148E00EE6E5F /* 174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174.png; sourceTree = "<group>"; };
-		51AEAE031F95148E00EE6E5F /* 173_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173_norm.png; sourceTree = "<group>"; };
-		51AEAE041F95148E00EE6E5F /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
-		51AEAE051F95148E00EE6E5F /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
+		51F9EF921F9920A100298C8D /* 174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174.png; sourceTree = "<group>"; };
+		51F9EF931F9920A100298C8D /* 173_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173_norm.png; sourceTree = "<group>"; };
+		51F9EF941F9920A100298C8D /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
+		51F9EF951F9920A100298C8D /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
 		845FE3DF1F97716A009970CB /* scene_validate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = scene_validate.c; sourceTree = "<group>"; };
 		845FE3E01F97716A009970CB /* parse_object_info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse_object_info.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -509,7 +509,7 @@
 		137056AE1F9381C000D9C77F /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				51AEAE011F95148E00EE6E5F /* textures */,
+				51F9EF911F9920A100298C8D /* textures */,
 				137056AF1F9381C000D9C77F /* resources */,
 				137056CC1F9381C000D9C77F /* src */,
 				1370570A1F9381C000D9C77F /* kernels.lol */,
@@ -876,13 +876,13 @@
 			path = HTMLs;
 			sourceTree = "<group>";
 		};
-		51AEAE011F95148E00EE6E5F /* textures */ = {
+		51F9EF911F9920A100298C8D /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				51AEAE021F95148E00EE6E5F /* 174.png */,
-				51AEAE031F95148E00EE6E5F /* 173_norm.png */,
-				51AEAE041F95148E00EE6E5F /* 173.png */,
-				51AEAE051F95148E00EE6E5F /* 174_norm.png */,
+				51F9EF921F9920A100298C8D /* 174.png */,
+				51F9EF931F9920A100298C8D /* 173_norm.png */,
+				51F9EF941F9920A100298C8D /* 173.png */,
+				51F9EF951F9920A100298C8D /* 174_norm.png */,
 			);
 			path = textures;
 			sourceTree = "<group>";
@@ -950,16 +950,14 @@
 				51181B731F953700008AEC25 /* octahedron.json in Resources */,
 				51181B721F953700008AEC25 /* tetrahedron.json in Resources */,
 				394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */,
+				51F9EF971F9920A100298C8D /* 173_norm.png in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
 				51181B671F953700008AEC25 /* torus.json in Resources */,
 				5161E7481F8F8B5900C0D592 /* ServerTools.storyboard in Resources */,
 				51181B6F1F953700008AEC25 /* disturbances.json in Resources */,
-				51181B651F9536F6008AEC25 /* 173.png in Resources */,
 				51181B7D1F953700008AEC25 /* moebius.json in Resources */,
-				51181B661F9536F6008AEC25 /* 174_norm.png in Resources */,
 				1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */,
 				51181B7C1F953700008AEC25 /* heart.json in Resources */,
-				51181B631F9536F2008AEC25 /* 174.png in Resources */,
 				51181B801F953700008AEC25 /* bocal.json in Resources */,
 				51181B6D1F953700008AEC25 /* dna.json in Resources */,
 				51181B681F953700008AEC25 /* paraboloid.json in Resources */,
@@ -967,6 +965,8 @@
 				5175CDD51F9624F400EDC611 /* octa.html in Resources */,
 				51181B6C1F953700008AEC25 /* limited_objects.json in Resources */,
 				51181B701F953700008AEC25 /* negative_check.json in Resources */,
+				51F9EF981F9920A100298C8D /* 173.png in Resources */,
+				51F9EF961F9920A100298C8D /* 174.png in Resources */,
 				51181B761F953700008AEC25 /* env_map_torus.json in Resources */,
 				51181B7F1F953700008AEC25 /* rgb.json in Resources */,
 				51181B691F953700008AEC25 /* bh.json in Resources */,
@@ -977,12 +977,12 @@
 				51181B771F953700008AEC25 /* cubehole.json in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				1069F3011F8CD33600D7C448 /* Main.storyboard in Resources */,
+				51F9EF991F9920A100298C8D /* 174_norm.png in Resources */,
 				51181B7E1F953700008AEC25 /* box.json in Resources */,
 				51181B7B1F953700008AEC25 /* env_map.json in Resources */,
 				51181BAD1F953725008AEC25 /* kernels.lol in Resources */,
 				51181B6B1F953700008AEC25 /* refl_transp.json in Resources */,
 				51181B6A1F953700008AEC25 /* bocuelipse_env.json in Resources */,
-				51181B641F9536F6008AEC25 /* 173_norm.png in Resources */,
 				51181B751F953700008AEC25 /* textures.json in Resources */,
 				51181B791F953700008AEC25 /* sphere.json in Resources */,
 			);

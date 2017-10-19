@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,65 +71,20 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="597" y="369" width="480" height="350"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="450"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="Iim-Mx-ojV" kind="relationship" relationship="window.shadowedContentViewController" id="qDc-4q-RbO"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UsJ-JM-W4M">
-                                <rect key="frame" x="201" y="182" width="80" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" title="Server" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="3o6-6N-ah2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="Iim-Mx-ojV" kind="popover" popoverAnchorView="UsJ-JM-W4M" popoverBehavior="t" preferredEdge="maxY" id="dUf-uD-97p"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8D-o0-YYI">
-                                <rect key="frame" x="203" y="104" width="76" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="bevel" title="Client" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="gOE-WP-W9t">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="9zP-2V-R1P" kind="popover" popoverAnchorView="t8D-o0-YYI" popoverBehavior="t" preferredEdge="maxY" id="iUd-a7-AEP"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KW-7G-Xtm">
-                                <rect key="frame" x="189" y="233" width="111" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Make your choice" id="ggz-WY-0a0">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="655"/>
         </scene>
         <!--Client View Controller-->
         <scene sceneID="Mr7-sf-eyC">
@@ -207,6 +162,14 @@
             </objects>
             <point key="canvasLocation" x="582" y="653.5"/>
         </scene>
+        <!--ScenesViewController-->
+        <scene sceneID="eyr-SC-vRJ">
+            <objects>
+                <controllerPlaceholder storyboardIdentifier="ScenesViewController" storyboardName="ScenesViewController" id="fOY-6F-BoV" sceneMemberID="viewController"/>
+                <customObject id="0sD-8R-XV5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-122" y="1208"/>
+        </scene>
         <!--Server View Controller-->
         <scene sceneID="bj2-Hg-Z7h">
             <objects>
@@ -215,130 +178,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="439"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Server" translatesAutoresizingMaskIntoConstraints="NO" id="687-Hl-frH">
-                                <rect key="frame" x="17" y="16" width="446" height="403"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" id="Eaf-aX-RDf">
-                                    <rect key="frame" x="2" y="2" width="442" height="386"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czW-ww-oKG">
-                                            <rect key="frame" x="115" y="276" width="76" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Resolution:" id="tl5-78-lmP">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-LL-mXs">
-                                            <rect key="frame" x="196" y="271" width="166" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="800 x 800" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Pch-Y9-wOe" id="Pya-Gy-Kcw">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
-                                                <menu key="menu" title="So" id="Xw3-tu-ECQ">
-                                                    <items>
-                                                        <menuItem title="800 x 800" state="on" id="Pch-Y9-wOe" userLabel="item 1"/>
-                                                        <menuItem title="1280 x 720" id="auO-pI-CNX" userLabel="item 2"/>
-                                                        <menuItem title="1280 x 1024" id="wxQ-lT-ZnD" userLabel="Item 3"/>
-                                                        <menuItem title="1366 x 768" id="fhv-IH-x07" userLabel="Item 4"/>
-                                                        <menuItem title="1920 x 1080" id="86k-Pi-BCI" userLabel="Item 5"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                        </popUpButton>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rJ-0h-a8b">
-                                            <rect key="frame" x="127" y="237" width="65" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="UDP Port:" id="x8b-hh-FAR">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTb-0e-Zib">
-                                            <rect key="frame" x="165" y="13" width="113" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Start Server" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zUX-zj-lTY">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="didPressButton:" target="Iim-Mx-ojV" id="aae-lb-usB"/>
-                                            </connections>
-                                        </button>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9E7-5g-xUl">
-                                            <rect key="frame" x="198" y="237" width="100" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Leb-bn-TYW">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npJ-cf-xcx">
-                                            <rect key="frame" x="83" y="320" width="117" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Select a Scene:" id="Nud-7a-IxZ">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fA7-U7-Oah">
-                                            <rect key="frame" x="196" y="315" width="166" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="Torus" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5A6-Tb-f71" id="w8e-2i-Vxq" userLabel="Scene">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
-                                                <menu key="menu" id="A6g-XD-gnA">
-                                                    <items>
-                                                        <menuItem title="Torus" state="on" id="5A6-Tb-f71" userLabel="Torus"/>
-                                                        <menuItem title="Paraboloid" id="ZaX-tO-xzk" userLabel="Paraboloid"/>
-                                                        <menuItem title="Bh" id="rgz-AO-J8o"/>
-                                                        <menuItem title="Bocuelipse Environment" id="SZp-KH-T5s"/>
-                                                        <menuItem title="Reflection" id="QGT-P6-afe"/>
-                                                        <menuItem title="Limited Objects" id="rV4-45-bol"/>
-                                                        <menuItem title="Dna" id="Bru-Ty-795"/>
-                                                        <menuItem title="Bocuelipse" id="Um7-oA-A9h"/>
-                                                        <menuItem title="Disturbances" id="kjl-VL-5iA"/>
-                                                        <menuItem title="Negative Check" id="8QY-ZG-rkO"/>
-                                                        <menuItem title="Ex Obj" id="IND-uD-RZs"/>
-                                                        <menuItem title="Tetrahedron" id="pPW-fa-Yjg"/>
-                                                        <menuItem title="Octahedron" id="ke6-Qw-EQj"/>
-                                                        <menuItem title="Bocal environment" id="bQi-GZ-FbX"/>
-                                                        <menuItem title="Textures" id="FTy-Mw-Syd"/>
-                                                        <menuItem title="Torus environmental" id="fEN-Xt-4at"/>
-                                                        <menuItem title="Cubehole" id="iGT-Ej-Pdu"/>
-                                                        <menuItem title="Solar" id="FsP-0p-tZg"/>
-                                                        <menuItem title="Sphere" id="hul-IJ-f46"/>
-                                                        <menuItem title="Cubohedron" id="dXf-Pp-Xk8"/>
-                                                        <menuItem title="Environmental Map" id="qyi-kP-eq8"/>
-                                                        <menuItem title="Heart" id="zaO-5N-cqz"/>
-                                                        <menuItem title="Moebius" id="zrJ-lL-teV"/>
-                                                        <menuItem title="Box" id="L2w-V9-xvB"/>
-                                                        <menuItem title="RGB" id="cRA-Fa-m3M"/>
-                                                        <menuItem title="Bocal" id="hLf-PS-tKJ"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                        </popUpButton>
-                                    </subviews>
-                                </view>
-                            </box>
+                            <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jy3-Gb-Cbf">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="439"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
+                                    <nil key="identifier"/>
+                                </webPreferences>
+                            </webView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czW-ww-oKG">
+                                <rect key="frame" x="153" y="276" width="76" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Resolution:" id="tl5-78-lmP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-LL-mXs">
+                                <rect key="frame" x="234" y="271" width="166" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="800 x 800" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Pch-Y9-wOe" id="Pya-Gy-Kcw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" title="So" id="Xw3-tu-ECQ">
+                                        <items>
+                                            <menuItem title="800 x 800" state="on" id="Pch-Y9-wOe" userLabel="item 1"/>
+                                            <menuItem title="1280 x 720" id="auO-pI-CNX" userLabel="item 2"/>
+                                            <menuItem title="1280 x 1024" id="wxQ-lT-ZnD" userLabel="Item 3"/>
+                                            <menuItem title="1366 x 768" id="fhv-IH-x07" userLabel="Item 4"/>
+                                            <menuItem title="1920 x 1080" id="86k-Pi-BCI" userLabel="Item 5"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rJ-0h-a8b">
+                                <rect key="frame" x="165" y="237" width="65" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="UDP Port:" id="x8b-hh-FAR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTb-0e-Zib">
+                                <rect key="frame" x="161" y="13" width="157" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="push" title="Choose your scene" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zUX-zj-lTY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="didPressButton:" target="Iim-Mx-ojV" id="aae-lb-usB"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9E7-5g-xUl">
+                                <rect key="frame" x="236" y="237" width="100" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Leb-bn-TYW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="mapSelection" destination="fA7-U7-Oah" id="MVM-GJ-44l"/>
                         <outlet property="portField" destination="9E7-5g-xUl" id="jud-EK-4rG"/>
                         <outlet property="resolutionPopUP" destination="Otc-LL-mXs" id="Oar-V1-jgm"/>
+                        <outlet property="webView" destination="Jy3-Gb-Cbf" id="syZ-ve-hus"/>
                         <segue destination="5Vz-hY-eH4" kind="show" identifier="ShowRenderer" id="kVy-Wn-3Zf"/>
+                        <segue destination="fOY-6F-BoV" kind="popover" identifier="ShowScenesVC" popoverAnchorView="jTb-0e-Zib" popoverBehavior="t" preferredEdge="minY" id="az9-zL-tDj"/>
                     </connections>
                 </viewController>
                 <customObject id="In5-rl-pJU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1128.5"/>
+            <point key="canvasLocation" x="75" y="848"/>
         </scene>
         <!--ClientStandby-->
         <scene sceneID="leX-AG-uYN">
