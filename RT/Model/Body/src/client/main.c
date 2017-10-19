@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 01:23:07 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 21:05:51 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int				main(int ac, char **av)
 	if (ac == 3)
 	{
 		a = (t_info*)malloc(sizeof(t_info));
+		a->is_validating = 0;
 		if (!validate_params(av))
 			ft_usage();
 		if (!__builtin_strcmp(av[1], "l"))

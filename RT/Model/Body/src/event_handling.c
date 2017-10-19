@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 15:55:10 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 21:28:44 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,17 +105,19 @@ void			update_from_gui(t_info *a, t_keys k)
 	if (k.light != a->scene->light_on ||
 		k.indirect_light != a->scene->indirect_light ||
 		k.parallel_light != a->scene->parallel_light ||
-		k.spot_light != a->scene->spotlight || k.dof != a->scene->dof)
+		k.spot_light != a->scene->spotlight) // || k.c_mode != a->scene->c_mode || k.aperture != a->camera->aperture || k.fl != a->camera->focal_length
 		a->update_camera = 1;
 	a->scene->light_on = k.light;
 	a->scene->indirect_light = k.indirect_light;
 	a->scene->parallel_light = k.parallel_light;
 	a->scene->spotlight = k.spot_light;
-	a->scene->dof = k.dof;
+	// a->scene->c_mode = k.c_mode;
 	a->scene->visual_effect = k.visual_effect;
 	a->scene->tone_mapper = k.tone_mapper;
 	a->scale_angle = k.scale_angle;
 	a->scale_speed = k.scale_speed;
+	// a->camera->focal_length = k.fl;
+	// a->camera->aperture = k.aperture;
 	reset_keys(a);
 }
 

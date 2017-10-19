@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/17 20:39:20 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 20:45:14 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ void				reset_keys(t_info *a)
 	a->keys.tone_mapper = 0;
 	a->keys.scale_speed = 1.0;
 	a->keys.scale_angle = 1.0;
+	a->keys.fl = 400.0;
+	a->keys.aperture = 0.0;
 }

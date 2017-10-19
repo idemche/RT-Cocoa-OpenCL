@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 19:15:56 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 21:24:55 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef struct	s_scene
 	cl_char		visual_effect;
 	cl_char		amount_of_nodes;
 	cl_char		node_id;
-	cl_char		dof;
+	cl_char		c_mode;
 	cl_char		env_map;
 	cl_char		radiance_env_map;
 	cl_char		tone_mapper;

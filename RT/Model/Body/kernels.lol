@@ -152,7 +152,7 @@ typedef struct	s_scene
 	char		visual_effect;
 	char		amount_of_nodes;
 	char		node_id;
-	char		dof;
+	char		mode;
 	char		env_map;
 	char		radiance_env_map;
 	char		tone_mapper;
@@ -2513,7 +2513,7 @@ float3		get_environment_light(__constant t_object *objects,
 	// ray.d = fast_normalize(issect.u * cos(r1) * r2s + issect.v * sin(r1) * r2s + issect.normal * sqrt(1 - r2));
 
 	int i = -1;
-	int N = 7;
+	int N = 1;
 	while (++i < N)
 	{
 		float phi = get_random(seed0, seed1) * TWO_PI;
@@ -2569,9 +2569,9 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 	ray.o = camera->pos;
 	ray.t = camera->t * get_random(&seed0, &seed1);
 
-	if (!scene->dof)
+	if (!scene->mode)
 		ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
-	else if (scene->dof == 1)
+	else if (scene->mode == 1)
 	{
 		t_ray tmp_ray;
 		tmp_ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
@@ -2583,7 +2583,7 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 		ray.o += offset;
 		ray.d = fast_normalize(focalPlaneIntersection - ray.o);
 	}
-	else if (scene->dof == 2)
+	else if (scene->mode == 2)
 	{
 		float x2 = xx * xx;
 		float r = sqrt(x2 + yy * yy);
@@ -2600,7 +2600,7 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 				float theta = atan2(xx, yy);
 				float nx = nr * cos(theta);
 				float ny = nr * sin(theta);
-				ray.d = fast_normalize(camera->right * nx + camera->up * ny + camera->dir);
+				ray.d = fast_normalize(camera->right * ny + camera->up * nx + camera->dir);
 			}
 		}
 	}

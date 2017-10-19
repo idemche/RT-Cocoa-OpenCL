@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 16:32:14 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 02:24:40 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 21:04:58 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ struct			s_info
 	char			quit;
 	char			num_scene;
 	char			scene_is_valid;
+	char			is_validating;
 };
 
 void			init(t_info *a, char *json_file);

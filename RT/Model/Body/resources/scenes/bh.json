@@ -3,15 +3,6 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 400, "y": 400, "z": 1000},
-				"r": 150,
-				"color": {"r": 1, "g": 1, "b": 1}
-			},
-			"emission": {"r": 60, "g": 60, "b": 60}
-		},
-		{
-			"type": "SPHERE",
-			"config": {
 				"point1": {"x": -200, "y": -115.47, "z": 100},
 				"r": 100,
 				"color": {"r": 1, "g": 1, "b": 1}
@@ -21,7 +12,16 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 200, "y": 115.47, "z": 100},
+				"point1": {"x": 200, "y": -115.47, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 230.94, "z": 100},
 				"r": 100,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
@@ -57,6 +57,42 @@
 		{
 			"type": "SPHERE",
 			"config": {
+				"point1": {"x": 0, "y": 115.47, "z": 263.299316},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": -100, "y": -57.735, "z": 263.299316},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 100, "y": -57.735, "z": 263.299316},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 426.5986},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
 				"point1": {"x": 0, "y": 0, "z": -100000},
 				"r": 100000
 			},
@@ -82,7 +118,7 @@
 	},
 	"environment": {
 		"spp per call": 1,
-		"map": "None"
+		"map": "environment_maps/skies.hdr"
 	}
 }
 "map": "environment_maps/skies.hdr"

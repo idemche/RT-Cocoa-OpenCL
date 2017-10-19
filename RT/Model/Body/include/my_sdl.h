@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 19:17:04 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 21:25:04 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ typedef struct	s_keys
 	char		indirect_light;
 	char		parallel_light;
 	char		spot_light;
-	char		dof;
+	char		c_mode;
 	char		visual_effect;
 	char		tone_mapper;
 	double		scale_speed;
 	double		scale_angle;
+	double		aperture;
+	double		fl;
 }				t_keys;
 
 typedef	struct	s_window
