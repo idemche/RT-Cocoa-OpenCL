@@ -1,47 +1,37 @@
 {
 	"objects": [
 		{
-			"type": "STELLATED OCTAHEDRON",
+			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 250, "y": 0, "z": 0},
-				"vec1": {"x": -1, "y": -1, "z": 1},
-				"vec2": {"x": -1, "y": 1, "z": 1},
-				"length": 282.84
-			}
+				"point1": {"x": 0, "y": 0, "z": 1000},
+				"r": 100
+			},
+			"emission": {"r": 60, "g": 60, "b": 60}
 		},
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point1": {"x": 500, "y": 0, "z": 0},
-				"vec1": {"x": -1, "y": -1, "z": 1},
-				"vec2": {"x": -1, "y": 1, "z": 1},
-				"length": 282.84
-			}
-		},
-		//.  
-		{
-			"type": "STELLATED OCTAHEDRON",
-			"config": {
-				"point1": {"x": 0, "y": 0, "z": 0},
-				"vec1": {"x": -1, "y": -1, "z": 1},
-				"vec2": {"x": -1, "y": 1, "z": 1},
+				"point1": {"x": 400, "y": 0, "z": 100},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
 				"length": 282.84
 			}
 		},
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": 250, "z": 0},
+				"point1": {"x": 450, "y": 350, "z": 150},
 				"r": 50,
 				"color": {"r": 0.53, "g": 0.313, "b": 0.53}
 			},
+			"emission": {"r": 0, "g": 0, "b": 0},
 			"material": "SPEC",
 			"kd": 0
 		},
 		{
 			"type": "CUBE",
 			"config": {
-				"point1": {"x": -50, "y": 300, "z": 0},
+				"point1": {"x": 400, "y": 400, "z": 0},
 				"vec1": {"x": 1, "y": 0, "z": 0},
 				"vec2": {"x": 0, "y": 1, "z": 0},
 				"length": 100,
@@ -51,33 +41,148 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": 350, "z": 150},
+				"point1": {"x": 500, "y": 550, "z": 75},
 				"r": 50,
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
+			"emission": {"r": 0, "g": 0, "b": 0},
 			"material": "REFR",
 			"n": 2.5,
 			"kd": 0
 		},
-		//.  
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point1": {"x": -250, "y": 0, "z": 0},
-				"vec1": {"x": -1, "y": -1, "z": 1},
-				"vec2": {"x": -1, "y": 1, "z": 1},
+				"point1": {"x": 800, "y": 0, "z": 100},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
 				"length": 282.84
 			}
 		},
 		{
-			"type": "PLANE",
+			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": 0, "z": 0},
-				"n": {"x": 0, "y": 0, "z": 1}
+				"point1": {"x": 850, "y": 350, "z": 150},
+				"r": 50,
+				"color": {"r": 0.53, "g": 0.313, "b": 0.53}
 			},
-			"material": "DIFF",
-			"glossiness": 0.005,
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "SPEC",
 			"kd": 0
+		},
+		{
+			"type": "CUBE",
+			"config": {
+				"point1": {"x": 800, "y": 400, "z": 0},
+				"vec1": {"x": 1, "y": 0, "z": 0},
+				"vec2": {"x": 0, "y": 1, "z": 0},
+				"length": 100,
+				"color": {"r": 0.54, "g": 0.828, "b": 0.309}
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 900, "y": 550, "z": 75},
+				"r": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "REFR",
+			"n": 2.5,
+			"kd": 0
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": 100},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 50, "y": 350, "z": 150},
+				"r": 50,
+				"color": {"r": 0.53, "g": 0.313, "b": 0.53}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "SPEC",
+			"kd": 0
+		},
+		{
+			"type": "CUBE",
+			"config": {
+				"point1": {"x": 0, "y": 400, "z": 0},
+				"vec1": {"x": 1, "y": 0, "z": 0},
+				"vec2": {"x": 0, "y": 1, "z": 0},
+				"length": 100,
+				"color": {"r": 0.54, "g": 0.828, "b": 0.309}
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 100, "y": 550, "z": 75},
+				"r": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "REFR",
+			"n": 2.5,
+			"kd": 0
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point1": {"x": -400, "y": 0, "z": 100},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 282.84
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": -350, "y": 350, "z": 150},
+				"r": 50,
+				"color": {"r": 0.53, "g": 0.313, "b": 0.53}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "SPEC",
+			"kd": 0
+		},
+		{
+			"type": "CUBE",
+			"config": {
+				"point1": {"x": -400, "y": 400, "z": 0},
+				"vec1": {"x": 1, "y": 0, "z": 0},
+				"vec2": {"x": 0, "y": 1, "z": 0},
+				"length": 100,
+				"color": {"r": 0.54, "g": 0.828, "b": 0.309}
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": -300, "y": 550, "z": 75},
+				"r": 50,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "REFR",
+			"n": 2.5,
+			"kd": 0
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": -100000},
+				"r": 100000
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
 		}
 	],
 	"spotlights": [
@@ -90,14 +195,16 @@
 		}
 	],
 	"cam": {
-		"point1": {"x": 800, "y": 800, "z": 300},
+		"point1": {"x": 1100, "y": 350, "z": 200},
 		"fov": 66.6,
-		"dir": {"x": 100, "y": 100, "z": 100},
+		"dir": {"x": -700, "y": 150, "z": 100},
 		"exposition time": 1,
-		"focal length": 300.0,
-		"aperture": 10.0
+		"focal length": 800.0,
+		"aperture": 12.0
 	},
 	"environment": {
-		"spp per call": 1
+		"spp per call": 1,
+		"map": "environment_maps/skies.hdr"
 	}
 }
+

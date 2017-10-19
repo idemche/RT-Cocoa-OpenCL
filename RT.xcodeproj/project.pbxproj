@@ -43,7 +43,6 @@
 		51181B751F953700008AEC25 /* textures.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BF1F9381C000D9C77F /* textures.json */; };
 		51181B761F953700008AEC25 /* env_map_torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C01F9381C000D9C77F /* env_map_torus.json */; };
 		51181B771F953700008AEC25 /* cubehole.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C11F9381C000D9C77F /* cubehole.json */; };
-		51181B781F953700008AEC25 /* solar.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C21F9381C000D9C77F /* solar.json */; };
 		51181B791F953700008AEC25 /* sphere.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C31F9381C000D9C77F /* sphere.json */; };
 		51181B7A1F953700008AEC25 /* cubohedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C41F9381C000D9C77F /* cubohedron.json */; };
 		51181B7B1F953700008AEC25 /* env_map.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C51F9381C000D9C77F /* env_map.json */; };
@@ -226,7 +225,6 @@
 		137056BF1F9381C000D9C77F /* textures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = textures.json; sourceTree = "<group>"; };
 		137056C01F9381C000D9C77F /* env_map_torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map_torus.json; sourceTree = "<group>"; };
 		137056C11F9381C000D9C77F /* cubehole.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubehole.json; sourceTree = "<group>"; };
-		137056C21F9381C000D9C77F /* solar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = solar.json; sourceTree = "<group>"; };
 		137056C31F9381C000D9C77F /* sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere.json; sourceTree = "<group>"; };
 		137056C41F9381C000D9C77F /* cubohedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubohedron.json; sourceTree = "<group>"; };
 		137056C51F9381C000D9C77F /* env_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map.json; sourceTree = "<group>"; };
@@ -549,7 +547,6 @@
 				137056BF1F9381C000D9C77F /* textures.json */,
 				137056C01F9381C000D9C77F /* env_map_torus.json */,
 				137056C11F9381C000D9C77F /* cubehole.json */,
-				137056C21F9381C000D9C77F /* solar.json */,
 				137056C31F9381C000D9C77F /* sphere.json */,
 				137056C41F9381C000D9C77F /* cubohedron.json */,
 				137056C51F9381C000D9C77F /* env_map.json */,
@@ -955,7 +952,6 @@
 				394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
 				51181B671F953700008AEC25 /* torus.json in Resources */,
-				51181B781F953700008AEC25 /* solar.json in Resources */,
 				5161E7481F8F8B5900C0D592 /* ServerTools.storyboard in Resources */,
 				51181B6F1F953700008AEC25 /* disturbances.json in Resources */,
 				51181B651F9536F6008AEC25 /* 173.png in Resources */,
@@ -1267,7 +1263,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 874YR33ZM8;
+				DEVELOPMENT_TEAM = TA84XW3A99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
@@ -1298,7 +1294,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 874YR33ZM8;
+				DEVELOPMENT_TEAM = TA84XW3A99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cam.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:49 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 00:15:01 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 15:55:18 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void		init_cam(t_info *a)
 		a->camera->up = cross_prod((fabs(a->camera->dir.x) > 1e-6 ?
 			i_3(0, 1, 0) : i_3(1, 0, 0)), a->camera->dir);
 		normalise_vec3(&a->camera->up);
-		a->camera->right = cross_prod(a->camera->dir,
-															a->camera->up);
+		a->camera->right = cross_prod(a->camera->dir, a->camera->up);
 		normalise_vec3(&a->camera->right);
 	}
 }

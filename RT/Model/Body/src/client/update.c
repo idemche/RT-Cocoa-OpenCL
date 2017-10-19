@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/16 14:42:20 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 15:54:59 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 static void		update_cam(t_info *a)
 {
 	t_scene			scene;
-	unsigned char	buf[256];
+	unsigned char	buf[512];
 
 	send(a->server.socket, "cam", 3, 0x2000);
-	bzero((void*)&buf, 256);
+	bzero((void*)&buf, 512);
 	recv(a->server.socket, buf, sizeof(t_camera), 0);
 	memcpy(a->camera, buf, sizeof(t_camera));
+	bzero((void*)&buf, 512);
 	send(a->server.socket, "ok", 2, 0x2000);
 	recv(a->server.socket, buf, sizeof(t_scene), 0);
 	memcpy((void*)&scene, buf, sizeof(t_scene));
@@ -37,16 +38,17 @@ static void		update_cam(t_info *a)
 
 static void		update_scene(t_info *a)
 {
-	unsigned char	buf[256];
+	unsigned char	buf[512];
 	size_t			ret;
 	t_scene			scene;
 
 	send(a->server.socket, "sce", 3, 0x2000);
-	bzero((void*)&buf, 256);
+	bzero((void*)&buf, 512);
 	ret = recv(a->server.socket, buf, sizeof(t_scene), 0);
 	if (ret != sizeof(t_scene))
 		ft_putstr("Update scene: accepted only part of packet\n");
 	memcpy((void*)&scene, buf, sizeof(t_scene));
+	bzero((void*)&buf, 512);
 	a->scene->light_on = scene.light_on;
 	a->scene->parallel_light = scene.parallel_light;
 	a->scene->indirect_light = scene.indirect_light;

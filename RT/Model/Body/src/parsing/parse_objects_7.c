@@ -3,42 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_7.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:55:54 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:10:32 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void	get_info(t_info *a, int i, t_object *o, t_json_object *t, VEC3 *result)
+static VEC3	get_info(t_info *a, int i, t_object *o, t_json_object *t)
 {
+	VEC3 result;
+
 	parse_color(a, i, &o->color, t->color);
 	if (!parse_point(&o->point1, t->p1) || !parse_point(&o->dir, t->vec1) ||
 		!parse_point(&o->edge0, t->vec2))
 		object_error(a, i, "invalid xyz field");
-	if (!cJSON_IsNumber(t->length) || t->length->valuedouble <= 0.0)
+	if (!cJSON_IsNumber(t->length) || (o->top = t->length->valuedouble) <= 0.0)
 	{
 		object_warning(a, i, "invalid length, default 250");
 		o->top = 250.0;
 	}
-	else
-		o->top = t->length->valuedouble;
 	if (!check_vec3(o->edge0) || !check_vec3(o->dir))
 		object_error(a, i, "invalid vectors");
-	else
-	{
-		normalise_vec3(&o->dir);
-		normalise_vec3(&o->edge0);
-		return ;
-	}
+	normalise_vec3(&o->dir);
+	normalise_vec3(&o->edge0);
 	o->edge0 = mult_3(o->edge0, o->top);
-	*result = cross_prod(o->dir, o->edge0);
-	if (!check_vec3(*result))
+	result = cross_prod(o->dir, o->edge0);
+	if (!check_vec3(result))
 		object_error(a, i, "invalid config");
 	else
-		normalise_vec3(result);
+		normalise_vec3(&result);
+	return (result);
 }
 
 static void	get_circumsphere(t_object *o)
@@ -62,7 +59,7 @@ void		tetrahedron_parsing(t_info *a, int i, t_object *o, t_json_scene *j)
 	VEC3			tmp;
 
 	get_object_info(&t, j);
-	get_info(a, i, o, &t, &tmp);
+	tmp = get_info(a, i, o, &t);
 	tmp = mult_3(tmp, o->top);
 	o->edge1 = add_vec3(mult_3(o->edge0, 0.5), tmp);
 	normalise_vec3(&o->edge1);
@@ -76,7 +73,7 @@ void		star_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	VEC3			tmp;
 
 	get_object_info(&t, js);
-	get_info(a, i, o, &t, &tmp);
+	tmp = get_info(a, i, o, &t);
 	o->b = add_vec3(o->point1, mult_3(tmp, o->top / sqrt(3)));
 	o->b = add_vec3(o->b, mult_3(o->dir, o->top / sqrt(6)));
 	tmp = mult_3(tmp, o->top * sqrt(3) * 0.5);

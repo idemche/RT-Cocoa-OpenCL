@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_3.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:11 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:52:48 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:10:20 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ void		box_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	VEC3				tmp;
 
 	get_object_info(&b, js);
-	if (!cJSON_IsNumber(b.length) || b.length->valuedouble < 0)
+	if (!cJSON_IsNumber(b.length) || (o->radius = b.length->valuedouble) < 0)
 	{
 		object_warning(a, i, "invalid box length, default 250");
 		o->radius = 250.0;
 	}
-	else
-		o->radius = b.length->valuedouble;
 	if (!parse_point(&o->point1, b.p1) || !parse_point(&o->edge0, b.vec1) ||
 		!parse_point(&tmp, b.vec2))
 		object_error(a, i, "invalid xyz field");
@@ -62,20 +60,16 @@ void		mob_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	parse_color(a, i, &o->color, m.color);
 	if (!parse_point(&o->point1, m.p1))
 		object_error(a, i, "invalid point1");
-	if (!cJSON_IsNumber(m.r) || m.r->valuedouble < 0.0)
+	if (!cJSON_IsNumber(m.r) || (o->radius = m.r->valuedouble) < 0.0)
 	{
 		object_warning(a, i, "invalid radius, default 200");
 		o->radius = 200.0;
 	}
-	else
-		o->radius = m.r->valuedouble;
-	if (!cJSON_IsNumber(m.width) || m.width->valuedouble < 0.0)
+	if (!cJSON_IsNumber(m.width) || (o->radius2 = m.width->valuedouble) < 0.0)
 	{
 		object_warning(a, i, "invalid width, default 50");
 		o->radius2 = 50.0;
 	}
-	else
-		o->radius2 = m.width->valuedouble;
 }
 
 void		torus_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
@@ -90,20 +84,16 @@ void		torus_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 		object_error(a, i, "invalid direction vector");
 	else
 		normalise_vec3(&o->dir);
-	if (!cJSON_IsNumber(t.r) || t.r->valuedouble <= 0)
+	if (!cJSON_IsNumber(t.r) || (o->radius2 = t.r->valuedouble) <= 0)
 	{
 		object_warning(a, i, "invalid r, default 40");
 		o->radius2 = 40;
 	}
-	else
-		o->radius2 = t.r->valuedouble;
-	if(!cJSON_IsNumber(t.r_big) || t.r_big->valuedouble <= 0)
+	if (!cJSON_IsNumber(t.r_big) || (o->radius = t.r_big->valuedouble) <= 0)
 	{
 		object_warning(a, i, "invalid r_big, default 250");
 		o->radius = 250.0;
 	}
-	else
-		o->radius = t.r_big->valuedouble;
 }
 
 void		elipsoid_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
@@ -112,26 +102,22 @@ void		elipsoid_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 
 	get_object_info(&e, js);
 	parse_color(a, i, &o->color, e.color);
-	if (!parse_point(&o->point1, e.p1) ||  !parse_point(&o->dir, e.dir))
+	if (!parse_point(&o->point1, e.p1) || !parse_point(&o->dir, e.dir))
 		object_error(a, i, "invalid xyz field");
 	if (!check_vec3(o->dir))
 		object_error(a, i, "invalid dir");
 	else
 		normalise_vec3(&o->dir);
-	if (!cJSON_IsNumber(e.r) || e.r->valuedouble < 1)
+	if (!cJSON_IsNumber(e.r) || (o->radius = e.r->valuedouble) < 1)
 	{
 		object_warning(a, i, "invalid radius sum, default 300");
 		o->radius = 300.0;
 	}
-	else
-		o->radius = e.r->valuedouble;
-	if (!cJSON_IsNumber(e.k) || e.k->valuedouble < 0)
+	if (!cJSON_IsNumber(e.k) || (o->k = e.k->valuedouble) < 0)
 	{
 		o->k = 275.0;
 		object_warning(a, i, "invalid focal distance, default 275");
 	}
-	else
-		o->k = e.k->valuedouble;
 	if (o->k >= o->radius)
 		object_error(a, i, "radius sum must be greater than focal distance");
 	o->radius2 = o->radius * o->radius;

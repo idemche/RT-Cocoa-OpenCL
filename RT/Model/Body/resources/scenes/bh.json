@@ -3,6 +3,95 @@
 		{
 			"type": "SPHERE",
 			"config": {
+				"point1": {"x": 400, "y": 400, "z": 1000},
+				"r": 150,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 60, "g": 60, "b": 60}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": -200, "y": -115.47, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 200, "y": 115.47, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": -100, "y": 57.735, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 100, "y": 57.735, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": -115.47, "z": 100},
+				"r": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": -100000},
+				"r": 100000
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		}
+	],
+	"spotlights": [
+		{
+			"point1": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"point1": {"x": 500, "y": 0, "z": 400},
+		"fov": 66.6,
+		"dir": {"x": 0, "y": 0, "z": 0},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"spp per call": 1,
+		"map": "None"
+	}
+}
+"map": "environment_maps/skies.hdr"
+
+{
+	"objects": [
+		{
+			"type": "SPHERE",
+			"config": {
 				"point1": {"x": 500, "y": 500, "z": 750},
 				"r": 100,
 				"color": {"r": 1, "g": 1, "b": 1}
@@ -93,8 +182,8 @@
 		"fov": 66.6,
 		"dir": {"x": 0, "y": 0, "z": 300},
 		"exposition time": 1,
-		"focal length": 400.0,
-		"aperture": 10.0
+		"focal length": 800.0,
+		"aperture": 2.0
 	},
 	"environment": {
 		"spp per call": 1

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:27 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 11:30:57 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 15:24:52 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void			warning(t_info *a, char *str)
 	ft_putstr_fd("Warning: ", a->log_fd);
 	ft_putendl_fd(str, a->log_fd);
 }
-
 
 void			parse_color(t_info *a, int i, VEC3 *result, cJSON *color)
 {
@@ -35,7 +34,7 @@ void			parse_color(t_info *a, int i, VEC3 *result, cJSON *color)
 	}
 	else if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b) ||
 		r->valuedouble > 1 || r->valuedouble < 0 || g->valuedouble > 1 ||
-		g->valuedouble < 0 || b->valuedouble > 1 || -b>valuedouble < 0)
+		g->valuedouble < 0 || b->valuedouble > 1 || b->valuedouble < 0)
 	{
 		object_error(a, i, "RGB must be in range [0;1]");
 		*result = i_3(0, 0, 0);
@@ -75,7 +74,7 @@ int				parse_point(VEC3 *result, cJSON *point)
 	if (!cJSON_IsNumber(x) || !cJSON_IsNumber(y) || !cJSON_IsNumber(z))
 	{
 		*result = i_3(0, 0, 0);
-		return 0;
+		return (0);
 	}
 	*result = i_3(x->valuedouble, y->valuedouble, z->valuedouble);
 	return (1);

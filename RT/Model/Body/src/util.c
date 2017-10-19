@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:27:11 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:14:45 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void		print_time(int fd)
 {
 	time_t		timer;
-    char		buffer[26];
-    struct tm*	tm_info;
+	char		buffer[26];
+	struct tm	*tm_info;
 
-    time(&timer);
-    tm_info = localtime(&timer);
-    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
-    ft_putendl_fd(buffer, fd);
+	time(&timer);
+	tm_info = localtime(&timer);
+	strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+	ft_putendl_fd(buffer, fd);
 }
 
 int			ft_usage(void)
@@ -56,12 +56,6 @@ size_t		get_file(const char *name, char **str)
 void		ft_error(char *str)
 {
 	ft_putstr(str);
-	exit(1);
-}
-
-void		ft_error_int(char *str, int d)
-{
-	printf("%s%d\n", str, d);
 	exit(1);
 }
 

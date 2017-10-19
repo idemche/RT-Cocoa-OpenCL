@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
+/*   Updated: 2017/10/19 19:28:44 by hshakula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSING_H
 # define PARSING_H
 
@@ -10,31 +22,38 @@
 # define CHECKERBOARD -4
 # define TRUE_CHECKER -5
 
-typedef enum	e_typename
+typedef enum e_typename			t_typename;
+typedef enum e_material			t_material;
+typedef enum e_tone_mapper		t_tone_mapper;
+typedef struct s_texture		t_texture;
+typedef struct s_tmp_tex		t_tmp_tex;
+typedef struct s_sequence		t_sequence;
+
+enum		e_typename
 {
 	SPHERE, PLANE, CYLINDER, CONE, PARABOLOID, TORUS, DISK, TRIANGLE, CUBE,
 	BOX, BOCAL, MOEBIUS, ELIPSOID, DNA, HEART, CUBEHOLE, TETRAHEDRON, STAR,
 	OCTAHEDRON, CUBOHEDRON, RING, TYPELESS
-}				t_typename;
+};
 
-typedef enum	e_material
+enum		e_material
 {
 	DIFF, SPEC, REFR, GLOSSY, GLOSSY_REFR, TRANSPARENT, NONE
-}				t_material;
+};
 
-typedef enum	e_tone_mapper
+enum		e_tone_mapper
 {
 	STANDARD, UNCHARTED, STRONG
-}				t_tone_mapper;
+};
 
-typedef void	(*parse_func)(t_info *a, int i, t_object *o, t_json_scene *j);
+typedef	void	(*t_parse_ft)(t_info *a, int i, t_object *o, t_json_scene *j);
 
-typedef struct	s_texture
+struct		s_texture
 {
 	t_uch		*data;
-}				t_texture;
+};
 
-typedef struct	s_tmp_tex
+struct		s_tmp_tex
 {
 	t_uch		*tmp_rgba;
 	int			y;
@@ -45,9 +64,9 @@ typedef struct	s_tmp_tex
 	t_uch		*rgba_normal;
 	char		*tex_path_albedo;
 	char		*tex_path_normal;
-}				t_tmp_tex;
+};
 
-typedef struct	s_sequence
+struct		s_sequence
 {
 	t_quaternion	q;
 	cl_float3		axis;
@@ -58,7 +77,7 @@ typedef struct	s_sequence
 	int				frame_n;
 	int				frame_max;
 	char			*buf;
-}				t_sequence;
+};
 
 void		parse_scene(t_info *a, char *json_file);
 void		light_parsing(t_info *a, t_json_scene *js);

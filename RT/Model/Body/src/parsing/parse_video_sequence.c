@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_video_sequence.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:49 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:58:15 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 15:23:22 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void		sequence_parse(t_info *a, cJSON *root)
 	s.is_on = cJSON_GetObjectItemCaseSensitive(s.s, "On/Off");
 	if (!cJSON_IsBool(s.is_on))
 		ft_error("On/Off field must be true or false");
-	a->sequence.is_on = s.is_on->valueint;
-	if (!a->sequence.is_on)
+	if ((a->sequence.is_on = s.is_on->valueint) == 0)
 		return ;
 	s.axis = cJSON_GetObjectItemCaseSensitive(s.s, "axis");
 	s.time = cJSON_GetObjectItemCaseSensitive(s.s, "time");

@@ -1683,6 +1683,7 @@ float			intersect_cubehole(t_object object, t_ray ray, float3 *normal_tmp, float
 
 float			intersect_cube(t_object object, t_ray ray, float3 *normal_tmp, float3 *hit_point_tmp, t_negative negative, int *n)
 {
+	int			n_roots = 0;
 	float		root[6];
 	float3		normal[6];
 	float3		hit_point[6];
@@ -1695,38 +1696,43 @@ float			intersect_cube(t_object object, t_ray ray, float3 *normal_tmp, float3 *h
 	box.edge0 = edge2;
 	box.edge1 = edge1;
 	box.n = object.edge0;
-	root[0] = intersect_box(box, ray, &normal[0], &hit_point[0]);
+	if ((root[0] = intersect_box(box, ray, &normal[0], &hit_point[0])) > EPS)
+		n_roots++;
 
 	box.point1 = object.point1 + edge0;
-	root[1] = intersect_box(box, ray, &normal[1], &hit_point[1]);
+	if ((root[1] = intersect_box(box, ray, &normal[1], &hit_point[1])) > EPS)
+		n_roots++;
 
 	box.point1 = object.point1;
 	box.edge0 = edge0;
 	box.edge1 = edge2;
 	box.n = object.edge1;
-	root[2] = intersect_box(box, ray, &normal[2], &hit_point[2]);
+	if ((root[2] = intersect_box(box, ray, &normal[2], &hit_point[2])) > EPS)
+		n_roots++;
 
 	box.point1 += edge1;
-	root[3] = intersect_box(box, ray, &normal[3], &hit_point[3]);
+	if ((root[3] = intersect_box(box, ray, &normal[3], &hit_point[3])) > EPS)
+		n_roots++;
 
 	box.point1 = object.point1;
 	box.edge0 = edge1;
 	box.edge1 = edge0;
 	box.n = object.edge2;
-	root[4] = intersect_box(box, ray, &normal[4], &hit_point[4]);
+	if ((root[4] = intersect_box(box, ray, &normal[4], &hit_point[4])) > EPS)
+		n_roots++;
 
 	box.point1 += edge2;
-	root[5] = intersect_box(box, ray, &normal[5], &hit_point[5]);
+	if ((root[5] = intersect_box(box, ray, &normal[5], &hit_point[5])) > EPS)
+		n_roots++;
 
 	float tmin = INFIN + 1.0f, tmax = -INFIN;
-	int i = -1, max_i;
+	int i = -1, max_i = 0, min_i = 0;
 	while (++i < 6)
 	{
 		if (root[i] > EPS && root[i] < tmin)
 		{
 			tmin = root[i];
-			*normal_tmp = normal[i];
-			*hit_point_tmp = hit_point[i];
+			min_i = i;
 		}
 		if (root[i] > EPS && root[i] > tmax)
 		{
@@ -1757,7 +1763,14 @@ float			intersect_cube(t_object object, t_ray ray, float3 *normal_tmp, float3 *h
 		}
 	}
 	else if (!lean_in_range(negative.range, tmin))
+	{
+		if (n_roots == 1)
+			*normal_tmp = -1 * normal[min_i];
+		else
+			*normal_tmp = normal[min_i];
+		*hit_point_tmp = hit_point[min_i];
 		return (tmin);
+	}
 	else
 		return -1;
 }

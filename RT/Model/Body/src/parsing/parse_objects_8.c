@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_8.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:56:21 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:12:02 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,25 @@ void		cubohedron_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	get_object_info(&t, js);
 	get_cube_info(a, i, o, &t);
 	get_octahedron_info(o);
+}
+
+void		paraboloid_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
+{
+	t_json_object	par;
+
+	get_object_info(&par, js);
+	if (!parse_point(&o->point1, par.p1) || !parse_point(&o->dir, par.dir))
+		object_error(a, i, "invalid xyz field");
+	parse_color(a, i, &o->color, par.color);
+	if (!check_vec3(o->dir))
+		object_error(a, i, "invalid direction vector");
+	else
+		normalise_vec3(&o->dir);
+	if (!cJSON_IsNumber(par.k) || par.k->valuedouble < 0.0)
+	{
+		object_warning(a, i, "invalid k, default 10");
+		o->k = 10.0;
+	}
+	else
+		o->k = par.k->valuedouble;
 }

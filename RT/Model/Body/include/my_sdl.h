@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   my_sdl.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
+/*   Updated: 2017/10/19 19:17:04 by hshakula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MY_SDL_H
 # define MY_SDL_H
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdocumentation"
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wdocumentation"
 
 # include "SDL.h"
 
-#pragma clang diagnostic pop
+# pragma clang diagnostic pop
 
-typedef struct  s_keys
+typedef struct	s_keys
 {
 	char		update;
 	int			change_scene;
@@ -21,7 +33,7 @@ typedef struct  s_keys
 	char		tone_mapper;
 	double		scale_speed;
 	double		scale_angle;
-}               t_keys;
+}				t_keys;
 
 typedef	struct	s_window
 {

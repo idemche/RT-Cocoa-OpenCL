@@ -1,6 +1,5 @@
 {
 	"objects": [
-		// first floor
 		{
 			"type": "SPHERE",
 			"config": {
@@ -55,7 +54,6 @@
 			},
 			"emission": {"r": 0, "g": 0, "b": 0}
 		},
-		// second floor
 		{
 			"type": "SPHERE",
 			"config": {
@@ -83,13 +81,20 @@
 			},
 			"emission": {"r": 0, "g": 0, "b": 0}
 		},
-		// third floor
 		{
 			"type": "SPHERE",
 			"config": {
 				"point1": {"x": 0, "y": 0, "z": 500},
 				"r": 100,
 				"color": {"r": 1, "g": 1, "b": 1}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point1": {"x": 0, "y": 0, "z": -100000},
+				"r": 100000
 			},
 			"emission": {"r": 0, "g": 0, "b": 0}
 		}
@@ -113,6 +118,6 @@
 	},
 	"environment": {
 		"spp per call": 1,
-		"map": "environment_maps/poland2.hdr"
+		"map": "environment_maps/skies.hdr"
 	}
 }

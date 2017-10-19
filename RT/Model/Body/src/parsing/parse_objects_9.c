@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_9.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 01:12:47 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:12:10 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 static void	get_info(t_info *a, int i, t_object *o, t_json_object *t)
 {
-	if (!parse_point(&o->edge0, t->vec2) || parse_point(&o->dir, t->vec1) ||
-		parse_point(&o->point1, t->p1))
+	if (!parse_point(&o->point1, t->p1) || !parse_point(&o->edge0, t->vec2) ||
+		!parse_point(&o->dir, t->vec1))
 		object_error(a, i, "invalid xyz field");
 	o->edge1 = cross_prod(o->dir, o->edge0);
+	if (!cJSON_IsNumber(t->length) || t->length->valuedouble < 0)
+	{
+		o->top = 300.0;
+		object_warning(a, i, "invalid length, default 300");
+	}
+	else
+		o->top = t->length->valuedouble;
 	if (!check_vec3(o->edge0) || !check_vec3(o->dir) || !check_vec3(o->edge1))
 	{
 		object_error(a, i, "invalid vector configuration");
@@ -32,13 +39,6 @@ static void	get_info(t_info *a, int i, t_object *o, t_json_object *t)
 		o->edge0 = mult_3(o->edge0, o->top);
 		o->edge1 = mult_3(o->edge1, o->top);
 	}
-	if (!cJSON_IsNumber(t->length) || t->length->valuedouble < 0)
-	{
-		o->top = 300.0;
-		object_warning(a, i, "invalid length, default 300");
-	}
-	else
-		o->top = t->length->valuedouble;
 }
 
 void		octahedron_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
@@ -104,4 +104,25 @@ void		ring_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 		o->radius = r.r_big->valuedouble;
 	o->radius2 = o->radius * o->radius;
 	ring_parsing_(a, i, o, &r);
+}
+
+void		plane_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
+{
+	t_json_object	pl;
+
+	get_object_info(&pl, js);
+	if (!parse_point(&o->point1, pl.p1) || !parse_point(&o->n, pl.n))
+		object_error(a, i, "invalid xyz field");
+	parse_color(a, i, &o->color, pl.color);
+	if (!check_vec3(o->n))
+		object_error(a, i, "invalid direction vector");
+	else
+	{
+		normalise_vec3(&o->n);
+		o->edge0 = cross_prod(o->n, (fabs(o->n.x) > 1e-6 ?
+												i_3(0, 1, 0) : i_3(1, 0, 0)));
+		normalise_vec3(&o->edge0);
+		o->edge1 = cross_prod(o->n, o->edge0);
+		normalise_vec3(&o->edge1);
+	}
 }

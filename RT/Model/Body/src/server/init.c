@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/16 18:57:05 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/19 15:50:55 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			init_server_info(t_info *a, char *json_file)
 {
 	t_json_scene	js;
 
+	a->scene_is_valid = 1;
 	js.root = cJSON_Parse(json_file);
 	environment_parsing(a, &js);
 	a->scene->image_width = a->image_width;

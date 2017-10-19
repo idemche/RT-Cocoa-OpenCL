@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_6.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:55:06 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 15:26:43 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 static void	init_negative_cyl(t_info *a, int i, t_object *o)
 {
 	cl_float3	edge0;
-	cl_float3	edge1;
-	cl_float3	edge2;
 
 	if (!check_vec3(o->edge0) || !check_vec3(o->edge1))
 	{
@@ -35,11 +33,11 @@ static void	init_negative_cyl(t_info *a, int i, t_object *o)
 	normalise_vec3(&o->edge2);
 	o->dir = o->edge2;
 	edge0 = mult_3(o->edge0, o->radius * 0.5f);
-	edge1 = mult_3(o->edge1, o->radius * 0.5f);
-	edge2 = mult_3(o->edge2, o->radius * 0.025f);
 	o->point2 = add_vec3(o->point1, edge0);
-	o->point2 = add_vec3(o->point2, edge1);
-	o->point2 = sub_vec3(o->point2, edge2);
+	edge0 = mult_3(o->edge1, o->radius * 0.5f);
+	o->point2 = add_vec3(o->point2, edge0);
+	edge0 = mult_3(o->edge2, o->radius * 0.025f);
+	o->point2 = sub_vec3(o->point2, edge0);
 }
 
 void		cubehole_parsing(t_info *a, int i, t_object *o, t_json_scene *js)

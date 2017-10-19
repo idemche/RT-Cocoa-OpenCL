@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cl.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
+/*   Updated: 2017/10/19 19:24:02 by hshakula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CL_H
 # define CL_H
 
@@ -10,7 +22,12 @@
 # define CL_OK CL_SUCCESS
 # define W_(q, m, s, o) (clEnqueueWriteBuffer(q, m, T, 0, s, o, 0, NULL, NULL))
 
-struct	s_cl
+typedef struct s_intersection	t_intersection;
+typedef struct s_ray			t_ray;
+typedef struct s_negative		t_negative;
+typedef struct s_state			t_state;
+
+struct			s_cl
 {
 	cl_platform_id		platform_id;
 	cl_uint				platform_count;
@@ -45,7 +62,7 @@ struct	s_cl
 	cl_kernel			kernel_primary_rays;
 };
 
-typedef struct	s_intersection
+struct			s_intersection
 {
 	cl_float3		hit_point;
 	cl_float3		normal;
@@ -54,23 +71,23 @@ typedef struct	s_intersection
 	cl_float3		v;
 	cl_float3		color;
 	cl_int			took_place;
-}				t_intersection;
+};
 
-typedef struct	s_ray
+struct			s_ray
 {
 	VEC3		d;
 	VEC3		o;
 	cl_float	t;
-}				t_ray;
+};
 
-typedef struct	s_negative
+struct			s_negative
 {
 	cl_float3		hit_point;
 	cl_float3		normal;
 	cl_float2		range;
-}				t_negative;
+};
 
-typedef struct s_state
+struct			s_state
 {
 	cl_float3		rad;
 	cl_float3		path_capacity;
@@ -79,7 +96,7 @@ typedef struct s_state
 	cl_int			glossy_bounce;
 	cl_int			through_transparent;
 	cl_int			is_survive;
-}				t_state;
+};
 
 void			opencl_error(const char *e, const void *p, size_t cb, void *u);
 void			init_opencl(t_info *a);

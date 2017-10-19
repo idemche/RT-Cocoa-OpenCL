@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:40:35 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 17:06:33 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		get_texture_names(t_info *a, t_json_scene js)
 		else
 			a->texture_names[i] = strdup(js.texture->valuestring);
 	}
+	a->texture_names[a->scene->amount_of_objects] = NULL;
 }
 
 void		parse_scene(t_info *a, char *json_file)
@@ -36,17 +37,18 @@ void		parse_scene(t_info *a, char *json_file)
 
 	js.root = cJSON_Parse(json_file);
 	js.objects = cJSON_GetObjectItemCaseSensitive(js.root, "objects");
-	if (!cJSON_IsArray(js.objects))
+	if (!js.objects || !cJSON_IsArray(js.objects))
 		scene_error(a, "syntax error");
+	else
+		a->scene->amount_of_objects = cJSON_GetArraySize(js.objects);
 	js.n_object = cJSON_GetObjectItemCaseSensitive(js.root, "negative object");
-	if (!cJSON_IsArray(js.n_object))
+	if (!js.n_object || !cJSON_IsArray(js.n_object))
 		a->scene->n_negative_obj = 0;
 	else
 	{
 		a->scene->n_negative_obj = cJSON_GetArraySize(js.n_object);
 		parse_negative_object(a, &js);
 	}
-	a->scene->amount_of_objects = cJSON_GetArraySize(js.objects);
 	get_texture_names(a, js);
 	a->objects = (t_object*)malloc(sizeof(t_object) *
 										a->scene->amount_of_objects);
@@ -56,5 +58,4 @@ void		parse_scene(t_info *a, char *json_file)
 	light_parsing(a, &js);
 	object_parsing(a, &js);
 	cJSON_Delete(js.root);
-	a->texture_names[a->scene->amount_of_objects] = NULL;
 }

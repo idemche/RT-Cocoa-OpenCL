@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_objects_4.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:16 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 14:53:52 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/19 19:11:14 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,46 +117,4 @@ void		disk_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	}
 	else
 		o->radius = disk.r->valuedouble;
-}
-
-void		paraboloid_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
-{
-	t_json_object	par;
-
-	get_object_info(&par, js);
-	if (!parse_point(&o->point1, par.p1) || !parse_point(&o->dir, par.dir))
-		object_error(a, i, "invalid xyz field");
-	parse_color(a, i, &o->color, par.color);
-	if (!check_vec3(o->dir))
-		object_error(a, i, "invalid direction vector");
-	else
-		normalise_vec3(&o->dir);
-	if (!cJSON_IsNumber(par.k) || par.k->valuedouble < 0.0)
-	{
-		object_warning(a, i, "invalid k, default 10");
-		o->k = 10.0;
-	}
-	else
-		o->k = par.k->valuedouble;
-}
-
-void		plane_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
-{
-	t_json_object	pl;
-
-	get_object_info(&pl, js);
-	if (!parse_point(&o->point1, pl.p1) || !parse_point(&o->n, pl.n))
-		object_error(a, i, "invalid xyz field");
-	parse_color(a, i, &o->color, pl.color);
-	if (!check_vec3(o->n))
-		object_error(a, i, "invalid direction vector");
-	else
-	{
-		normalise_vec3(&o->n);
-		o->edge0 = cross_prod(o->n, (fabs(o->n.x) > 1e-6 ?
-												i_3(0, 1, 0) : i_3(1, 0, 0)));
-		normalise_vec3(&o->edge0);
-		o->edge1 = cross_prod(o->n, o->edge0);
-		normalise_vec3(&o->edge1);
-	}
 }
