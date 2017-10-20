@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 21:28:44 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:16:36 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,36 +90,33 @@ static void		move_cam(t_info *a, int key)
 							mult_3(a->camera->right, 75 * a->scale_speed));
 }
 
-void			update_from_gui(t_info *a, t_keys k)
+static void		scene_events(t_info *a, int k)
 {
-	if (k.change_scene != -1)
+	if (k == SDLK_t || k == SDLK_r)
 	{
-		a->update_map = 1;
-		a->num_scene = k.change_scene;
-		reset_keys(a);
-		return ;
-	}
-	if (a->scene->visual_effect != k.visual_effect ||
-		a->scene->tone_mapper != k.tone_mapper)
 		a->update_scene = 1;
-	if (k.light != a->scene->light_on ||
-		k.indirect_light != a->scene->indirect_light ||
-		k.parallel_light != a->scene->parallel_light ||
-		k.spot_light != a->scene->spotlight) // || k.c_mode != a->scene->c_mode || k.aperture != a->camera->aperture || k.fl != a->camera->focal_length
+		if (k == SDLK_t)
+			a->scene->v_eff += (a->scene->v_eff == 3) ? -3 : 1;
+		if (k == SDLK_r)
+			a->scene->tone_mapper += (a->scene->tone_mapper == 2) ? -2 : 1;
+	}
+	if (k == SDLK_x || k == SDLK_y || k == SDLK_b || k == SDLK_n ||
+		k == SDLK_m)
+	{
 		a->update_camera = 1;
-	a->scene->light_on = k.light;
-	a->scene->indirect_light = k.indirect_light;
-	a->scene->parallel_light = k.parallel_light;
-	a->scene->spotlight = k.spot_light;
-	// a->scene->c_mode = k.c_mode;
-	a->scene->visual_effect = k.visual_effect;
-	a->scene->tone_mapper = k.tone_mapper;
-	a->scale_angle = k.scale_angle;
-	a->scale_speed = k.scale_speed;
-	// a->camera->focal_length = k.fl;
-	// a->camera->aperture = k.aperture;
-	reset_keys(a);
+		if (k == SDLK_y)
+			a->scene->c_mode += (a->scene->c_mode == 2) ? -2 : 1;
+		if (k == SDLK_x)
+			a->scene->light_on = (a->scene->light_on) ? 0 : 1;
+		if (k == SDLK_b)
+			a->scene->parallel_light = (a->scene->parallel_light) ? 0 : 1;
+		if (k == SDLK_n)
+			a->scene->indirect_light = (a->scene->indirect_light) ? 0 : 1;
+		if (k == SDLK_m)
+			a->scene->spotlight = (a->scene->spotlight) ? 0 : 1;
+	}
 }
+
 
 void			handle_events(t_info *a, SDL_Event event, int key)
 {
@@ -145,5 +142,5 @@ void			handle_events(t_info *a, SDL_Event event, int key)
 		a->update_camera = 1;
 		move_cam(a, key);
 	}
-	return ;
+	scene_events(a, key);
 }

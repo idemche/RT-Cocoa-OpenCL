@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 15:54:59 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:04:50 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		update_cam(t_info *a)
 	a->scene->parallel_light = scene.parallel_light;
 	a->scene->indirect_light = scene.indirect_light;
 	a->scene->spotlight = scene.spotlight;
-	a->scene->visual_effect = scene.visual_effect;
+	a->scene->v_eff = scene.visual_effect;
 	a->scene->tone_mapper = scene.tone_mapper;
 	a->scene->dof = scene.dof;
 	send(a->server.socket, "ok", 2, 0x2000);
@@ -53,7 +53,7 @@ static void		update_scene(t_info *a)
 	a->scene->parallel_light = scene.parallel_light;
 	a->scene->indirect_light = scene.indirect_light;
 	a->scene->spotlight = scene.spotlight;
-	a->scene->visual_effect = scene.visual_effect;
+	a->scene->v_eff = scene.visual_effect;
 	a->scene->tone_mapper = scene.tone_mapper;
 	a->scene->dof = scene.dof;
 	send(a->server.socket, "ok", 2, 0x2000);

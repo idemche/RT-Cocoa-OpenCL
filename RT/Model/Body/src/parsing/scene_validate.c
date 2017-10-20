@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene_validate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 21:05:48 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:07:52 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int			validate_scene(char *file_path)
 
 	a = (t_info*)malloc(sizeof(t_info));
 	a->is_validating = 1;
-	if ((a->log_fd = open("log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD)) == -1)
+	if ((a->log_fd = open("log.log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD))
+																		== -1)
 	{
 		ft_putstr("Could not open log file");
 		return (-1);

@@ -46,6 +46,9 @@
 # define GREYSCALE 2
 # define FOG 3
 
+# define DOF 1
+# define FISHEYE 2
+
 # define MY_PI 3.141593f
 # define TWO_PI 2 * MY_PI
 # define I_MY_PI 1 / MY_PI
@@ -2569,9 +2572,9 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 	ray.o = camera->pos;
 	ray.t = camera->t * get_random(&seed0, &seed1);
 
-	if (!scene->mode)
+	if (scene->mode == STANDARD)
 		ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
-	else if (scene->mode == 1)
+	else if (scene->mode == DOF)
 	{
 		t_ray tmp_ray;
 		tmp_ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
@@ -2583,7 +2586,7 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 		ray.o += offset;
 		ray.d = fast_normalize(focalPlaneIntersection - ray.o);
 	}
-	else if (scene->mode == 2)
+	else if (scene->mode == FISHEYE)
 	{
 		float x2 = xx * xx;
 		float r = sqrt(x2 + yy * yy);

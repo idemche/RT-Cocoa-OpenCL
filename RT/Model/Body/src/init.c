@@ -26,7 +26,7 @@ void				init_scene(t_info *a)
 	a->scene->parallel_light = 0;
 	a->scene->tone_mapper = STANDARD;
 	a->scene->dof = 0;
-	a->scene->visual_effect = 0;
+	a->scene->v_eff = 0;
 	a->scene->node_id = (char)a->client.id;
 	a->scene->amount_of_nodes = a->client.max_peers;
 	a->update_camera = 0;
