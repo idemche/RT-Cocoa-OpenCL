@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 21:03:48 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 15:36:24 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void		parse_scene(t_info *a, char *json_file)
 	js.root = cJSON_Parse(json_file);
 	js.objects = cJSON_GetObjectItemCaseSensitive(js.root, "objects");
 	if (!js.objects || !cJSON_IsArray(js.objects))
+	{
 		scene_error(a, "syntax error");
+		return ;
+	}
 	else
 		a->scene->amount_of_objects = cJSON_GetArraySize(js.objects);
 	js.n_object = cJSON_GetObjectItemCaseSensitive(js.root, "negative object");

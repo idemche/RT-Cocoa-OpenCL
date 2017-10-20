@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/20 01:04:50 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 13:56:26 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void		update_cam(t_info *a)
 	a->scene->parallel_light = scene.parallel_light;
 	a->scene->indirect_light = scene.indirect_light;
 	a->scene->spotlight = scene.spotlight;
-	a->scene->v_eff = scene.visual_effect;
+	a->scene->v_eff = scene.v_eff;
 	a->scene->tone_mapper = scene.tone_mapper;
-	a->scene->dof = scene.dof;
+	a->scene->c_mode = scene.c_mode;
 	send(a->server.socket, "ok", 2, 0x2000);
 	a->update_camera = 1;
 }
@@ -53,9 +53,9 @@ static void		update_scene(t_info *a)
 	a->scene->parallel_light = scene.parallel_light;
 	a->scene->indirect_light = scene.indirect_light;
 	a->scene->spotlight = scene.spotlight;
-	a->scene->v_eff = scene.visual_effect;
+	a->scene->v_eff = scene.v_eff;
 	a->scene->tone_mapper = scene.tone_mapper;
-	a->scene->dof = scene.dof;
+	a->scene->c_mode = scene.c_mode;
 	send(a->server.socket, "ok", 2, 0x2000);
 	a->update_scene = 1;
 }

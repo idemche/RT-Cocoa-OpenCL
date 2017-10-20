@@ -15,6 +15,7 @@
 		1069F3121F8CD72A00D7C448 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3111F8CD72A00D7C448 /* ServerViewController.m */; };
 		1069F3151F8CD73B00D7C448 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3141F8CD73B00D7C448 /* ClientViewController.m */; };
 		1069F3511F8D26C300D7C448 /* RenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3501F8D26C300D7C448 /* RenderViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		13599E8B1F9A0E45006F2A69 /* event_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 13599E8A1F9A0E45006F2A69 /* event_gui.c */; };
 		1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1370589E1F9386AB00D9C77F /* VoidViewController.storyboard */; };
 		137058A21F9386E000D9C77F /* VoidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137058A11F9386E000D9C77F /* VoidViewController.m */; };
 		13D39A0B1F9674EA0077F3D3 /* parse_objects_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */; };
@@ -208,6 +209,7 @@
 		1069F34B1F8D194700D7C448 /* SDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL.h; path = SDL2.framework/Versions/A/Headers/SDL.h; sourceTree = "<group>"; };
 		1069F34F1F8D26C300D7C448 /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
 		1069F3501F8D26C300D7C448 /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
+		13599E8A1F9A0E45006F2A69 /* event_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event_gui.c; sourceTree = "<group>"; };
 		137056B11F9381C000D9C77F /* torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = torus.json; sourceTree = "<group>"; };
 		137056B21F9381C000D9C77F /* paraboloid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = paraboloid.json; sourceTree = "<group>"; };
 		137056B31F9381C000D9C77F /* bh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bh.json; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 		137056CC1F9381C000D9C77F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				13599E8A1F9A0E45006F2A69 /* event_gui.c */,
 				137056D31F9381C000D9C77F /* image.c */,
 				137056D41F9381C000D9C77F /* math */,
 				137056D91F9381C000D9C77F /* util.c */,
@@ -1013,6 +1016,7 @@
 				51181B981F95371D008AEC25 /* init.c in Sources */,
 				51181B941F95371D008AEC25 /* sequence_call.c in Sources */,
 				51181BDB1F953754008AEC25 /* ft_memcmp.c in Sources */,
+				13599E8B1F9A0E45006F2A69 /* event_gui.c in Sources */,
 				51181B8F1F95371D008AEC25 /* update_call.c in Sources */,
 				51181BCA1F953754008AEC25 /* ft_strtrim.c in Sources */,
 				51181BA61F953725008AEC25 /* parse_objects_7.c in Sources */,

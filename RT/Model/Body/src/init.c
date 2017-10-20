@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 20:45:14 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 14:05:55 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void				init_scene(t_info *a)
 {
+	a->scene_is_valid = 1;
 	a->scene = (t_scene*)malloc(sizeof(t_scene));
 	a->current_sample = (cl_int*)malloc(sizeof(cl_int));
 	if (!a->current_sample)
@@ -25,7 +26,7 @@ void				init_scene(t_info *a)
 	a->scene->spotlight = 0;
 	a->scene->parallel_light = 0;
 	a->scene->tone_mapper = STANDARD;
-	a->scene->dof = 0;
+	a->scene->c_mode = 0;
 	a->scene->v_eff = 0;
 	a->scene->node_id = (char)a->client.id;
 	a->scene->amount_of_nodes = a->client.max_peers;
@@ -46,7 +47,7 @@ void				reset_keys(t_info *a)
 	a->keys.indirect_light = 0;
 	a->keys.parallel_light = 0;
 	a->keys.spot_light = 0;
-	a->keys.dof = 0;
+	a->keys.c_mode = 0;
 	a->keys.visual_effect = 0;
 	a->keys.tone_mapper = 0;
 	a->keys.scale_speed = 1.0;

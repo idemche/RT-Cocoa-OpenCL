@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   event_gui.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/20 01:20:11 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 14:56:59 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void		gui_update_camera(t_info *a, t_keys k)
+static int		gui_update_camera(t_info *a, t_keys k)
 {
 	// a->scene->c_mode = k.c_mode;
 	// a->camera->focal_length = k.fl;
@@ -23,7 +23,7 @@ static void		gui_update_camera(t_info *a, t_keys k)
 	// return (k.c_mode != a->scene->c_mode || k.aperture != a->camera->aperture || k.fl != a->camera->focal_length);
 }
 
-static void		gui_update_light(t_info *a, t_keys k)
+static int		gui_update_light(t_info *a, t_keys k)
 {
 	a->scene->light_on = k.light;
 	a->scene->indirect_light = k.indirect_light;
@@ -47,7 +47,7 @@ void			update_from_gui(t_info *a, t_keys k)
 	if (a->scene->v_eff != k.visual_effect ||
 		a->scene->tone_mapper != k.tone_mapper)
 		a->update_scene = 1;
-	if (gui_update_light(a, k)) // || gui_update_camera(a, k);
+	if (gui_update_light(a, k) || gui_update_camera(a, k)) //
 		a->update_camera = 1;
 	a->scene->v_eff = k.visual_effect;
 	a->scene->tone_mapper = k.tone_mapper;

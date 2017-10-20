@@ -4,5 +4,5 @@
 log
 *.a
 *DS_Store*
-UserInterfaceState.xcuserstate
 .*
+*.log

@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 21:13:14 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:26:11 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static void		get_type(t_info *a, t_json_env *e)
 	{
 		if (lodepng_decode32_file(&tmp, &w, &h, e->m->valuestring))
 			scene_error(a, "lodepng_decode32_file error: environment map");
+		write_float3(a, tmp, w, h);
 		a->scene->radiance_env_map = 0;
 		a->scene->env_map_w = (int)w;
 		a->scene->env_map_h = (int)h;

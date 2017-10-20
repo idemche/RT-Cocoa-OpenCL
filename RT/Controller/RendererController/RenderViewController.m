@@ -126,7 +126,7 @@
 - (IBAction)didPressUpdateScene:(NSButton *)sender {
     
     _information->keys.light = [_lightOutlet state];
-	_information->keys.dof = [_depthOfField state];
+	_information->keys.c_mode = [_depthOfField state];
 	_information->keys.indirect_light = [_indirectLight state];
 	_information->keys.parallel_light = [_parallelLight state];
 	_information->keys.spot_light = [_spotLight state];

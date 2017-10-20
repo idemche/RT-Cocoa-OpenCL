@@ -3,109 +3,119 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": -950, "z": -350},
-				"r": 150,
-				"color": {"r": 1, "g": 1, "b": 1}
+				"point": {"x": 0, "y": 0, "z": -100000},
+				"r": 100000
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": -800, "y": -800, "z": 500},
+				"r": 150
 			},
 			"emission": {"r": 15, "g": 15, "b": 15}
 		},
 		{
-			"type": "PARABOLOID",
-			"paraboloid": {
-				"point1": {"x": 0, "y": -410, "z": 350},
-				"k": 40,
-				"top":: 50,
-				"dir": {"x": 1, "y": -0.5, "z": 0},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "CYLINDER",
+			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": -410, "z": 350},
-				"dir": {"x": 0.5, "y": 1, "z": 0},
+				"point": {"x": 0, "y": 0, "z": 200},
 				"r": 200,
-				"top":: 800,
-				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
+				"color": {"r": 0.75, "g": 0.95, "b": 0.15}
 			},
-			"texture": "173.png",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": 35, "y": 300, "z": -30},
-				"n": {"x": 0, "y": 1, "z": 1},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": 35, "y": -700, "z": -1030},
-				"n": {"x": 0, "y": 1, "z": 1},
-				"color": {"r": 0.7, "g": 0.2, "b": 0.2}
-			},
-			"texture": "Perlin",
-			"Scale coefficient": 1,
-			"Shift coefficient": 0,
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": 35, "y": 550, "z": -280},
-				"n": {"x": 0, "y": 1, "z": -1},
-				"color": {"r": 0.2, "g": 0.2, "b": 0.7}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": 35, "y": -1550, "z": 1020},
-				"n": {"x": 0, "y": 1, "z": -1},
-				"color": {"r": 0.2, "g": 0.2, "b": 0.7}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": -700, "y": -1050, "z": 920},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 0.2, "g": 0.7, "b": 0.7}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point1": {"x": 700, "y": -1050, "z": 920},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 0.25, "g": 1, "b": 0}
-			}
+			"emission": {"r": 0, "g": 0, "b": 0}
 		},
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": -610, "z": 250},
-				"r": 150,
-				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
+				"point": {"x": 0, "y": -150, "z": 200},
+				"r": 200,
+				"color": {"r": 0.75, "g": 0.95, "b": 0.15}
 			},
 			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": -150, "y": 0, "z": 200},
+				"r": 200,
+				"color": {"r": 0.15, "g": 0.75, "b": 0.95}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": 150, "y": 0, "z": 100},
+				"r": 200,
+				"color": {"r": 0.95, "g": 0.15, "b": 0.75}
+			},
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 0},
+				"n": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.84, "g": 0.84, "b": 0.95}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 1200},
+				"n": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.93, "g": 0.93, "b": 0.95}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 0, "y": -1000, "z": 0},
+				"n": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.93, "g": 0.84, "b": 0.85}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 0, "y": 1000, "z": 0},
+				"n": {"x": 0, "y": 1, "z": 0},
+				"color": {"r": 0.93, "g": 0.84, "b": 0.95}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 1000, "y": 0, "z": 0},
+				"n": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.93, "g": 0.34, "b": 0.95}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": -1000, "y": 0, "z": 0},
+				"n": {"x": 1, "y": 0, "z": 0},
+				"color": {"r": 0.43, "g": 0.84, "b": 0.95}
+			}
 		}
 	],
 	"negative object": [
 		{
-			"type": "SPHERE",
+			"type": "CYLINDER",
 			"config": {
-				"point1": {"x": 0, "y": -610, "z": 250},
+				"point": {"x": -250, "y": -150, "z": 325},
+				"dir": {"x": 1, "y": 0, "z": 0},
 				"r": 150,
-				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
+				"top": 500,
+				"color": {"r": 0.95, "g": 0.15, "b": 0.75}
 			}
 		}
 	],
 	"spotlights": [
 		{
-			"point1": {"x": -150, "y": -960, "z": 670},
+			"point": {"x": -150, "y": -960, "z": 670},
 			"dir": {"x": 50, "y": 310, "z": -120},
 			"emission": {"r": 20, "g": 20, "b": 20},
 			"radius": 75,
@@ -113,7 +123,7 @@
 		}
 	],
 	"cam": {
-		"point1": {"x": -342.996613, "y": -830.541138, "z": 650.997437},
+		"point": {"x": -342.996613, "y": -830.541138, "z": 650.997437},
 		"fov": 66.6,
 		"dir": {"x": 0, "y": 0, "z": 0},
 		"exposition time": 1,
@@ -121,6 +131,7 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"spp per call": 1
+		"spp per call": 1,
+		"map": "None"
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_spotlights.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:58 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:09:51 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 13:59:56 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		ibasis(t_info *a, cl_int i, t_json_lt *lt)
 
 	if (!cJSON_IsNumber(lt->radius) || !(lt->radius->valuedouble >= 0))
 	{
-		ft_warning("invalid spotlight radius, default 50");
+		warning(a, "invalid spotlight radius, default 50");
 		a->spotlights[i].radius = 50.0;
 	}
 	else
@@ -41,7 +41,7 @@ static void		ibasis(t_info *a, cl_int i, t_json_lt *lt)
 
 static void		parse_light(t_info *a, t_json_scene *js, t_json_lt *lt, int i)
 {
-	lt->pos = cJSON_GetObjectItemCaseSensitive(js->light, "point1");
+	lt->pos = cJSON_GetObjectItemCaseSensitive(js->light, "point");
 	lt->dir = cJSON_GetObjectItemCaseSensitive(js->light, "dir");
 	lt->alpha = cJSON_GetObjectItemCaseSensitive(js->light, "alpha");
 	lt->emission = cJSON_GetObjectItemCaseSensitive(js->light, "emission");
