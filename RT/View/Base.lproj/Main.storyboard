@@ -165,7 +165,7 @@
         <!--ScenesViewController-->
         <scene sceneID="eyr-SC-vRJ">
             <objects>
-                <controllerPlaceholder storyboardIdentifier="ScenesViewController" storyboardName="ScenesViewController" id="fOY-6F-BoV" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardIdentifier="ScenesViewControllerOne" storyboardName="ScenesViewController" id="fOY-6F-BoV" sceneMemberID="viewController"/>
                 <customObject id="0sD-8R-XV5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-122" y="1208"/>
@@ -246,7 +246,6 @@
                         <outlet property="portField" destination="9E7-5g-xUl" id="jud-EK-4rG"/>
                         <outlet property="resolutionPopUP" destination="Otc-LL-mXs" id="Oar-V1-jgm"/>
                         <outlet property="webView" destination="Jy3-Gb-Cbf" id="syZ-ve-hus"/>
-                        <segue destination="5Vz-hY-eH4" kind="show" identifier="ShowRenderer" id="kVy-Wn-3Zf"/>
                         <segue destination="fOY-6F-BoV" kind="popover" identifier="ShowScenesVC" popoverAnchorView="jTb-0e-Zib" popoverBehavior="t" preferredEdge="minY" id="az9-zL-tDj"/>
                     </connections>
                 </viewController>
@@ -261,14 +260,6 @@
                 <customObject id="2W5-N6-J7r" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="595" y="948"/>
-        </scene>
-        <!--ServerTools-->
-        <scene sceneID="2F1-Dh-c6s">
-            <objects>
-                <controllerPlaceholder storyboardIdentifier="ServerTools" storyboardName="ServerTools" id="5Vz-hY-eH4" sceneMemberID="viewController"/>
-                <customObject id="nVc-tT-e6c" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="550" y="1119"/>
         </scene>
     </scenes>
 </document>

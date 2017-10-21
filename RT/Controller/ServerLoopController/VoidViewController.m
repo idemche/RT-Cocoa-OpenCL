@@ -20,15 +20,17 @@
 
 @synthesize map_path = _map_path;
 @synthesize port = _port;
-@synthesize information = _information;
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    NSLog(@"%p", _information);
-	_information->port = (char*)_port;
-	_information->tcp_port = 4242;
-	server(_information);
+	
+	InfoSingleton *manager = [InfoSingleton shared];
+	
+    NSLog(@"%p", manager.information);
+	manager.information->port = (char*)"4444";
+	manager.information->tcp_port = 4242;
+	server(manager.information);
 
     //
     // Do view setup here.

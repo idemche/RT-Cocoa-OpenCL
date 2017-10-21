@@ -42,15 +42,17 @@
 }
 
 - (void)viewDidAppear {
+	
+	InfoSingleton *manager = [InfoSingleton shared];
     
     ft_putstr("Server mode on\n");
-    _information = (t_info*)malloc(sizeof(t_info));
+    manager.information = (t_info*)malloc(sizeof(t_info));
 
-	*_information = (t_info){.image_width = _SCREEN_WIDTH, .image_height = _SCREEN_HEIGHT};
+	*manager.information = (t_info){.image_width = _SCREEN_WIDTH, .image_height = _SCREEN_HEIGHT};
 	NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
 
-	NSFileManager *manager = [NSFileManager defaultManager];
-	NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:bundleRoot];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSDirectoryEnumerator *direnum = [fileManager enumeratorAtPath:bundleRoot];
 	NSString *filename;
 	NSString *string;
 
@@ -63,22 +65,16 @@
 
 			// Do work here
 			string = [NSString stringWithFormat:@"%@/%@", bundleRoot, filename];
-			_information->scenes[i] = (char*)[string cStringUsingEncoding:[NSString defaultCStringEncoding]];
-			if (!__builtin_strcmp(_map_path, _information->scenes[i])) {
-				_information->num_scene = i;
-			}
+			manager.information->scenes[i] = (char*)[string cStringUsingEncoding:[NSString defaultCStringEncoding]];
+//			if (!__builtin_strcmp(_map_path, manager.information->scenes[i])) {
+//				manager.information->num_scene = i;
+//			}
 			NSLog(@"Files in resource folder: %@", filename);
 			i++;
 		}
 	}
 	
     [self performSegueWithIdentifier: @"VoidViewController" sender: self];
-}
-
-
-- (IBAction)didPressButton:(NSButton *)sender {
-	
-	NSLog(@"%p", _information);
 }
 
 -(void)viewDidDisappear {
@@ -124,32 +120,34 @@
 }
 
 - (IBAction)didPressUpdateScene:(NSButton *)sender {
+	
+	InfoSingleton *manager = [InfoSingleton shared];
     
-    _information->keys.light = [_lightOutlet state];
-	_information->keys.dof = [_depthOfField state];
-	_information->keys.indirect_light = [_indirectLight state];
-	_information->keys.parallel_light = [_parallelLight state];
-	_information->keys.spot_light = [_spotLight state];
-	_information->keys.visual_effect = [_colorEffects indexOfSelectedItem];
-	_information->keys.tone_mapper = [_toneMappers indexOfSelectedItem];
+    manager.information->keys.light = [_lightOutlet state];
+	manager.information->keys.dof = [_depthOfField state];
+	manager.information->keys.indirect_light = [_indirectLight state];
+	manager.information->keys.parallel_light = [_parallelLight state];
+	manager.information->keys.spot_light = [_spotLight state];
+	manager.information->keys.visual_effect = [_colorEffects indexOfSelectedItem];
+	manager.information->keys.tone_mapper = [_toneMappers indexOfSelectedItem];
     
-    _information->keys.change_scene = -1;
+    manager.information->keys.change_scene = -1;
 	
 	switch ([_movementDistance indexOfSelectedItem]) {
 		
 		case 0:
 			
-			_information->keys.scale_speed = 1.0;
+			manager.information->keys.scale_speed = 1.0;
 			break;
 			
 		case 1:
 			
-			_information->keys.scale_speed = 0.5;
+			manager.information->keys.scale_speed = 0.5;
 			break;
 			
 		case 2:
 			
-			_information->keys.scale_speed = 0.1;
+			manager.information->keys.scale_speed = 0.1;
 			break;
 			
 		default:
@@ -161,28 +159,29 @@
 		
 		case 0:
 			
-			_information->keys.scale_angle = 1.0;
+			manager.information->keys.scale_angle = 1.0;
 			break;
 			
 		case 1:
 			
-			_information->keys.scale_angle = 0.5;
+			manager.information->keys.scale_angle = 0.5;
 			break;
 			
 		case 2:
 			
-			_information->keys.scale_angle = 0.1;
+			manager.information->keys.scale_angle = 0.1;
 			break;
 		
 		default:
 			break;
 	}
 	
-	_information->keys.update = 1;
+	manager.information->keys.update = 1;
 }
 
 - (IBAction)didPressQuit:(NSButton *)sender {
-    _information->quit = 1;
+	
+    ((InfoSingleton*)[InfoSingleton shared]).information->quit = 1;
 }
 
 -(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
@@ -192,9 +191,7 @@
         RenderViewController *data = (RenderViewController *)segue.destinationController;
         
         data.port = _port;
-        data.map_path = _map_path;
-        data.information = _information;
-        NSLog(@"%p", _information);
+        data.map_path = _map_path;;
 	} else if ([segue.identifier isEqualToString: @"ShowScenes"]) {
 	
 		ScenesViewController *data = (ScenesViewController*)segue.destinationController;

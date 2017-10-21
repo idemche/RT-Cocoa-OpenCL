@@ -7,10 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "rt.h"
+#import "InfoSingleton.h"
 
 @interface VoidViewController : NSViewController
-
-@property(atomic) t_info *information;
 
 @end

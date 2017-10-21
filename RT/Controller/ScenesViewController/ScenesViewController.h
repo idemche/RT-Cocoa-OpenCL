@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebView.h>
 #import <WebKit/WebKit.h>
+#import "InfoSingleton.h"
 
 
 @interface ScenesViewController : NSViewController

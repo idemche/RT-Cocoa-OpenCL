@@ -15,9 +15,7 @@
 
 @property(nonatomic, readonly) int SCREEN_HEIGHT;
 @property(nonatomic, readonly) int SCREEN_WIDTH;
-@property(nonatomic, strong) NSString *path;
 @property (weak) IBOutlet NSTextField *portField;
-//@property (weak) IBOutlet NSPopUpButton *mapSelection;
 @property (weak) IBOutlet NSPopUpButton *resolutionPopUP;
 @property (weak) IBOutlet WebView *webView;
 
@@ -31,7 +29,7 @@
     
     _SCREEN_HEIGHT = 480;
     _SCREEN_WIDTH = 480;
-	dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
+	//dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
 	
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
 	NSURL *url = [NSURL fileURLWithPath:path];
@@ -43,7 +41,7 @@
 	int item = (int)[_resolutionPopUP indexOfSelectedItem];
 	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
 	//_path = [self searchObjectPath];
-	char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
+	//char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
 	
 	switch (item) {
 		
@@ -62,8 +60,6 @@
 
 	if (port_field)
 		[OperationsManager displayError: @"Empty port" : @"Please enter valid port"];
-//    else if (validate_scene(scene))
-//        [OperationsManager displayError: @"Not valid scene" : @"Please read log file for more details"];
     else
 		[self performSegueWithIdentifier: @"ShowScenesVC" sender: self];
 }
@@ -98,15 +94,6 @@
             }
         }
 		
-		RenderViewController *data = (RenderViewController *)segue.destinationController;
-		
-		const char *map_path = [_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
-		const char *port = [_portField.stringValue cStringUsingEncoding:[NSString defaultCStringEncoding]];
-		
-		data.port = __builtin_strdup(port);
-		data.map_path = __builtin_strdup(map_path);
-		data.SCREEN_WIDTH = _SCREEN_WIDTH;
-		data.SCREEN_HEIGHT = _SCREEN_HEIGHT;
 		[self removeFromParentViewController];
     }
 }

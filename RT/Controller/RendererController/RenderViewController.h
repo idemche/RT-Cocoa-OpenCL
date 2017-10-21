@@ -10,13 +10,12 @@
 #import "RenderViewController.h"
 #import "VoidViewController.h"
 #import "SDL.h"
-#import "rt.h"
+#import "InfoSingleton.h"
 
 @interface RenderViewController : NSViewController
 
 @property (nonatomic, assign) const char *port;
 @property (nonatomic, assign) const char *map_path;
-@property(atomic, assign) t_info *information;
 @property(nonatomic, assign) int SCREEN_HEIGHT;
 @property(nonatomic, assign) int SCREEN_WIDTH;
 @property(nonatomic, assign) short	*scene_index;
