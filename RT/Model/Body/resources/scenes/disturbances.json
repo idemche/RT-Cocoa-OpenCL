@@ -3,24 +3,27 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": 0, "z": 1000},
+				"point": {"x": 0, "y": 0, "z": 1000},
 				"r": 100,
-				"color": {"r": 0.7, "g": 0.2, "b": 0.2}
+				"color": {"r": 1, "g": 1, "b": 1}
 			},
 			"emission": {"r": 60, "g": 60, "b": 60}
 		},
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": 0, "y": 0, "z": 0},
+				"point": {"x": 0, "y": 0, "z": 0},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 0.9, "g": 1, "b": 0.6}
-			}
+			},
+			"texture": "Truechecker",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0
 		},
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": 0, "y": 0, "z": 1200},
+				"point": {"x": 0, "y": 0, "z": 1200},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 0.008, "g": 0.23, "b": 0.943}
 			}
@@ -28,15 +31,18 @@
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": 700, "y": 0, "z": 0},
+				"point": {"x": 700, "y": 0, "z": 0},
 				"n": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
-			}
+			},
+			"texture": "Perlin",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0
 		},
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": -1200, "y": 0, "z": 0},
+				"point": {"x": -1200, "y": 0, "z": 0},
 				"n": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.18, "g": 0.2, "b": 0.643}
 			}
@@ -44,7 +50,7 @@
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": 0, "y": 700, "z": 0},
+				"point": {"x": 0, "y": 700, "z": 0},
 				"n": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.35, "g": 0.2, "b": 0.83}
 			}
@@ -52,7 +58,7 @@
 		{
 			"type": "PLANE",
 			"config": {
-				"point1": {"x": 0, "y": -700, "z": 0},
+				"point": {"x": 0, "y": -700, "z": 0},
 				"n": {"x": 0, "y": 1, "z": 0},
 				"color": {"r": 0.54, "g": 0.2, "b": 0.543}
 			}
@@ -60,14 +66,14 @@
 		{
 			"type": "CYLINDER",
 			"config": {
-				"point1": {"x": 0, "y": 400, "z": 50},
+				"point": {"x": 0, "y": 400, "z": 50},
 				"dir": {"x": 0, "y": 1, "z": 1},
 				"r": 150,
-				"top":: 300,
+				"top": 300,
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			},
 			"material": "DIFF",
-			"texture": "None",
+			"texture": "Perlin",
 			"Scale coefficient": 1,
 			"Shift coefficient": 0,
 			"Speed": {"x": 150, "y": 0, "z": 0}
@@ -75,7 +81,7 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": 0, "z": 300},
+				"point": {"x": 0, "y": 0, "z": 300},
 				"r": 200,
 				"color": {"r": 0.7, "g": 0.2, "b": 0.2}
 			},
@@ -90,7 +96,7 @@
 		{
 			"type": "SPHERE",
 			"config": {
-				"point1": {"x": 0, "y": -400, "z": 200},
+				"point": {"x": 0, "y": -400, "z": 200},
 				"r": 200,
 				"color": {"r": 0.7, "g": 0.2, "b": 0.2}
 			},
@@ -106,7 +112,7 @@
 	],
 	"spotlights": [
 		{
-			"point1": {"x": -100, "y": -650, "z": 550},
+			"point": {"x": -100, "y": -650, "z": 550},
 			"dir": {"x": 50, "y": 310, "z": -120},
 			"emission": {"r": 20, "g": 20, "b": 20},
 			"radius": 75,
@@ -114,7 +120,7 @@
 		}
 	],
 	"cam": {
-		"point1": {"x": -1036, "y": 234, "z": 492},
+		"point": {"x": -1036, "y": 234, "z": 492},
 		"fov": 66.6,
 		"dir": {"x": 0, "y": 0, "z": 100},
 		"exposition time": 1,

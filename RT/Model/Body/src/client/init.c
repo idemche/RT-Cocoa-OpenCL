@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:55:13 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 01:07:40 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void			client_init(t_info *a)
 void			init(t_info *a, char *json_file)
 {
 	system("rm -f log");
-	if ((a->log_fd = open("log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD)) == -1)
+	if ((a->log_fd = open("log.log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD))
+																		== -1)
 		ft_putstr("Could not open log file");
 	print_time(a->log_fd);
 	init_scene(a);

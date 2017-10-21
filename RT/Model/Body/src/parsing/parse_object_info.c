@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:11 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 15:26:51 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:43:03 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		get_object_info(t_json_object *o, t_json_scene *js)
 {
 	o->obj = cJSON_GetObjectItemCaseSensitive(js->object, "config");
-	o->p1 = cJSON_GetObjectItemCaseSensitive(o->obj, "point1");
+	o->p1 = cJSON_GetObjectItemCaseSensitive(o->obj, "point");
 	o->p2 = cJSON_GetObjectItemCaseSensitive(o->obj, "point2");
 	o->p3 = cJSON_GetObjectItemCaseSensitive(o->obj, "point3");
 	o->dir = cJSON_GetObjectItemCaseSensitive(o->obj, "dir");

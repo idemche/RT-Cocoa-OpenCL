@@ -46,9 +46,7 @@
 	InfoSingleton *manager = [InfoSingleton shared];
     
     ft_putstr("Server mode on\n");
-    manager.information = (t_info*)malloc(sizeof(t_info));
 
-	*manager.information = (t_info){.image_width = _SCREEN_WIDTH, .image_height = _SCREEN_HEIGHT};
 	NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
 
 	NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -124,7 +122,7 @@
 	InfoSingleton *manager = [InfoSingleton shared];
     
     manager.information->keys.light = [_lightOutlet state];
-	manager.information->keys.dof = [_depthOfField state];
+	manager.information->keys.c_mode = [_depthOfField state];
 	manager.information->keys.indirect_light = [_indirectLight state];
 	manager.information->keys.parallel_light = [_parallelLight state];
 	manager.information->keys.spot_light = [_spotLight state];

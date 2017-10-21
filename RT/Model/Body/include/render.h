@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:44:38 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 19:15:56 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:04:26 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ typedef struct	s_scene
 	cl_char		parallel_light;
 	cl_char		indirect_light;
 	cl_char		spotlight;
-	cl_char		visual_effect;
+	cl_char		v_eff;
 	cl_char		amount_of_nodes;
 	cl_char		node_id;
-	cl_char		dof;
+	cl_char		c_mode;
 	cl_char		env_map;
 	cl_char		radiance_env_map;
 	cl_char		tone_mapper;

@@ -42,11 +42,13 @@
 	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
 	//_path = [self searchObjectPath];
 	//char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    
+    InfoSingleton *manager = [InfoSingleton shared];
 	
 	switch (item) {
 		
 		case 4:
-		
+    
 			_SCREEN_WIDTH = 1920;
 			_SCREEN_HEIGHT = 1080;
 		case 3:
@@ -57,7 +59,10 @@
 			_SCREEN_WIDTH = 800;
 			_SCREEN_HEIGHT = 800;
 	}
-
+    
+    manager.information->image_width = _SCREEN_WIDTH;
+    manager.information->image_height = _SCREEN_HEIGHT;
+    
 	if (port_field)
 		[OperationsManager displayError: @"Empty port" : @"Please enter valid port"];
     else

@@ -46,6 +46,9 @@
 # define GREYSCALE 2
 # define FOG 3
 
+# define DOF 1
+# define FISHEYE 2
+
 # define MY_PI 3.141593f
 # define TWO_PI 2 * MY_PI
 # define I_MY_PI 1 / MY_PI
@@ -152,7 +155,7 @@ typedef struct	s_scene
 	char		visual_effect;
 	char		amount_of_nodes;
 	char		node_id;
-	char		dof;
+	char		mode;
 	char		env_map;
 	char		radiance_env_map;
 	char		tone_mapper;
@@ -1174,13 +1177,12 @@ float			intersect_dna(t_object object, t_ray ray, float3 *normal_tmp, float3 *hi
 	q.x = ray.o - (float3)(0, 0, -object.k);
 	q.a = 1.0f - ray.d.z * ray.d.z;
 	q.b = 2.0f * (dot(ray.d, q.x) - ray.d.z * q.x.z);
+	// q.c = dot(q.x, q.x) - q.x.z * q.x.z - object.edge2.z;
 	q.c = dot(q.x, q.x) - q.x.z * q.x.z - (object.radius + 0.01f) * (object.radius + 0.01f);
 	if (!solve_quadratic(&q))
 		return -1;
 
 
-	int start_floor = 0;
-	int amount_of_floors = (int)((object.top) / object.k);
 	if (q.t1 < EPS && q.t2 < EPS)
 		return -1;
 
@@ -1220,10 +1222,13 @@ float			intersect_dna(t_object object, t_ray ray, float3 *normal_tmp, float3 *hi
 	float3	hit_point[3], normal[3], h, n;
 
 	float tmin = INFIN + 1.0f;
-	while (start_floor < amount_of_floors)
+	int start_floor = 0;
+	while (start_floor < object.period)
 	{
 		cylinder.point1 = (float3)(cos(alpha * start_floor) * ground_point,
 									-sin(alpha * start_floor) * ground_point, 0);
+		// cylinder.point1 = (float3)(cos(object.edge2.x * start_floor) * object.edge2.y,
+		// 						  -sin(object.edge2.x * start_floor) * object.edge2.y, 0);
 		cylinder.dir = -1 * fast_normalize(cylinder.point1);
 		cylinder.point1 += (float3)(0, 0, start_floor * object.k);
 
@@ -1885,6 +1890,9 @@ float			intersect_moebius(t_object object, t_ray ray, float3 *normal_tmp, float3
 	t_moebius	m;
 
 	ray.o -= object.point1;
+	ray.o = mult_matrix_from_vectors_vec(object.a, object.b, object.c, ray.o);
+	ray.d = fast_normalize(mult_matrix_from_vectors_vec(object.a, object.b, object.c, ray.d));
+
 	m.a = object.radius;
 	m.b = ray.o.x;
 	m.c = ray.d.x;
@@ -1906,13 +1914,15 @@ float			intersect_moebius(t_object object, t_ray ray, float3 *normal_tmp, float3
 		return (-1);
 	if ((t = right_moebius_root(n_cubic_roots, cubic_roots, ray, object)) < EPS)
 		return (-1);
-	*hit_point_tmp = ray.d * (float)t + ray.o;
-	float3 h = *hit_point_tmp, n;
-	*hit_point_tmp += object.point1;
+	
+	float3	h = ray.d * (float)t + ray.o,
+			n;
 	n.x = 2 * h.x * h.y - 2 * object.radius * h.z - 4 * h.x * h.z;
 	n.y = -object.radius * object.radius + h.x * h.x - 3 * h.y * h.y - 4 * h.y * h.z + h.z * h.z;
 	n.z = -2 * object.radius * h.x - 2 * h.x * h.x - 2 * h.y * h.y + 2 * h.z * h.y;
-	*normal_tmp = fast_normalize(n);
+
+	*hit_point_tmp = back_transform_vec(object, h) + object.point1;
+	*normal_tmp = fast_normalize(back_transform_vec(object, fast_normalize(n)));
 	return t;
 }
 
@@ -2476,16 +2486,14 @@ float3			get_environment_radiance(__global float3 *environment_map,
 								  			   t_ray ray,
 										  t_negative neg)
 {
-	t_object env_sphere;
+	float3 normal;
+	t_quad q;
+	q.a = 1.0f;
+	q.b = 2.0f * dot(ray.d, ray.o);
+	q.c = dot(ray.o, ray.o) - 1e30f;
+	solve_quadratic(&q);
 
-	env_sphere.radius2 = 1e20f;
-	env_sphere.c2 = 0;
-	env_sphere.point1 = 0;
-	env_sphere.type = SPHERE;
-
-	float3 normal, hp;
-	int dummy;
-	intersect_sphere(env_sphere, ray, &normal, &hp, neg, &dummy);
+	normal = fast_normalize(ray.o + ray.d * q.t2);
 	int tx = (int)(atan2(normal.y, normal.x) * (float)(scene->env_map_w) / (2.0f * MY_PI));
 	int ty = (int)(acos(normal.z) * I_MY_PI * (float)(scene->env_map_h));
 	int i = tx + ty * scene->env_map_w;
@@ -2513,7 +2521,7 @@ float3		get_environment_light(__constant t_object *objects,
 	// ray.d = fast_normalize(issect.u * cos(r1) * r2s + issect.v * sin(r1) * r2s + issect.normal * sqrt(1 - r2));
 
 	int i = -1;
-	int N = 7;
+	int N = 1;
 	while (++i < N)
 	{
 		float phi = get_random(seed0, seed1) * TWO_PI;
@@ -2569,9 +2577,9 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 	ray.o = camera->pos;
 	ray.t = camera->t * get_random(&seed0, &seed1);
 
-	if (!scene->dof)
+	if (scene->mode == STANDARD)
 		ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
-	else if (scene->dof == 1)
+	else if (scene->mode == DOF)
 	{
 		t_ray tmp_ray;
 		tmp_ray.d = fast_normalize(camera->angle * (camera->right * xx + camera->up * yy) + camera->dir);
@@ -2583,7 +2591,7 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 		ray.o += offset;
 		ray.d = fast_normalize(focalPlaneIntersection - ray.o);
 	}
-	else if (scene->dof == 2)
+	else if (scene->mode == FISHEYE)
 	{
 		float x2 = xx * xx;
 		float r = sqrt(x2 + yy * yy);
@@ -2600,7 +2608,7 @@ __kernel void		compute_prime_ray(__global t_ray *output,
 				float theta = atan2(xx, yy);
 				float nx = nr * cos(theta);
 				float ny = nr * sin(theta);
-				ray.d = fast_normalize(camera->right * nx + camera->up * ny + camera->dir);
+				ray.d = fast_normalize(camera->right * ny + camera->up * nx + camera->dir);
 			}
 		}
 	}
@@ -2835,7 +2843,7 @@ __kernel void		do_trace(__global t_state *states,
 
 	t_intersection issect = intersections[id];
 
-	if (intersections[id].took_place == -1)
+	if (issect.took_place == -1)
 	{
 		states[id].is_survive = 0;
 		return ;

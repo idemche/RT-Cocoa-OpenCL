@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_call.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/16 14:42:18 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 00:45:04 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		update_camera_call(t_info *a)
 	while (++i < a->server.max_peers)
 		pthread_join(a->threads[i].thread, NULL);
 	a->update_camera = 0;
+	a->update_scene = 0;
 }
 
 void		update_scene_call(t_info *a)

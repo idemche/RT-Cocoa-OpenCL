@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/14 20:49:34 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/18 15:51:27 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 01:07:52 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static void	free_memory(t_info *a)
 	if (a->scene->env_map)
 		free(a->environment_map);
 	free(a->camera);
-	free(a->albedo_textures);
-	free(a->normal_textures);
 }
 
 int			validate_scene(char *file_path)
@@ -55,7 +53,10 @@ int			validate_scene(char *file_path)
 	t_info	*a;
 
 	a = (t_info*)malloc(sizeof(t_info));
-	if ((a->log_fd = open("log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD)) == -1)
+	a->is_validating = 1;
+	system("rm -f log.log");
+	if ((a->log_fd = open("log.log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD))
+																		== -1)
 	{
 		ft_putstr("Could not open log file");
 		return (-1);
@@ -68,7 +69,6 @@ int			validate_scene(char *file_path)
 	}
 	init_scene(a);
 	parse_scene(a, a->json_file);
-	parse_texture(a);
 	close(a->log_fd);
 	free_memory(a);
 	if (!a->scene_is_valid)

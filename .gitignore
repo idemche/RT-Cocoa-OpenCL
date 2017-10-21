@@ -4,4 +4,6 @@
 log
 *.a
 *DS_Store*
+.*
+*.log
 

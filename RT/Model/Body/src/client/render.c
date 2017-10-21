@@ -67,11 +67,13 @@ void			client_render(t_info *a)
 	check_updates(a, cl);
 	i = -1;
 	while (++i < a->client.spp_per_call)
+	{
 		render_scene(a, cl, a->client.line_size);
-	ft_putstr("\033[A\033[2K");
-	rewind(stdout);
-	ft_putstr("spp: ");
-	ft_putnbr(*(a->current_sample));
-	ft_putchar('\n');
+		ft_putstr("\033[A\033[2K");
+		rewind(stdout);
+		ft_putstr("spp: ");
+		ft_putnbr(*(a->current_sample));
+		ft_putchar('\n');
+	}
 	send_line(a, cl);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_environment.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:05 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 11:29:25 by admin            ###   ########.fr       */
+/*   Updated: 2017/10/20 13:26:11 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			parse_environment_map(t_info *a, t_json_scene *js)
 
 	e.e = cJSON_GetObjectItemCaseSensitive(js->root, "environment");
 	e.m = cJSON_GetObjectItemCaseSensitive(e.e, "map");
-	if (!e.m)
+	if (!e.m || a->is_validating)
 		a->scene->env_map = 0;
 	else
 	{

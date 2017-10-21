@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:53:11 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 19:10:20 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:35:13 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,12 @@ void		mob_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 
 	get_object_info(&m, js);
 	parse_color(a, i, &o->color, m.color);
-	if (!parse_point(&o->point1, m.p1))
-		object_error(a, i, "invalid point1");
+	if (!parse_point(&o->point1, m.p1) || !parse_point(&o->dir, m.dir))
+		object_error(a, i, "invalid xyz");
+	if (!check_vec3(o->dir))
+		object_error(a, i, "invalid direction vector");
+	else
+		normalise_vec3(&o->dir);
 	if (!cJSON_IsNumber(m.r) || (o->radius = m.r->valuedouble) < 0.0)
 	{
 		object_warning(a, i, "invalid radius, default 200");
@@ -70,6 +74,7 @@ void		mob_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 		object_warning(a, i, "invalid width, default 50");
 		o->radius2 = 50.0;
 	}
+	write_transform_matrix_to_object(o);
 }
 
 void		torus_parsing(t_info *a, int i, t_object *o, t_json_scene *js)

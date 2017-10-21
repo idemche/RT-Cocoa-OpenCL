@@ -6,7 +6,7 @@
 /*   By: hshakula <hshakula@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/02 17:52:49 by hshakula          #+#    #+#             */
-/*   Updated: 2017/10/19 15:55:18 by hshakula         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:45:13 by hshakula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		cam_parsing(t_info *a, cJSON *root)
 	jc.cam = cJSON_GetObjectItemCaseSensitive(root, "cam");
 	a->camera = (t_camera*)malloc(sizeof(t_camera));
 	jc.dir = cJSON_GetObjectItemCaseSensitive(jc.cam, "dir");
-	jc.pos = cJSON_GetObjectItemCaseSensitive(jc.cam, "point1");
+	jc.pos = cJSON_GetObjectItemCaseSensitive(jc.cam, "point");
 	jc.fov = cJSON_GetObjectItemCaseSensitive(jc.cam, "fov");
 	jc.focal = cJSON_GetObjectItemCaseSensitive(jc.cam, "focal length");
 	jc.aperture = cJSON_GetObjectItemCaseSensitive(jc.cam, "aperture");

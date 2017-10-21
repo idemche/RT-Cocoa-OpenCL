@@ -15,6 +15,7 @@
 		1069F3121F8CD72A00D7C448 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3111F8CD72A00D7C448 /* ServerViewController.m */; };
 		1069F3151F8CD73B00D7C448 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3141F8CD73B00D7C448 /* ClientViewController.m */; };
 		1069F3511F8D26C300D7C448 /* RenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1069F3501F8D26C300D7C448 /* RenderViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1344FF251F9BAFFA0048467E /* event_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 1344FF241F9BAFFA0048467E /* event_gui.c */; };
 		1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1370589E1F9386AB00D9C77F /* VoidViewController.storyboard */; };
 		137058A21F9386E000D9C77F /* VoidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137058A11F9386E000D9C77F /* VoidViewController.m */; };
 		13D39A0B1F9674EA0077F3D3 /* parse_objects_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */; };
@@ -33,22 +34,18 @@
 		51181B6B1F953700008AEC25 /* refl_transp.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B51F9381C000D9C77F /* refl_transp.json */; };
 		51181B6C1F953700008AEC25 /* limited_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B61F9381C000D9C77F /* limited_objects.json */; };
 		51181B6D1F953700008AEC25 /* dna.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B71F9381C000D9C77F /* dna.json */; };
-		51181B6E1F953700008AEC25 /* bocuelipse.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B81F9381C000D9C77F /* bocuelipse.json */; };
 		51181B6F1F953700008AEC25 /* disturbances.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B91F9381C000D9C77F /* disturbances.json */; };
 		51181B701F953700008AEC25 /* negative_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BA1F9381C000D9C77F /* negative_check.json */; };
 		51181B711F953700008AEC25 /* ex_obj.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BB1F9381C000D9C77F /* ex_obj.json */; };
 		51181B721F953700008AEC25 /* tetrahedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BC1F9381C000D9C77F /* tetrahedron.json */; };
-		51181B731F953700008AEC25 /* octahedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BD1F9381C000D9C77F /* octahedron.json */; };
 		51181B741F953700008AEC25 /* bocal_env.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BE1F9381C000D9C77F /* bocal_env.json */; };
 		51181B751F953700008AEC25 /* textures.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BF1F9381C000D9C77F /* textures.json */; };
 		51181B761F953700008AEC25 /* env_map_torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C01F9381C000D9C77F /* env_map_torus.json */; };
 		51181B771F953700008AEC25 /* cubehole.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C11F9381C000D9C77F /* cubehole.json */; };
 		51181B791F953700008AEC25 /* sphere.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C31F9381C000D9C77F /* sphere.json */; };
-		51181B7A1F953700008AEC25 /* cubohedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C41F9381C000D9C77F /* cubohedron.json */; };
 		51181B7B1F953700008AEC25 /* env_map.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C51F9381C000D9C77F /* env_map.json */; };
 		51181B7C1F953700008AEC25 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C61F9381C000D9C77F /* heart.json */; };
 		51181B7D1F953700008AEC25 /* moebius.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C71F9381C000D9C77F /* moebius.json */; };
-		51181B7E1F953700008AEC25 /* box.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C81F9381C000D9C77F /* box.json */; };
 		51181B7F1F953700008AEC25 /* rgb.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C91F9381C000D9C77F /* rgb.json */; };
 		51181B801F953700008AEC25 /* bocal.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056CA1F9381C000D9C77F /* bocal.json */; };
 		51181B811F953709008AEC25 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 137056D31F9381C000D9C77F /* image.c */; };
@@ -209,6 +206,7 @@
 		1069F34B1F8D194700D7C448 /* SDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL.h; path = SDL2.framework/Versions/A/Headers/SDL.h; sourceTree = "<group>"; };
 		1069F34F1F8D26C300D7C448 /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
 		1069F3501F8D26C300D7C448 /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
+		1344FF241F9BAFFA0048467E /* event_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event_gui.c; sourceTree = "<group>"; };
 		137056B11F9381C000D9C77F /* torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = torus.json; sourceTree = "<group>"; };
 		137056B21F9381C000D9C77F /* paraboloid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = paraboloid.json; sourceTree = "<group>"; };
 		137056B31F9381C000D9C77F /* bh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bh.json; sourceTree = "<group>"; };
@@ -216,22 +214,18 @@
 		137056B51F9381C000D9C77F /* refl_transp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = refl_transp.json; sourceTree = "<group>"; };
 		137056B61F9381C000D9C77F /* limited_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = limited_objects.json; sourceTree = "<group>"; };
 		137056B71F9381C000D9C77F /* dna.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dna.json; sourceTree = "<group>"; };
-		137056B81F9381C000D9C77F /* bocuelipse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocuelipse.json; sourceTree = "<group>"; };
 		137056B91F9381C000D9C77F /* disturbances.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = disturbances.json; sourceTree = "<group>"; };
 		137056BA1F9381C000D9C77F /* negative_check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = negative_check.json; sourceTree = "<group>"; };
 		137056BB1F9381C000D9C77F /* ex_obj.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ex_obj.json; sourceTree = "<group>"; };
 		137056BC1F9381C000D9C77F /* tetrahedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tetrahedron.json; sourceTree = "<group>"; };
-		137056BD1F9381C000D9C77F /* octahedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = octahedron.json; sourceTree = "<group>"; };
 		137056BE1F9381C000D9C77F /* bocal_env.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocal_env.json; sourceTree = "<group>"; };
 		137056BF1F9381C000D9C77F /* textures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = textures.json; sourceTree = "<group>"; };
 		137056C01F9381C000D9C77F /* env_map_torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map_torus.json; sourceTree = "<group>"; };
 		137056C11F9381C000D9C77F /* cubehole.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubehole.json; sourceTree = "<group>"; };
 		137056C31F9381C000D9C77F /* sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere.json; sourceTree = "<group>"; };
-		137056C41F9381C000D9C77F /* cubohedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubohedron.json; sourceTree = "<group>"; };
 		137056C51F9381C000D9C77F /* env_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map.json; sourceTree = "<group>"; };
 		137056C61F9381C000D9C77F /* heart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
 		137056C71F9381C000D9C77F /* moebius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moebius.json; sourceTree = "<group>"; };
-		137056C81F9381C000D9C77F /* box.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = box.json; sourceTree = "<group>"; };
 		137056C91F9381C000D9C77F /* rgb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rgb.json; sourceTree = "<group>"; };
 		137056CA1F9381C000D9C77F /* bocal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocal.json; sourceTree = "<group>"; };
 		137056D31F9381C000D9C77F /* image.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = image.c; sourceTree = "<group>"; };
@@ -542,22 +536,18 @@
 				137056B51F9381C000D9C77F /* refl_transp.json */,
 				137056B61F9381C000D9C77F /* limited_objects.json */,
 				137056B71F9381C000D9C77F /* dna.json */,
-				137056B81F9381C000D9C77F /* bocuelipse.json */,
 				137056B91F9381C000D9C77F /* disturbances.json */,
 				137056BA1F9381C000D9C77F /* negative_check.json */,
 				137056BB1F9381C000D9C77F /* ex_obj.json */,
 				137056BC1F9381C000D9C77F /* tetrahedron.json */,
-				137056BD1F9381C000D9C77F /* octahedron.json */,
 				137056BE1F9381C000D9C77F /* bocal_env.json */,
 				137056BF1F9381C000D9C77F /* textures.json */,
 				137056C01F9381C000D9C77F /* env_map_torus.json */,
 				137056C11F9381C000D9C77F /* cubehole.json */,
 				137056C31F9381C000D9C77F /* sphere.json */,
-				137056C41F9381C000D9C77F /* cubohedron.json */,
 				137056C51F9381C000D9C77F /* env_map.json */,
 				137056C61F9381C000D9C77F /* heart.json */,
 				137056C71F9381C000D9C77F /* moebius.json */,
-				137056C81F9381C000D9C77F /* box.json */,
 				137056C91F9381C000D9C77F /* rgb.json */,
 				137056CA1F9381C000D9C77F /* bocal.json */,
 			);
@@ -567,6 +557,7 @@
 		137056CC1F9381C000D9C77F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1344FF241F9BAFFA0048467E /* event_gui.c */,
 				137056D31F9381C000D9C77F /* image.c */,
 				137056D41F9381C000D9C77F /* math */,
 				137056D91F9381C000D9C77F /* util.c */,
@@ -962,8 +953,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3062F1F11F9B61D500E0ADA2 /* 174.png in Resources */,
-				51181B7A1F953700008AEC25 /* cubohedron.json in Resources */,
-				51181B731F953700008AEC25 /* octahedron.json in Resources */,
 				51181B721F953700008AEC25 /* tetrahedron.json in Resources */,
 				394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
@@ -978,7 +967,6 @@
 				51181B801F953700008AEC25 /* bocal.json in Resources */,
 				51181B6D1F953700008AEC25 /* dna.json in Resources */,
 				51181B681F953700008AEC25 /* paraboloid.json in Resources */,
-				51181B6E1F953700008AEC25 /* bocuelipse.json in Resources */,
 				5175CDD51F9624F400EDC611 /* octa.html in Resources */,
 				51181B6C1F953700008AEC25 /* limited_objects.json in Resources */,
 				51181B701F953700008AEC25 /* negative_check.json in Resources */,
@@ -993,7 +981,6 @@
 				3062F1EE1F9B61D500E0ADA2 /* 173.png in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				1069F3011F8CD33600D7C448 /* Main.storyboard in Resources */,
-				51181B7E1F953700008AEC25 /* box.json in Resources */,
 				51181B7B1F953700008AEC25 /* env_map.json in Resources */,
 				51181BAD1F953725008AEC25 /* kernels.lol in Resources */,
 				51181B6B1F953700008AEC25 /* refl_transp.json in Resources */,
@@ -1027,6 +1014,7 @@
 				51181BF81F953754008AEC25 /* ft_atoi.c in Sources */,
 				51181B981F95371D008AEC25 /* init.c in Sources */,
 				51181B941F95371D008AEC25 /* sequence_call.c in Sources */,
+				1344FF251F9BAFFA0048467E /* event_gui.c in Sources */,
 				51181BDB1F953754008AEC25 /* ft_memcmp.c in Sources */,
 				51181B8F1F95371D008AEC25 /* update_call.c in Sources */,
 				51181BCA1F953754008AEC25 /* ft_strtrim.c in Sources */,
@@ -1279,7 +1267,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TA84XW3A99;
+				DEVELOPMENT_TEAM = UKXRLEPM96;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
@@ -1310,7 +1298,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = TA84XW3A99;
+				DEVELOPMENT_TEAM = UKXRLEPM96;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
