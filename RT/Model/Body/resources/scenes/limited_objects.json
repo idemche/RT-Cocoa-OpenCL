@@ -11,15 +11,6 @@
 			}
 		},
 		{
-			"type": "TRIANGLE",
-			"config": {
-				"point": {"x": 0, "y": 200, "z": 50},
-				"point2": {"x": 0, "y": 400, "z": 50},
-				"point3": {"x": 100, "y": 300, "z": 200},
-				"color": {"r": 0.78, "g": 0.87, "b": 0.78}
-			}
-		},
-		{
 			"type": "DISK",
 			"config": {
 				"point": {"x": 0, "y": 0, "z": 450},
@@ -46,11 +37,29 @@
 				"r": 150,
 				"top": 300,
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
+			}
+		},
+		{
+			"type": "CONE",
+			"config": {
+				"point": {"x": 600, "y": -400, "z": 300},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"angle": 30,
+				"bot": 300,
+				"top": 0,
+				"color": {"r": 0.95, "g": 0.05, "b": 0.05}
 			},
-			"material": "DIFF",
-			"kd": 0,
-			"texture": "None",
-			"Speed": {"x": 0, "y": 0, "z": 0}
+			"material": "SPEC",
+			"kd": 0
+		},
+		{
+			"type": "BOCAL",
+			"config": {
+				"top": 200,
+				"point": {"x": -100, "y": 0, "z": 500},
+				"dir": {"x": 1, "y": 0, "z": 1},
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
 		},
 		{
 			"type": "TETRAHEDRON",
@@ -65,12 +74,45 @@
 		{
 			"type": "STELLATED OCTAHEDRON",
 			"config": {
-				"point": {"x": -600, "y": -600, "z": 0},
+				"point": {"x": -600, "y": -600, "z": 100},
 				"vec1": {"x": 0, "y": 0, "z": 1},
 				"vec2": {"x": 1, "y": 0, "z": 0},
 				"length": 300,
 				"color": {"r": 1, "g": 1, "b": 1}
 			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": -100000},
+				"r": 100000
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"material": "GLOSSY",
+			"glossiness": 0.002,
+			"kd": 0
+		},
+		{
+			"type": "HEART",
+			"config": {
+				"point": {"x": -800, "y": 800, "z": 25},
+				"n": {"x": 0, "y": 0, "z": 1},
+				"width": 100,
+				"color": {"r": 0.78, "g": 0.14, "b": 0.08}
+			}
+		},
+		{
+			"type": "RING",
+			"config": {
+				"point": {"x": -300, "y": 300, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r_big": 150,
+				"r": 135,
+				"top": 50,
+				"color": {"r": 0.03, "g": 0.15, "b": 0.94}
+			},
+			"material": "SPEC",
+			"kd": 0
 		}
 	],
 	"spotlights": [
@@ -83,11 +125,11 @@
 		}
 	],
 	"cam": {
-		"point": {"x": 750, "y": 750, "z": 300},
+		"point": {"x": 650, "y": 0, "z": 560},
 		"fov": 66.6,
-		"dir": {"x": 0, "y": 0, "z": 1000},
+		"dir": {"x": 0, "y": 0, "z": 200},
 		"exposition time": 1,
-		"focal length": 550.0,
+		"focal length": 400.0,
 		"aperture": 10.0
 	},
 	"environment": {
@@ -97,57 +139,7 @@
 	"Video sequence": {
 		"On/Off": false,
 		"fps": 30,
-		"time": 2.5,
+		"time": 8,
 		"axis": {"x": 1, "y": 1, "z": 1}
 	}
 }
-
-,
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": -1000},
-				"n": {"x": 0, "y": 0, "z": 1},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 3000},
-				"n": {"x": 0, "y": 0, "z": 1},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": -2000, "z": 0},
-				"n": {"x": 0, "y": 1, "z": 0},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 2000, "z": 0},
-				"n": {"x": 0, "y": 1, "z": 0},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 2000, "y": 0, "z": 0},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": -2000, "y": 0, "z": 0},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 1, "g": 1, "b": 1}
-			}
-		}

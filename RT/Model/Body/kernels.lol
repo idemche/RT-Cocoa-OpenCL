@@ -176,10 +176,6 @@ typedef struct	s_spotlight
 
 typedef struct	s_object
 {
-	int			type;
-	int			material;
-	int			albedo_n;
-	int			tex_scale;
 	float3		emission;
 	float3		dir;
 	float3		point1;
@@ -195,6 +191,7 @@ typedef struct	s_object
 	float3		a;
 	float3		b;
 	float3		c;
+	float		tex_scale;
 	float		radius;
 	float		radius2;
 	float		bot;
@@ -205,8 +202,15 @@ typedef struct	s_object
 	float		kd;
 	float		refr_index;
 	float		tex_shift;
+	float		dummy1;
 	int			period;
 	int			frequency;
+	int			type;
+	int			material;
+	int			albedo_n;
+	int			dummy2;
+	int			dummy3;
+	int			dummy4;
 }				t_object;
 
 typedef struct	s_intersection
@@ -2185,8 +2189,8 @@ static void		get_tex_coord(int *tx, int *ty,
 		float3 p = hit_point - point1;
 		float px = dot(p, object.edge0);
 		float py = dot(p, object.edge1);
-		*tx = abs((int)(((int)(px) * object.tex_scale) % tex_size));
-		*ty = abs((int)(((int)(py) * object.tex_scale) % tex_size)) + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);
+		*tx = abs((int)((int)(px * object.tex_scale) % tex_size));
+		*ty = abs((int)((int)(py * object.tex_scale) % tex_size)) + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);
 	}
 	else if (object.type == CYLINDER)
 	{
@@ -2196,8 +2200,8 @@ static void		get_tex_coord(int *tx, int *ty,
 		if (fast_length(vec) <= object.radius + 0.005f || fast_length(vec - object.dir * object.top) <= object.radius + 0.005f)
 		{
 			float3 kek = vec / object.radius * 0.5f;
-			*tx = ((int)((dot(kek, object.edge0) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size;
-			*ty = ((int)((dot(kek, object.edge1) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);		
+			*tx = (int)(((dot(kek, object.edge0) + 0.5f) * (float)(tex_size)) / object.tex_scale) % tex_size;
+			*ty = (int)(((dot(kek, object.edge1) + 0.5f) * (float)(tex_size)) / object.tex_scale) % tex_size + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);		
 		}
 		else
 		{	
@@ -2209,8 +2213,8 @@ static void		get_tex_coord(int *tx, int *ty,
 	else if (object.type == DISK)
 	{
 		float3 kek = (hit_point - point1) / object.radius * 0.5f;
-		*tx = ((int)((dot(kek, object.edge0) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size;
-		*ty = ((int)((dot(kek, object.edge1) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);
+		*tx = (int)(((dot(kek, object.edge0) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size;
+		*ty = (int)(((dot(kek, object.edge1) + 0.5f) * (float)(tex_size)) * 2 / object.tex_scale) % tex_size + ((object.albedo_n == PERLIN) ? 0 : tex_size * object.albedo_n);
 	}
 	*tx += object.tex_shift * tex_size;
 	if (*tx > tex_size)

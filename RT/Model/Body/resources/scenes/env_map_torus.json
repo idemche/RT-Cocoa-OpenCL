@@ -152,7 +152,7 @@
 	},
 	"environment": {
 		"spp per call": 50,
-		"map": "environment_maps/poland2.hdr"
+		"map": "environment_maps/skies.hdr"
 	},
 	"Video sequence": {
 		"On/Off": true,

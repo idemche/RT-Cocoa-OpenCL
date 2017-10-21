@@ -5,7 +5,7 @@
 			"config": {
 				"point": {"x": 0, "y": 0, "z": 1000},
 				"r": 100,
-				"color": {"r": 0.7, "g": 0.2, "b": 0.2}
+				"color": {"r": 1, "g": 1, "b": 1}
 			},
 			"emission": {"r": 60, "g": 60, "b": 60}
 		},
@@ -15,7 +15,10 @@
 				"point": {"x": 0, "y": 0, "z": 0},
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 0.9, "g": 1, "b": 0.6}
-			}
+			},
+			"texture": "Truechecker",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0
 		},
 		{
 			"type": "PLANE",
@@ -31,7 +34,10 @@
 				"point": {"x": 700, "y": 0, "z": 0},
 				"n": {"x": 1, "y": 0, "z": 0},
 				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
-			}
+			},
+			"texture": "Perlin",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0
 		},
 		{
 			"type": "PLANE",
@@ -67,7 +73,7 @@
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			},
 			"material": "DIFF",
-			"texture": "None",
+			"texture": "Perlin",
 			"Scale coefficient": 1,
 			"Shift coefficient": 0,
 			"Speed": {"x": 150, "y": 0, "z": 0}

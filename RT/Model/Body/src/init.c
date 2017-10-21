@@ -32,7 +32,7 @@ void				init_scene(t_info *a)
 		ft_error("Malloc error");
 	a->scale_angle = 1.0;
 	a->scale_speed = 1.0;
-	a->scene->light_on = 1;
+	a->scene->light_on = 0;
 	a->scene->indirect_light = 0;
 	a->scene->spotlight = 0;
 	a->scene->parallel_light = 0;

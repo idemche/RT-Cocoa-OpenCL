@@ -70,7 +70,32 @@
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			},
 			"texture": "173.png",
-			"Scale coefficient": 1,
+			"Scale coefficient": 0.25,
+			"Shift coefficient": 0
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": -350, "y": 150, "z": 150},
+				"r": 135
+			},
+			"emission": {"r": 0, "g": 0, "b": 0},
+			"texture": "ground.png",
+			"Scale coefficient": 0.5,
+			"Shift coefficient": 0
+		},
+		{
+			"type": "DISK",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 50},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r": 100,
+				"color": {"r": 0.03, "g": 0.15, "b": 0.94}
+			},
+			"material": "GLOSSY",
+			"glossiness": 0.0025,
+			"texture": "174.png",
+			"Scale coefficient": 16,
 			"Shift coefficient": 0
 		}
 	],

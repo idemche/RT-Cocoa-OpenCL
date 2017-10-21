@@ -96,7 +96,7 @@ void		parse_texture_config(t_info *a, int i, t_json_scene *js,
 		m->scale = cJSON_GetObjectItem(js->object, "Scale coefficient");
 		m->shift = cJSON_GetObjectItem(js->object, "Shift coefficient");
 		if (!cJSON_IsNumber(m->scale) || !cJSON_IsNumber(m->shift) ||
-			m->scale->valueint < 1 || m->scale->valueint > 32 ||
+			m->scale->valuedouble < 0 || m->scale->valuedouble > 32 ||
 			m->shift->valuedouble < 0 || m->shift->valuedouble > 1)
 		{
 			object_warning(a, i, "invalid scale and shit fields, default 0:1");
@@ -105,7 +105,7 @@ void		parse_texture_config(t_info *a, int i, t_json_scene *js,
 		}
 		else
 		{
-			a->objects[i].tex_scale = m->scale->valueint;
+			a->objects[i].tex_scale = m->scale->valuedouble;
 			a->objects[i].tex_shift = m->shift->valuedouble;
 		}
 	}

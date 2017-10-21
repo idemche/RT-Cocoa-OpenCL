@@ -109,16 +109,16 @@
 		}
 	],
 	"cam": {
-		"point": {"x": 500, "y": 0, "z": 400},
+		"point": {"x": 650, "y": 0, "z": 560},
 		"fov": 66.6,
-		"dir": {"x": 0, "y": 0, "z": 0},
+		"dir": {"x": 0, "y": 0, "z": 200},
 		"exposition time": 1,
 		"focal length": 400.0,
 		"aperture": 10.0
 	},
 	"environment": {
 		"spp per call": 1,
-		"map": "environment_maps/skies.hdr"
+		"map": "environment_maps/poland2.hdr"
 	},
 	"Video sequence": {
 		"On/Off": false,
