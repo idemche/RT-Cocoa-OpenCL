@@ -19,10 +19,6 @@
 		1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1370589E1F9386AB00D9C77F /* VoidViewController.storyboard */; };
 		137058A21F9386E000D9C77F /* VoidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137058A11F9386E000D9C77F /* VoidViewController.m */; };
 		13D39A0B1F9674EA0077F3D3 /* parse_objects_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */; };
-		3062F1EE1F9B61D500E0ADA2 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 3062F1EA1F9B61D400E0ADA2 /* 173.png */; };
-		3062F1EF1F9B61D500E0ADA2 /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3062F1EB1F9B61D400E0ADA2 /* 173_norm.png */; };
-		3062F1F01F9B61D500E0ADA2 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 3062F1EC1F9B61D400E0ADA2 /* 174_norm.png */; };
-		3062F1F11F9B61D500E0ADA2 /* 174.png in Resources */ = {isa = PBXBuildFile; fileRef = 3062F1ED1F9B61D400E0ADA2 /* 174.png */; };
 		394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C1AB81F91375E000E0B22 /* Standby.storyboard */; };
 		51181B5A1F953388008AEC25 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1069F3481F8D163400D7C448 /* SDL2.framework */; };
 		51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51181B5D1F9533EC008AEC25 /* ScenesViewController.storyboard */; };
@@ -378,10 +374,6 @@
 		137058A11F9386E000D9C77F /* VoidViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoidViewController.m; sourceTree = "<group>"; };
 		13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse_objects_9.c; sourceTree = "<group>"; };
 		3062F1E91F9B5F3E00E0ADA2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		3062F1EA1F9B61D400E0ADA2 /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
-		3062F1EB1F9B61D400E0ADA2 /* 173_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173_norm.png; sourceTree = "<group>"; };
-		3062F1EC1F9B61D400E0ADA2 /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
-		3062F1ED1F9B61D400E0ADA2 /* 174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174.png; sourceTree = "<group>"; };
 		394C1AB81F91375E000E0B22 /* Standby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Standby.storyboard; sourceTree = "<group>"; };
 		51181B5D1F9533EC008AEC25 /* ScenesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScenesViewController.storyboard; sourceTree = "<group>"; };
 		51181B601F953426008AEC25 /* ScenesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScenesViewController.h; sourceTree = "<group>"; };
@@ -508,7 +500,6 @@
 		137056AE1F9381C000D9C77F /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				51F9EF911F9920A100298C8D /* textures */,
 				137056AF1F9381C000D9C77F /* resources */,
 				137056CC1F9381C000D9C77F /* src */,
 				1370570A1F9381C000D9C77F /* kernels.lol */,
@@ -882,17 +873,6 @@
 			path = HTMLs;
 			sourceTree = "<group>";
 		};
-		51F9EF911F9920A100298C8D /* textures */ = {
-			isa = PBXGroup;
-			children = (
-				3062F1EC1F9B61D400E0ADA2 /* 174_norm.png */,
-				3062F1ED1F9B61D400E0ADA2 /* 174.png */,
-				3062F1EB1F9B61D400E0ADA2 /* 173_norm.png */,
-				3062F1EA1F9B61D400E0ADA2 /* 173.png */,
-			);
-			path = textures;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -952,15 +932,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3062F1F11F9B61D500E0ADA2 /* 174.png in Resources */,
 				51181B721F953700008AEC25 /* tetrahedron.json in Resources */,
 				394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
-				3062F1EF1F9B61D500E0ADA2 /* 173_norm.png in Resources */,
 				51181B671F953700008AEC25 /* torus.json in Resources */,
 				5161E7481F8F8B5900C0D592 /* ServerTools.storyboard in Resources */,
 				51181B6F1F953700008AEC25 /* disturbances.json in Resources */,
-				3062F1F01F9B61D500E0ADA2 /* 174_norm.png in Resources */,
 				51181B7D1F953700008AEC25 /* moebius.json in Resources */,
 				1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */,
 				51181B7C1F953700008AEC25 /* heart.json in Resources */,
@@ -978,7 +955,6 @@
 				1069F2FE1F8CD33600D7C448 /* Assets.xcassets in Resources */,
 				5161E7461F8F8B4200C0D592 /* ClientStandby.storyboard in Resources */,
 				51181B771F953700008AEC25 /* cubehole.json in Resources */,
-				3062F1EE1F9B61D500E0ADA2 /* 173.png in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				1069F3011F8CD33600D7C448 /* Main.storyboard in Resources */,
 				51181B7B1F953700008AEC25 /* env_map.json in Resources */,
@@ -1267,7 +1243,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UKXRLEPM96;
+				DEVELOPMENT_TEAM = TA84XW3A99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
@@ -1298,7 +1274,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = UKXRLEPM96;
+				DEVELOPMENT_TEAM = TA84XW3A99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RT/Frameworks",
