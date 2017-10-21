@@ -12,29 +12,27 @@
 
 #include "rt.h"
 
-static void	dna_parsing_(t_info *a, int i, t_object *o, t_json_object *d)
+static int	dna_parsing_(t_info *a, int i, t_object *o, t_json_object *d)
 {
 	int		period;
 
-	if (!cJSON_IsNumber(d->length) || d->length->valuedouble <= 0.0)
+	period = 2;
+	if (!cJSON_IsNumber(d->length) || (o->top = d->length->valuedouble) <= 0.0)
 	{
 		object_warning(a, i, "invalid length, default 250");
 		o->top = 250.0;
 	}
-	else
-		o->top = d->length->valuedouble;
-	if (!cJSON_IsNumber(d->width) || d->width->valuedouble <= 0.0)
+	if (!cJSON_IsNumber(d->width) ||
+		(o->radius = d->width->valuedouble) <= 0.0)
 	{
 		object_warning(a, i, "invalid width, default 50");
 		o->radius = 50.0;
 	}
-	else
-		o->radius = d->width->valuedouble;
 	if (!cJSON_IsNumber(d->period) ||
-		(period = d->period->valueint) < 1 || d->period->valueint > 10)
+		(period = d->period->valueint) < 1 || period > 10)
 	{
 		object_warning(a, i, "invalid period, default 1");
-		period = 1;
+		period = 2;
 	}
 	return period;
 }
@@ -58,7 +56,7 @@ void		dna_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 		o->frequency = 10;
 	}
 	period = dna_parsing_(a, i, o, &d);
-	o->k = o->top / (o->period * o->frequency);
+	o->k = o->top / (period * o->frequency);
 	o->top += o->k;
 	o->bot = -o->k;
 	o->radius2 = o->k * o->k * 0.15f;

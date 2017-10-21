@@ -105,7 +105,6 @@ void		object_parsing(t_info *a, t_json_scene *js)
 			continue ;
 		}
 		get_object_type(a, i, js->type->valuestring);
-		printf("object #%d type: %d\n", i, a->objects[i].type);
 		parse_material(a, i, js);
 		g_parse_object[a->objects[i].type](a, i, &(a->objects[i]), js);
 	}

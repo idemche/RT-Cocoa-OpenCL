@@ -16,8 +16,8 @@
 				"n": {"x": 0, "y": 0, "z": 1},
 				"color": {"r": 1, "g": 1, "b": 1}
 			},
-			"texture": "174.png",
-			"Scale coefficient": 1,
+			"texture": "ground.png",
+			"Scale coefficient": 4,
 			"Shift coefficient": 0
 		},
 		{
@@ -66,7 +66,7 @@
 				"point": {"x": 0, "y": 400, "z": 50},
 				"dir": {"x": 0, "y": 1, "z": 1},
 				"r": 150,
-				"top":: 300,
+				"top": 300,
 				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
 			},
 			"texture": "173.png",

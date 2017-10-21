@@ -12,6 +12,17 @@
 
 #include "rt.h"
 
+static void			init_scene_(t_info *a)
+{
+	a->scene->amount_of_spotlights = 0;
+	a->scene->amount_of_objects = 0;
+	a->scene->amount_of_spotlights = 0;
+	a->scene->amount_of_albedo_textures = 0;
+	a->scene->n_negative_obj = 0;
+	a->scene->env_map = 0;
+	a->scene->radiance_env_map = 0;
+}
+
 void				init_scene(t_info *a)
 {
 	a->scene_is_valid = 1;
@@ -21,7 +32,7 @@ void				init_scene(t_info *a)
 		ft_error("Malloc error");
 	a->scale_angle = 1.0;
 	a->scale_speed = 1.0;
-	a->scene->light_on = 0;
+	a->scene->light_on = 1;
 	a->scene->indirect_light = 0;
 	a->scene->spotlight = 0;
 	a->scene->parallel_light = 0;
@@ -37,6 +48,7 @@ void				init_scene(t_info *a)
 	a->scene->n_negative_obj = 0;
 	bzero(a->scene->dummy, 13);
 	reset_keys(a);
+	init_scene_(a);
 }
 
 void				reset_keys(t_info *a)

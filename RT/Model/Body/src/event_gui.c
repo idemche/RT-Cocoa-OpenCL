@@ -23,18 +23,6 @@ static int		gui_update_camera(t_info *a, t_keys k)
 	// return (k.c_mode != a->scene->c_mode || k.aperture != a->camera->aperture || k.fl != a->camera->focal_length);
 }
 
-static int		gui_update_light(t_info *a, t_keys k)
-{
-	a->scene->light_on = k.light;
-	a->scene->indirect_light = k.indirect_light;
-	a->scene->parallel_light = k.parallel_light;
-	a->scene->spotlight = k.spot_light;
-	return (k.light != a->scene->light_on ||
-		k.indirect_light != a->scene->indirect_light ||
-		k.parallel_light != a->scene->parallel_light ||
-		k.spot_light != a->scene->spotlight);
-}
-
 void			update_from_gui(t_info *a, t_keys k)
 {
 	if (k.change_scene != -1)
@@ -47,8 +35,15 @@ void			update_from_gui(t_info *a, t_keys k)
 	if (a->scene->v_eff != k.visual_effect ||
 		a->scene->tone_mapper != k.tone_mapper)
 		a->update_scene = 1;
-	if (gui_update_light(a, k) || gui_update_camera(a, k)) //
+	if (k.light != a->scene->light_on ||
+		k.indirect_light != a->scene->indirect_light ||
+		k.parallel_light != a->scene->parallel_light ||
+		k.spot_light != a->scene->spotlight || gui_update_camera(a, k)) //
 		a->update_camera = 1;
+	a->scene->light_on = k.light;
+	a->scene->indirect_light = k.indirect_light;
+	a->scene->parallel_light = k.parallel_light;
+	a->scene->spotlight = k.spot_light;
 	a->scene->v_eff = k.visual_effect;
 	a->scene->tone_mapper = k.tone_mapper;
 	reset_keys(a);

@@ -46,7 +46,7 @@ void		sequence_parse(t_info *a, cJSON *root)
 		ft_error("Invalid axis in video sequence configuration");
 	normalise_vec3(&a->sequence.axis);
 	if (!cJSON_IsNumber(s.time) || !cJSON_IsNumber(s.fps) ||
-		s.time->valuedouble < 1.0 || s.time->valuedouble > 10.0 ||
+		s.time->valuedouble < 1.0 || s.time->valuedouble > 16.0 ||
 		s.fps->valueint < 30 || s.fps->valueint > 90)
 		ft_error("Video sequence configuration error");
 	a->sequence.fps = s.fps->valueint;

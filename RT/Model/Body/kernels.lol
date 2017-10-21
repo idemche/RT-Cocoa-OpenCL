@@ -1177,7 +1177,8 @@ float			intersect_dna(t_object object, t_ray ray, float3 *normal_tmp, float3 *hi
 	q.x = ray.o - (float3)(0, 0, -object.k);
 	q.a = 1.0f - ray.d.z * ray.d.z;
 	q.b = 2.0f * (dot(ray.d, q.x) - ray.d.z * q.x.z);
-	q.c = dot(q.x, q.x) - q.x.z * q.x.z - object.edge2.z;
+	// q.c = dot(q.x, q.x) - q.x.z * q.x.z - object.edge2.z;
+	q.c = dot(q.x, q.x) - q.x.z * q.x.z - (object.radius + 0.01f) * (object.radius + 0.01f);
 	if (!solve_quadratic(&q))
 		return -1;
 
@@ -1214,15 +1215,20 @@ float			intersect_dna(t_object object, t_ray ray, float3 *normal_tmp, float3 *hi
 	cylinder.top = object.radius - 2.0f * sqrt(sphere1.radius2);
 	cylinder.radius2 = 0.09f * sphere1.radius2;
 
+	float alpha = 2.0f * MY_PI / object.frequency;
+	float ground_point = (object.radius - sqrt(sphere1.radius2)) * 0.5f;
+
 	float	roots[3];
 	float3	hit_point[3], normal[3], h, n;
 
 	float tmin = INFIN + 1.0f;
 	int start_floor = 0;
-	while (start_floor < o->period)
+	while (start_floor < object.period)
 	{
-		cylinder.point1 = (float3)(cos(object.edge2.x * start_floor) * object.edge2.y,
-								  -sin(object.edge2.x * start_floor) * object.edge2.y, 0);
+		cylinder.point1 = (float3)(cos(alpha * start_floor) * ground_point,
+									-sin(alpha * start_floor) * ground_point, 0);
+		// cylinder.point1 = (float3)(cos(object.edge2.x * start_floor) * object.edge2.y,
+		// 						  -sin(object.edge2.x * start_floor) * object.edge2.y, 0);
 		cylinder.dir = -1 * fast_normalize(cylinder.point1);
 		cylinder.point1 += (float3)(0, 0, start_floor * object.k);
 
