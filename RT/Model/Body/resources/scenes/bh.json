@@ -1,132 +1,136 @@
 {
 	"objects": [
 		{
-			"type": "CUBE",
+			"type": "TORUS",
 			"config": {
-				"point": {"x": 0, "y": 0, "z": 0},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.78, "g": 0.2, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 300},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.13, "g": 0.2, "b": 0.98}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 600},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.13, "g": 0.2, "b": 0.98}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 900},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.13, "g": 0.2, "b": 0.98}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 300, "z": 900},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.13, "g": 0.2, "b": 0.98}
-			}
-		},
-		{
-			"type": "SPHERE",
-			"config": {
-				"point": {"x": 150, "y": 150, "z": 750},
-				"r": 135
+				"point": {"x": 0, "y": 0, "z": 30},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
 			},
-			"material": "SPEC",
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
 			"kd": 0,
-			"emission": {"r": 0, "g": 0, "b": 0}
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
 		},
 		{
-			"type": "CUBE",
+			"type": "TORUS",
 			"config": {
-				"point": {"x": 0, "y": 300, "z": 0},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.78, "g": 0.2, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 300, "z": 300},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.78, "g": 0.2, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 600, "z": 0},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.78, "g": 0.2, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 600, "z": 300},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.28, "g": 0.88, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 600, "z": 600},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.28, "g": 0.88, "b": 0.28}
-			}
-		},
-		{
-			"type": "CUBE",
-			"config": {
-				"point": {"x": 0, "y": 600, "z": 900},
-				"vec1": {"x": 1, "y": 0, "z": 0},
-				"vec2": {"x": 0, "y": 1, "z": 0},
-				"length": 300,
-				"color": {"r": 0.28, "g": 0.88, "b": 0.28}
-			}
-		},
-		{
-			"type": "SPHERE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": -100000},
-				"r": 100000
+				"point": {"x": 150, "y": 0, "z": 150},
+				"dir": {"x": 1, "y": 0, "z": 0},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
 			},
-			"emission": {"r": 0, "g": 0, "b": 0}
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"config": {
+				"point": {"x": -150, "y": 0, "z": 150},
+				"dir": {"x": 1, "y": 0, "z": 0},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"config": {
+				"point": {"x": 0, "y": 150, "z": 150},
+				"dir": {"x": 0, "y": 1, "z": 0},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"config": {
+				"point": {"x": 0, "y": -150, "z": 150},
+				"dir": {"x": 0, "y": 1, "z": 0},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TORUS",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 305},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r_big": 100,
+				"r": 25,
+				"color": {"r": 0.15, "g": 0.25, "b": 0.95}
+			},
+			"material": "DIFF",
+			"refractive index": 1.5,
+			"absorption": {"r": 0, "g": 0, "b": 0},
+			"glossiness": 0.005,
+			"kd": 0,
+			"texture": "None",
+			"Scale coefficient": 1,
+			"Shift coefficient": 0,
+			"Speed": {"x": 0, "y": 0, "z": 0}
+		},
+		{
+			"type": "TRIANGLE",
+			"config": {
+				"point": {"x": -300, "y": 300, "z": -30},
+				"point2": {"x": -300, "y": -300, "z": -30},
+				"point3": {"x": 300, "y": 300, "z": -30},
+				"color": {"r": 0.78, "g": 0.87, "b": 0.78}
+			}
+		},
+		{
+			"type": "TRIANGLE",
+			"config": {
+				"point": {"x": -300, "y": -300, "z": -30},
+				"point2": {"x": 300, "y": -300, "z": -30},
+				"point3": {"x": 300, "y": 300, "z": -30},
+				"color": {"r": 0.78, "g": 0.87, "b": 0.78}
+			}
 		}
 	],
 	"spotlights": [
@@ -139,24 +143,25 @@
 		}
 	],
 	"cam": {
-		"point": {"x": 650, "y": 0, "z": 560},
-		"fov": 66.6,
-		"dir": {"x": 0, "y": 0, "z": 200},
+		"point": {"x": 300, "y": 0, "z": 300},
+		"fov": 85,
+		"dir": {"x": 0, "y": 0, "z": 150},
 		"exposition time": 1,
 		"focal length": 400.0,
 		"aperture": 10.0
 	},
 	"environment": {
 		"spp per call": 1,
-		"map": "environment_maps/poland2.hdr"
+		"map": "environment_maps/skies.hdr"
 	},
 	"Video sequence": {
 		"On/Off": false,
 		"fps": 30,
-		"time": 8,
-		"axis": {"x": 1, "y": 1, "z": 1}
+		"time": 4,
+		"axis": {"x": 0, "y": 0, "z": 1}
 	}
 }
+
 {
 	"objects": [
 		{

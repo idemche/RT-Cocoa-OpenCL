@@ -39,7 +39,6 @@
 		51181B761F953700008AEC25 /* env_map_torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C01F9381C000D9C77F /* env_map_torus.json */; };
 		51181B771F953700008AEC25 /* cubehole.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C11F9381C000D9C77F /* cubehole.json */; };
 		51181B791F953700008AEC25 /* sphere.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C31F9381C000D9C77F /* sphere.json */; };
-		51181B7B1F953700008AEC25 /* env_map.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C51F9381C000D9C77F /* env_map.json */; };
 		51181B7C1F953700008AEC25 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C61F9381C000D9C77F /* heart.json */; };
 		51181B7D1F953700008AEC25 /* moebius.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C71F9381C000D9C77F /* moebius.json */; };
 		51181B7F1F953700008AEC25 /* rgb.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C91F9381C000D9C77F /* rgb.json */; };
@@ -219,7 +218,6 @@
 		137056C01F9381C000D9C77F /* env_map_torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map_torus.json; sourceTree = "<group>"; };
 		137056C11F9381C000D9C77F /* cubehole.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubehole.json; sourceTree = "<group>"; };
 		137056C31F9381C000D9C77F /* sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere.json; sourceTree = "<group>"; };
-		137056C51F9381C000D9C77F /* env_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map.json; sourceTree = "<group>"; };
 		137056C61F9381C000D9C77F /* heart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
 		137056C71F9381C000D9C77F /* moebius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moebius.json; sourceTree = "<group>"; };
 		137056C91F9381C000D9C77F /* rgb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rgb.json; sourceTree = "<group>"; };
@@ -536,7 +534,6 @@
 				137056C01F9381C000D9C77F /* env_map_torus.json */,
 				137056C11F9381C000D9C77F /* cubehole.json */,
 				137056C31F9381C000D9C77F /* sphere.json */,
-				137056C51F9381C000D9C77F /* env_map.json */,
 				137056C61F9381C000D9C77F /* heart.json */,
 				137056C71F9381C000D9C77F /* moebius.json */,
 				137056C91F9381C000D9C77F /* rgb.json */,
@@ -957,7 +954,6 @@
 				51181B771F953700008AEC25 /* cubehole.json in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				1069F3011F8CD33600D7C448 /* Main.storyboard in Resources */,
-				51181B7B1F953700008AEC25 /* env_map.json in Resources */,
 				51181BAD1F953725008AEC25 /* kernels.lol in Resources */,
 				51181B6B1F953700008AEC25 /* refl_transp.json in Resources */,
 				51181B6A1F953700008AEC25 /* bocuelipse_env.json in Resources */,

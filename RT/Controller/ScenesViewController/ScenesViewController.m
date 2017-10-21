@@ -83,152 +83,388 @@
     }
 }
 
+-(NSInteger)returnUpdateScene:(NSString*)map {
+
+    InfoSingleton *manager = [InfoSingleton shared];
+    for(NSInteger i = 0; i < 26; i++)
+    {
+        if (!__builtin_strcmp(manager.information->scenes[i], [map cStringUsingEncoding: [NSString defaultCStringEncoding]]))
+            return(i);
+    }
+    return(-1);
+}
+
 -(void)viewDidDisappear {
     NSLog(@"Scenes are dead");
 }
 
 - (IBAction)didPressOctaScene:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"octahedron" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    _pathString = [[NSBundle mainBundle] pathForResource: @"dna" ofType:@"json"];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 
 - (IBAction)didPressBhEnv:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"bh_env" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    _pathString = [[NSBundle mainBundle] pathForResource: @"negative_check" ofType:@"json"];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        NSLog(@"%d\n", manager.information->keys.change_scene);
+    }
 }
 - (IBAction)didPressBocalEnv:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"bocal_env" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressBocal:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"bocal" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressBocuelipseEnv:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"bocuelipse_env" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressBocuelipse:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"bocuelipse" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressBox:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"box" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressCubehole:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"cubehole" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressCubohedron:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"cubohedron" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressDisturbances:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"disturbances" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressDna:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"dna" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressDof:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"dof" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressEnvMapTorus:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"env_map_torus" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressEnvMap:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"env_map" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressExObj:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"ex_obj" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressLimitedObjects:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"limited_objects" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressMoebius:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"moebius" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressNegativeCheck:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"negative_check" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressParaboloid:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"paraboloid" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 
 - (IBAction)didPressPyramid:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"pyramid" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 //++++++++++++
 - (IBAction)didPressReflTransp:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"refl_transp" ofType:@"json"];
     [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressRgb:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"rgb" ofType:@"json"];
     [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressRing:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"ring" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressSphere:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"sphere" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressTetrahedron:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"tetrahedron" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressTextures:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"textures" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressTorusInsideSphere:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"torus_inside_sphere" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 - (IBAction)didPressTorus:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"torus" ofType:@"json"];
-    [self returnScene:_pathString];
-    [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
+    {
+        [self returnScene:_pathString];
+        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
+        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
+    }
+    else {
+        InfoSingleton *manager = [InfoSingleton shared];
+        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+    }
 }
 
 @end

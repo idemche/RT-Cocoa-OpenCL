@@ -128,8 +128,6 @@
 	manager.information->keys.spot_light = [_spotLight state];
 	manager.information->keys.visual_effect = [_colorEffects indexOfSelectedItem];
 	manager.information->keys.tone_mapper = [_toneMappers indexOfSelectedItem];
-    
-    manager.information->keys.change_scene = -1;
 	
 	switch ([_movementDistance indexOfSelectedItem]) {
 		
@@ -182,19 +180,4 @@
     ((InfoSingleton*)[InfoSingleton shared]).information->quit = 1;
 }
 
--(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString: @"VoidViewController"]) {
-        
-        RenderViewController *data = (RenderViewController *)segue.destinationController;
-        
-        data.port = _port;
-        data.map_path = _map_path;;
-	} else if ([segue.identifier isEqualToString: @"ShowScenes"]) {
-	
-		ScenesViewController *data = (ScenesViewController*)segue.destinationController;
-		
-		data.scene_index = _scene_index;
-	}
-}
 @end

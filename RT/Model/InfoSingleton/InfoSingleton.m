@@ -25,6 +25,7 @@
 	if (self == [super init]) {
 		_information = (t_info*)malloc(sizeof(t_info));
         *_information = (t_info){0};
+        _serverIsInitiated = 0;
 	}
 	return self;
 }

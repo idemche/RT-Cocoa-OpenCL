@@ -10,16 +10,10 @@
 
 @interface VoidViewController ()
 
-@property (nonatomic, assign) const char *map_path;
-
-@property (nonatomic, assign) const char *port;
 
 @end
 
 @implementation VoidViewController
-
-@synthesize map_path = _map_path;
-@synthesize port = _port;
 
 - (void)viewDidLoad {
     

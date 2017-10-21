@@ -29,6 +29,7 @@ void			update_from_gui(t_info *a, t_keys k)
 	{
 		a->update_map = 1;
 		a->num_scene = k.change_scene;
+		printf("%d\n", k.change_scene);
 		reset_keys(a);
 		return ;
 	}

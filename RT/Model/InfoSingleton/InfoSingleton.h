@@ -12,6 +12,7 @@
 @interface InfoSingleton : NSObject
 
 @property(atomic) t_info *information;
+@property(nonatomic, assign) NSInteger serverIsInitiated;
 
 +(id)shared;
 
