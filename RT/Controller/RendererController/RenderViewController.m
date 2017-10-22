@@ -124,20 +124,23 @@
 	
 	InfoSingleton *manager = [InfoSingleton shared];
 	
-	if (![self validateDouble: [_apertureRadiusTextField stringValue]]) {
-		[OperationsManager displayError: @"Invalid aperture" : @"Please enter valid aperture [double value with 6 digits maximum length]"];
-		return;
-	} else if (![self validateDouble:[_focalLengthTextField stringValue]]) {
-		[OperationsManager displayError: @"Invalid focal length" : @"Please enter valid focal length [double value with 6 digits maximum length]"];
-		return;
-	}
-
 	NSString *one = [_apertureRadiusTextField stringValue];
 	NSString *two = [_focalLengthTextField stringValue];
 	
 	if ([one length] == 0 || [two length] == 0)
 	{
 		[OperationsManager displayError: @"Empty fields" : @"Please fill all fields]"];
+		return;
+	}
+	
+	if (![self validateDouble: [_apertureRadiusTextField stringValue]]) {
+		[OperationsManager displayError: @"Invalid aperture" : @"Please enter valid aperture [double value with 6 digits maximum length]"];
+		return;
+	} else if (![self validateDouble:[_focalLengthTextField stringValue]]) {
+		[OperationsManager displayError: @"Invalid focal length" : @"Please enter valid focal length [double value with 6 digits maximum length]"];
+		return;
+	} else if ([_apertureRadiusTextField doubleValue] < 0 || [_focalLengthTextField doubleValue] < 5 ) {
+		[OperationsManager displayError: @"Invalid values" : @"Does focal > 5 and does aperture > 0?]"];
 		return;
 	}
 
