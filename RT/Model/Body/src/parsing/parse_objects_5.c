@@ -34,7 +34,7 @@ static int	dna_parsing_(t_info *a, int i, t_object *o, t_json_object *d)
 		object_warning(a, i, "invalid period, default 1");
 		period = 2;
 	}
-	return period;
+	return (period);
 }
 
 void		dna_parsing(t_info *a, int i, t_object *o, t_json_scene *js)

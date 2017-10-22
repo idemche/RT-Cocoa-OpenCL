@@ -32,6 +32,8 @@
 @property (weak) IBOutlet NSTextField *apertureRadiusTextField;
 @property (weak) IBOutlet NSTextField *focalLengthTextField;
 
+@property (nonatomic, assign) int   didStart;
+
 @end
 
 @implementation RenderViewController
@@ -39,37 +41,41 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    _didStart = 0;
 }
 
 - (void)viewDidAppear {
 	
-	InfoSingleton *manager = [InfoSingleton shared];
-    
-    ft_putstr("Server mode on\n");
-
-	NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
-
-	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSDirectoryEnumerator *direnum = [fileManager enumeratorAtPath:bundleRoot];
-	NSString *filename;
-	NSString *string;
-
-	int i = 0;
-
-	while ((filename = [direnum nextObject] )) {
-
-		//change the suffix to what you are looking for
-		if ([filename hasSuffix:@".json"] && i < 26) {
-
-			// Do work here
-			string = [NSString stringWithFormat:@"%@/%@", bundleRoot, filename];
-			manager.information->scenes[i] = (char*)[string cStringUsingEncoding:[NSString defaultCStringEncoding]];
-			NSLog(@"Files in resource folder: %@", filename);
-			i++;
-		}
-	}
+    if (_didStart == 0) {
 	
-    [self performSegueWithIdentifier: @"VoidViewController" sender: self];
+        InfoSingleton *manager = [InfoSingleton shared];
+    
+        ft_putstr("Server mode on\n");
+        
+        NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSDirectoryEnumerator *direnum = [fileManager enumeratorAtPath:bundleRoot];
+        NSString *filename;
+        NSString *string;
+        
+        int i = 0;
+        
+        while ((filename = [direnum nextObject] )) {
+            
+            //change the suffix to what you are looking for
+            if ([filename hasSuffix:@".json"] && i < 26) {
+                
+                // Do work here
+                string = [NSString stringWithFormat:@"%@/%@", bundleRoot, filename];
+                manager.information->scenes[i] = (char*)[string cStringUsingEncoding:[NSString defaultCStringEncoding]];
+                i++;
+            }
+        }
+        
+        _didStart = 1;
+        [self performSegueWithIdentifier: @"VoidViewController" sender: self];
+    }
 }
 
 -(void)viewDidDisappear {

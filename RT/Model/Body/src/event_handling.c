@@ -117,7 +117,6 @@ static void		scene_events(t_info *a, int k)
 	}
 }
 
-
 void			handle_events(t_info *a, SDL_Event event, int key)
 {
 	key = event.key.keysym.sym;

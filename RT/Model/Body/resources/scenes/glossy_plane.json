@@ -76,7 +76,7 @@
 		"map": "environment_maps/skies.hdr"
 	},
 	"Video sequence": {
-		"On/Off": true,
+		"On/Off": false,
 		"fps": 30,
 		"time": 4.5,
 		"axis": {"x": 0, "y": 0, "z": 1}

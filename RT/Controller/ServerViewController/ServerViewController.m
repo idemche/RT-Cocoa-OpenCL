@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"dna" ofType:@"html"];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"background" ofType:@"html"];
 	NSURL *url = [NSURL fileURLWithPath:path];
 	[[_backgroundView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
     _SCREEN_HEIGHT = 800;

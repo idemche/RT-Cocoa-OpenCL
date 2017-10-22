@@ -43,7 +43,7 @@ static void		init_kernel_(t_cl *cl, int err, char *src_file)
 {
 	size_t size;
 
-	size = get_file("kernels.lol", &src_file);
+	size = get_file("kernels.cl", &src_file);
 	if (size == 0)
 		exit(-2);
 	cl->program = clCreateProgramWithSource(cl->context,
