@@ -27,7 +27,6 @@
 		51181B641F9536F6008AEC25 /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE031F95148E00EE6E5F /* 173_norm.png */; };
 		51181B651F9536F6008AEC25 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE041F95148E00EE6E5F /* 173.png */; };
 		51181B661F9536F6008AEC25 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE051F95148E00EE6E5F /* 174_norm.png */; };
-		51181B691F953700008AEC25 /* bh.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B31F9381C000D9C77F /* bh.json */; };
 		51181B6B1F953700008AEC25 /* refl_transp.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B51F9381C000D9C77F /* refl_transp.json */; };
 		51181B6C1F953700008AEC25 /* limited_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B61F9381C000D9C77F /* limited_objects.json */; };
 		51181B6D1F953700008AEC25 /* dna.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B71F9381C000D9C77F /* dna.json */; };
@@ -196,7 +195,6 @@
 		1069F34F1F8D26C300D7C448 /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
 		1069F3501F8D26C300D7C448 /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
 		13599E8A1F9A0E45006F2A69 /* event_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event_gui.c; sourceTree = "<group>"; };
-		137056B31F9381C000D9C77F /* bh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bh.json; sourceTree = "<group>"; };
 		137056B51F9381C000D9C77F /* refl_transp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = refl_transp.json; sourceTree = "<group>"; };
 		137056B61F9381C000D9C77F /* limited_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = limited_objects.json; sourceTree = "<group>"; };
 		137056B71F9381C000D9C77F /* dna.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dna.json; sourceTree = "<group>"; };
@@ -504,7 +502,6 @@
 		137056B01F9381C000D9C77F /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				137056B31F9381C000D9C77F /* bh.json */,
 				137056B51F9381C000D9C77F /* refl_transp.json */,
 				137056B61F9381C000D9C77F /* limited_objects.json */,
 				137056B71F9381C000D9C77F /* dna.json */,
@@ -922,7 +919,6 @@
 				51181B6C1F953700008AEC25 /* limited_objects.json in Resources */,
 				51181B701F953700008AEC25 /* negative.json in Resources */,
 				51181B761F953700008AEC25 /* toruses.json in Resources */,
-				51181B691F953700008AEC25 /* bh.json in Resources */,
 				5175CDD31F96239800EDC611 /* octa.gif in Resources */,
 				1069F2FE1F8CD33600D7C448 /* Assets.xcassets in Resources */,
 				5161E7461F8F8B4200C0D592 /* ClientStandby.storyboard in Resources */,

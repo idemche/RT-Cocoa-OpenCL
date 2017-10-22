@@ -55,7 +55,7 @@ int			validate_scene(char *file_path)
 	a = (t_info*)malloc(sizeof(t_info));
 	a->is_validating = 1;
 	system("rm -f log.log");
-	if ((a->log_fd = open("log.log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD))
+	if ((a->log_fd = open("~/log.log", O_CREAT | O_RDWR, S_IWRITE | S_IREAD))
 																		== -1)
 	{
 		ft_putstr("Could not open log file");
