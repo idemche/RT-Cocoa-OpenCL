@@ -19,22 +19,21 @@
 //@property (weak) IBOutlet WebView *webView;
 @property (weak) IBOutlet NSTextField *udpPort;
 @property (weak) IBOutlet NSTextField *tcpPort;
+@property (weak) IBOutlet WebView *backgroundView;
 
 @end
 
 @implementation ServerViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    
-    _SCREEN_HEIGHT = 480;
-    _SCREEN_WIDTH = 480;
-	//dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
 	
-//	NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
-//	NSURL *url = [NSURL fileURLWithPath:path];
-//	[[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+	NSString *path = [[NSBundle mainBundle] pathForResource:@"dna" ofType:@"html"];
+	NSURL *url = [NSURL fileURLWithPath:path];
+	[[_backgroundView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+    _SCREEN_HEIGHT = 800;
+    _SCREEN_WIDTH = 800;
+	//dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
 }
 
 - (BOOL) validatePort:(NSString *)value {

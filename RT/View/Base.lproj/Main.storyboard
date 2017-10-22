@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -176,11 +177,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="763" height="429"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29j-3A-YWT">
+                            <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spK-vx-U4x">
                                 <rect key="frame" x="0.0" y="0.0" width="763" height="429"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="main_menu_picture" id="i19-Oc-eYE"/>
-                            </imageView>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
+                                    <nil key="identifier"/>
+                                </webPreferences>
+                            </webView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="czW-ww-oKG">
                                 <rect key="frame" x="18" y="392" width="118" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -257,6 +260,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="spK-vx-U4x" id="UL3-Of-bW9"/>
                         <outlet property="resolutionPopUP" destination="Otc-LL-mXs" id="Oar-V1-jgm"/>
                         <outlet property="tcpPort" destination="lac-IX-2Tu" id="c4G-1N-5D3"/>
                         <outlet property="udpPort" destination="9E7-5g-xUl" id="lQ5-od-9PH"/>
@@ -276,7 +280,4 @@
             <point key="canvasLocation" x="823" y="973"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="main_menu_picture" width="960" height="540"/>
-    </resources>
 </document>
