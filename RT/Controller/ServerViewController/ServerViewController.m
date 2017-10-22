@@ -15,9 +15,10 @@
 
 @property(nonatomic, readonly) int SCREEN_HEIGHT;
 @property(nonatomic, readonly) int SCREEN_WIDTH;
-@property (weak) IBOutlet NSTextField *portField;
 @property (weak) IBOutlet NSPopUpButton *resolutionPopUP;
-@property (weak) IBOutlet WebView *webView;
+//@property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet NSTextField *udpPort;
+@property (weak) IBOutlet NSTextField *tcpPort;
 
 @end
 
@@ -31,15 +32,34 @@
     _SCREEN_WIDTH = 480;
 	//dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
 	
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
-	NSURL *url = [NSURL fileURLWithPath:path];
-	[[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+//	NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
+//	NSURL *url = [NSURL fileURLWithPath:path];
+//	[[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (BOOL) validatePort:(NSString *)value {
+	
+	NSLocale *locale = [NSLocale currentLocale];
+	NSString *thousandSeparator = [locale objectForKey:NSLocaleGroupingSeparator];
+	NSString *result = [value stringByReplacingOccurrencesOfString:thousandSeparator withString:@""];
+	
+	NSString *doubleRegex = @"^[0-9]{4}$";
+	NSPredicate *doublePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", doubleRegex];
+	return [doublePredicate evaluateWithObject: result];
 }
 
 - (IBAction)didPressButton:(NSButton *)sender {
 	
+	char udpPortEmpty = (char)@([OperationsManager IsEmpty: _udpPort.stringValue]).integerValue;
+	char tcpPortEmpty = (char)@([OperationsManager IsEmpty: _tcpPort.stringValue]).integerValue;
+	
+	if (udpPortEmpty || tcpPortEmpty || ![self validatePort:_tcpPort.stringValue] || ![self validatePort:_udpPort.stringValue] || [_tcpPort integerValue] < 1024 || [_udpPort integerValue] < 1024) {
+		[OperationsManager displayError: @"Invalid ports" : @"Please enter valid port [4 digits only bigger than 1024]"];
+		return;
+	}
+	
 	int item = (int)[_resolutionPopUP indexOfSelectedItem];
-	char port_field	= (char)@([OperationsManager IsEmpty: _portField.stringValue]).integerValue;
+
 	//_path = [self searchObjectPath];
 	//char *scene = (char*)[_path cStringUsingEncoding:[NSString defaultCStringEncoding]];
     
@@ -62,11 +82,10 @@
     
     manager.information->image_width = _SCREEN_WIDTH;
     manager.information->image_height = _SCREEN_HEIGHT;
-    
-	if (port_field)
-		[OperationsManager displayError: @"Empty port" : @"Please enter valid port"];
-    else
-		[self performSegueWithIdentifier: @"ShowScenesVC" sender: self];
+	manager.information->port = __builtin_strdup((char*)[[_udpPort stringValue] cStringUsingEncoding:[NSString defaultCStringEncoding]]);
+	manager.information->tcp_port = (int)[_tcpPort integerValue];
+	
+	[self performSegueWithIdentifier: @"ShowScenesVC" sender: self];
 }
 
 -(void)viewWillDisappear {
@@ -74,34 +93,13 @@
 	NSLog(@"%s", "Byebye ServerViewController");
 }
 
--(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
-	
-	if ([segue.identifier isEqualToString: @"ShowRenderer"]) {
-        
-        NSArray<NSWindow*> *windows = NSApplication.sharedApplication.windows;
-        
-        for (NSWindow *to_close in windows) {
-            
-            NSString *str = [to_close className];
-            
-            SWITCH (str) {
-                
-                CASE (@"SDLWindow") {
-                    
-                    break;
-                }
-                
-                DEFAULT {
-                    
-                    [to_close close];
-                    break;
-                }
-            }
-        }
-		
-		[self removeFromParentViewController];
-    }
-}
+//-(void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+//
+//
+//
+//		[self removeFromParentViewController];
+//    }
+//}
 
 //-(NSString*)searchObjectPath {
 //

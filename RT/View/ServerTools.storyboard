@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="80G-mm-Vg1">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="80G-mm-Vg1">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -82,14 +82,6 @@
                                             <rect key="frame" x="153" y="73" width="99" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Indirect light" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Y0E-Kz-6AA">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmk-wT-wPE">
-                                            <rect key="frame" x="18" y="46" width="108" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Depth of Field" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="FbC-YV-ODp">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -243,7 +235,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFM-9n-1zH">
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFM-9n-1zH">
                                             <rect key="frame" x="159" y="102" width="129" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="5.6" drawsBackground="YES" id="IZy-67-gZp">
@@ -313,7 +305,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08f-bY-7MM">
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08f-bY-7MM">
                                             <rect key="frame" x="159" y="73" width="129" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="66" drawsBackground="YES" id="hAt-lp-7tV">
@@ -359,13 +351,17 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="apertureRadiusTextField" destination="uFM-9n-1zH" id="trD-XY-k00"/>
+                        <outlet property="cameraMode" destination="MyO-Yr-OUz" id="ozI-64-gvC"/>
                         <outlet property="colorEffects" destination="dc3-dA-8Br" id="ecX-Ig-O2K"/>
-                        <outlet property="depthOfField" destination="Mmk-wT-wPE" id="xqk-eB-z5T"/>
+                        <outlet property="focalLengthTextField" destination="08f-bY-7MM" id="t2l-ub-AQ7"/>
                         <outlet property="indirectLight" destination="Q0E-3y-G5f" id="mCu-R2-CDs"/>
                         <outlet property="lightOutlet" destination="13E-G5-iHY" id="Qxo-cC-yeu"/>
                         <outlet property="movementDistance" destination="Qmy-El-lGD" id="h3a-dM-Zq6"/>
+                        <outlet property="movementFactor" destination="Qmy-El-lGD" id="3Pe-J6-wqY"/>
                         <outlet property="parallelLight" destination="DZb-sv-4ry" id="Dit-hW-On4"/>
                         <outlet property="rotationAngle" destination="oWY-ps-YTM" id="eiu-C7-6t4"/>
+                        <outlet property="rotationFactor" destination="oWY-ps-YTM" id="ugB-Um-bOF"/>
                         <outlet property="spotLight" destination="XTG-nC-Ura" id="caa-Vj-BVm"/>
                         <outlet property="toneMappers" destination="R4d-bv-Zge" id="hgn-12-cvK"/>
                         <segue destination="pHA-XY-kgc" kind="show" identifier="VoidViewController" id="x4H-FS-mwL"/>

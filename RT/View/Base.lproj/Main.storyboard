@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -166,7 +166,7 @@
                 <controllerPlaceholder storyboardIdentifier="ScenesViewControllerOne" storyboardName="ScenesViewController" id="fOY-6F-BoV" sceneMemberID="viewController"/>
                 <customObject id="0sD-8R-XV5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="217" y="1198"/>
+            <point key="canvasLocation" x="216" y="1317"/>
         </scene>
         <!--Server View Controller-->
         <scene sceneID="bj2-Hg-Z7h">
@@ -176,7 +176,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="763" height="429"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29j-3A-YWT">
+                            <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29j-3A-YWT">
                                 <rect key="frame" x="0.0" y="0.0" width="763" height="429"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="main_menu_picture" id="i19-Oc-eYE"/>
@@ -257,8 +257,9 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="portField" destination="9E7-5g-xUl" id="jud-EK-4rG"/>
                         <outlet property="resolutionPopUP" destination="Otc-LL-mXs" id="Oar-V1-jgm"/>
+                        <outlet property="tcpPort" destination="lac-IX-2Tu" id="c4G-1N-5D3"/>
+                        <outlet property="udpPort" destination="9E7-5g-xUl" id="lQ5-od-9PH"/>
                         <segue destination="fOY-6F-BoV" kind="popover" identifier="ShowScenesVC" popoverAnchorView="jTb-0e-Zib" popoverBehavior="t" preferredEdge="minY" id="az9-zL-tDj"/>
                     </connections>
                 </viewController>

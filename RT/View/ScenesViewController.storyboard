@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="7OW-wf-VOV">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="7OW-wf-VOV">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="13196"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -459,6 +459,9 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="bocalWebView" destination="R8J-rh-cp5" id="RGh-rb-938"/>
+                        <outlet property="dnaWebView" destination="bMA-yN-cug" id="ed5-QP-hG4"/>
+                        <outlet property="glossyWebView" destination="aDX-6e-cQp" id="wm1-n1-gfm"/>
                         <segue destination="UtB-xM-sfE" kind="show" identifier="ShowRenderer" id="uyF-XI-JEQ"/>
                     </connections>
                 </viewController>

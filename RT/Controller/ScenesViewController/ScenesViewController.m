@@ -11,6 +11,10 @@
 
 @interface ScenesViewController ()
 
+@property (weak) IBOutlet WebView *dnaWebView;
+@property (weak) IBOutlet WebView *glossyWebView;
+@property (weak) IBOutlet WebView *bocalWebView;
+
 @property (weak) IBOutlet WebView        *octaWebView;
 @property (weak) IBOutlet NSButton        *octaButton;
 @property (nonatomic, strong) NSString *pathString;
@@ -21,11 +25,6 @@
 @implementation ScenesViewController
 
 @synthesize octaWebView = _octaWebView;
-
-@synthesize bocalaWebView = _bocalWebView;
-@synthesize glossyWebView = _glossyWebView;
-@synthesize dnaWebView = _dnaWebView;
-
 @synthesize pathString = _pathString;
 @synthesize index = _index;
 
@@ -34,14 +33,22 @@
     [super viewDidLoad];
     
     dispatch_queue_t async_animation = dispatch_queue_create("animation", NULL);
-    
+
     dispatch_async(async_animation, ^{
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"octa" ofType:@"html"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        [[_octaWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
+        NSString *path_dna = [[NSBundle mainBundle] pathForResource:@"dna" ofType:@"html"];
+        NSURL *url_dna = [NSURL fileURLWithPath:path_dna];
+        [[_dnaWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:url_dna]];
+		
+		NSString *path_glossy = [[NSBundle mainBundle] pathForResource:@"glossy_plane" ofType:@"html"];
+		NSURL *url_glossy = [NSURL fileURLWithPath:path_glossy];
+		[[_glossyWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:url_glossy]];
+		
+		
+		NSString *path_bocal = [[NSBundle mainBundle] pathForResource:@"bocal" ofType:@"html"];
+		NSURL *url = [NSURL fileURLWithPath:path_bocal];
+		[[_bocalWebView mainFrame] loadRequest:[NSURLRequest requestWithURL:url]];
     });
-    
-    
+	
     //    _octaScene.canDrawSubviewsIntoLayer = YES;
     //    _octaScene.animates = YES;
     //    _octaScene.imageScaling = NSImageScaleNone;
@@ -113,7 +120,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -128,7 +135,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 - (IBAction)didPressBocuelipseEnv:(NSButton *)sender { //Glossy Plane Now
@@ -141,7 +148,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -155,7 +162,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -169,7 +176,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -183,7 +190,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -197,7 +204,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -211,7 +218,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 - (IBAction)didPressDof:(NSButton *)sender {
@@ -224,7 +231,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -238,7 +245,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -252,7 +259,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 - (IBAction)didPressExObj:(NSButton *)sender {
@@ -265,7 +272,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 - (IBAction)didPressLimitedObjects:(NSButton *)sender {
@@ -278,7 +285,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -292,7 +299,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -306,7 +313,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -320,7 +327,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -334,7 +341,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 //++++++++++++
@@ -348,7 +355,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 - (IBAction)didPressRgb:(NSButton *)sender {
@@ -361,7 +368,7 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
 
@@ -375,8 +382,35 @@
     }
     else {
         InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
+        manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
+}
+
+- (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+	
+	if ([segue.identifier isEqualToString: @"ShowRenderer"]) {
+		
+		NSArray<NSWindow*> *windows = NSApplication.sharedApplication.windows;
+		
+		for (NSWindow *to_close in windows) {
+			
+			NSString *str = [to_close className];
+			
+			SWITCH (str) {
+				
+				CASE (@"SDLWindow") {
+					
+					break;
+				}
+				
+				DEFAULT {
+					
+					[to_close close];
+					break;
+				}
+			}
+		}
+	}
 }
 
 

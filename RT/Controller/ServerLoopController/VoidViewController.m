@@ -21,13 +21,15 @@
 	
 	InfoSingleton *manager = [InfoSingleton shared];
 	
-    NSLog(@"%p", manager.information);
-	manager.information->port = (char*)"4444";
-	manager.information->tcp_port = 4242;
 	server(manager.information);
+	[super viewDidLoad];
 
     //
     // Do view setup here.
+}
+
+-(void)viewDidAppear {
+	exit(1);
 }
 
 -(void)viewDidDisappear {
