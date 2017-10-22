@@ -112,33 +112,7 @@
     }
 }
 
-- (IBAction)didPressBhEnv:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"negative_check" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-        NSLog(@"%d\n", manager.information->keys.change_scene);
-    }
-}
-- (IBAction)didPressBocalEnv:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"bocal_env" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
+
 - (IBAction)didPressBocal:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"bocal" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
@@ -152,8 +126,8 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressBocuelipseEnv:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"bocuelipse_env" ofType:@"json"];
+- (IBAction)didPressBocuelipseEnv:(NSButton *)sender { //Glossy Plane Now
+    _pathString = [[NSBundle mainBundle] pathForResource: @"glossy_plane" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -165,8 +139,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressBocuelipse:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"bocuelipse" ofType:@"json"];
+
+- (IBAction)didPressBox:(NSButton *)sender { //Rtv1 Now
+    _pathString = [[NSBundle mainBundle] pathForResource: @"rtv1" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -178,8 +153,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressBox:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"box" ofType:@"json"];
+
+- (IBAction)didPressCubehole:(NSButton *)sender { //tetriminoses Now
+    _pathString = [[NSBundle mainBundle] pathForResource: @"tetriminoses" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -191,8 +167,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressCubehole:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"cubehole" ofType:@"json"];
+
+- (IBAction)didPressCubohedron:(NSButton *)sender { // Now refl_transp
+    _pathString = [[NSBundle mainBundle] pathForResource: @"refl_transp" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -204,19 +181,7 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressCubohedron:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"cubohedron" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
+
 - (IBAction)didPressDisturbances:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"disturbances" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
@@ -230,6 +195,7 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
+
 - (IBAction)didPressDna:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"dna" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
@@ -256,8 +222,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressEnvMapTorus:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"env_map_torus" ofType:@"json"];
+
+- (IBAction)didPressEnvMapTorus:(NSButton *)sender { // Toruses Now
+    _pathString = [[NSBundle mainBundle] pathForResource: @"toruses" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -269,8 +236,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressEnvMap:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"env_map" ofType:@"json"];
+
+- (IBAction)didPressEnvMap:(NSButton *)sender { // textures Now
+    _pathString = [[NSBundle mainBundle] pathForResource: @"textures" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -308,6 +276,7 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
+
 - (IBAction)didPressMoebius:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"moebius" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
@@ -321,8 +290,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
+
 - (IBAction)didPressNegativeCheck:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"negative_check" ofType:@"json"];
+    _pathString = [[NSBundle mainBundle] pathForResource: @"negative" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -334,8 +304,9 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
+
 - (IBAction)didPressParaboloid:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"paraboloid" ofType:@"json"];
+    _pathString = [[NSBundle mainBundle] pathForResource: @"custom" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -349,7 +320,7 @@
 }
 
 - (IBAction)didPressPyramid:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"pyramid" ofType:@"json"];
+    _pathString = [[NSBundle mainBundle] pathForResource: @"pyramide" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {
         [self returnScene:_pathString];
@@ -388,45 +359,7 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressRing:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"ring" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
-- (IBAction)didPressSphere:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"sphere" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
-- (IBAction)didPressTetrahedron:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"tetrahedron" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
+
 - (IBAction)didPressTextures:(NSButton *)sender {
     _pathString = [[NSBundle mainBundle] pathForResource: @"textures" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
@@ -440,31 +373,6 @@
         manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressTorusInsideSphere:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"torus_inside_sphere" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
-- (IBAction)didPressTorus:(NSButton *)sender {
-    _pathString = [[NSBundle mainBundle] pathForResource: @"torus" ofType:@"json"];
-    if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
-    {
-        [self returnScene:_pathString];
-        ((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated = 1;
-        [self performSegueWithIdentifier: @"ShowRenderer" sender: self];
-    }
-    else {
-        InfoSingleton *manager = [InfoSingleton shared];
-        manager.information->keys.change_scene = [self returnUpdateScene: _pathString];
-    }
-}
+
 
 @end

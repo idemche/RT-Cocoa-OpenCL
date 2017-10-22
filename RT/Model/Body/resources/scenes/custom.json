@@ -1,0 +1,192 @@
+{
+	"objects": [
+		{
+			"type": "BOX",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 0.78, "g": 0.87, "b": 0.3}
+			}
+		},
+		{
+			"type": "DISK",
+			"config": {
+				"point": {"x": 150, "y": 0, "z": 125},
+				"dir": {"x": 0, "y": 1, "z": 1},
+				"r": 100,
+				"color": {"r": 0.78, "g": 0.2, "b": 0.78}
+			}
+		},
+		{
+			"type": "CUBE",
+			"config": {
+				"point": {"x": 300, "y": 0, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 0.78, "g": 0.2, "b": 0.18}
+			}
+		},
+		{
+			"type": "CYLINDER",
+			"config": {
+				"point": {"x": 450, "y": 0, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r": 50,
+				"top": 200,
+				"color": {"r": 0.3, "g": 0.3, "b": 0.7}
+			}
+		},
+		{
+			"type": "CONE",
+			"config": {
+				"point": {"x": 550, "y": 0, "z": 125},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"angle": 30,
+				"bot": 100,
+				"top": 0,
+				"color": {"r": 0.95, "g": 0.05, "b": 0.05}
+			}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": 700, "y": 0, "z": 125},
+				"r": 50,
+				"color": {"r": 0.7, "g": 0.26, "b": 0.9}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 0, "y": 0, "z": 0},
+				"n": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "PARABOLOID",
+			"config": {
+				"point": {"x": 800, "y": 0, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"k": 10,
+				"top": 100,
+				"color": {"r": 0.18, "g": 0.32, "b": 0.78}
+			}
+		},
+		{
+			"type": "TORUS",
+			"config": {
+				"point": {"x": 0, "y": 200, "z": 25},
+				"r_big": 100,
+				"r": 20,
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 0.78, "g": 0.2, "b": 0.78}
+			}
+		},
+		{
+			"type": "BOCAL",
+			"config": {
+				"top": 100,
+				"point": {"x": 200, "y": 200, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "ELIPSOID",
+			"config": {
+				"point": {"x": 450, "y": 200, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r": 50,
+				"k": 45,
+				"color": {"r": 1, "g": 0.65, "b": 0.75}
+			}
+		},
+		{
+			"type": "HEART",
+			"config": {
+				"point": {"x": 80, "y": 650, "z": 25},
+				"n": {"x": 0, "y": 0, "z": 1},
+				"width": 75,
+				"color": {"r": 0.78, "g": 0.14, "b": 0.08}
+			}
+		},
+		{
+			"type": "CUBEHOLE",
+			"config": {
+				"point": {"x": 650, "y": 200, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 0.78, "g": 0.35, "b": 0.88}
+			}
+		},
+		{
+			"type": "TETRAHEDRON",
+			"config": {
+				"point": {"x": 800, "y": 200, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "STELLATED OCTAHEDRON",
+			"config": {
+				"point": {"x": 0, "y": 400, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "CUBOHEDRON",
+			"config": {
+				"point": {"x": 200, "y": 400, "z": 25},
+				"vec1": {"x": 0, "y": 0, "z": 1},
+				"vec2": {"x": 1, "y": 0, "z": 0},
+				"length": 100,
+				"color": {"r": 1, "g": 1, "b": 1}
+			}
+		},
+		{
+			"type": "RING",
+			"config": {
+				"point": {"x": 400, "y": 400, "z": 25},
+				"dir": {"x": 0, "y": 0, "z": 1},
+				"r_big": 150,
+				"r": 135,
+				"top": 50,
+				"color": {"r": 0.03, "g": 0.15, "b": 0.94}
+			},
+			"material": "SPEC",
+			"kd": 0
+		}
+	],
+	"spotlights": [
+		{
+			"point": {"x": -100, "y": -650, "z": 550},
+			"dir": {"x": 50, "y": 310, "z": -120},
+			"emission": {"r": 20, "g": 20, "b": 20},
+			"radius": 75,
+			"alpha": 5
+		}
+	],
+	"cam": {
+		"point": {"x": 650, "y": 0, "z": 560},
+		"fov": 66.6,
+		"dir": {"x": 0, "y": 0, "z": 200},
+		"exposition time": 1,
+		"focal length": 400.0,
+		"aperture": 10.0
+	},
+	"environment": {
+		"spp per call": 1,
+		"map": "environment_maps/poland2.hdr"
+	}
+}
