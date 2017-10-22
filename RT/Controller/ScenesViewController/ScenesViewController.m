@@ -21,6 +21,11 @@
 @implementation ScenesViewController
 
 @synthesize octaWebView = _octaWebView;
+
+@synthesize bocalaWebView = _bocalWebView;
+@synthesize glossyWebView = _glossyWebView;
+@synthesize dnaWebView = _dnaWebView;
+
 @synthesize pathString = _pathString;
 @synthesize index = _index;
 

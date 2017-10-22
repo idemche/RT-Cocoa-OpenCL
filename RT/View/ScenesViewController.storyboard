@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="13178.6"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +22,7 @@
                 <customObject id="s3M-aI-O2v" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ScenesViewController" id="7OW-wf-VOV" customClass="ScenesViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="vgC-dy-Dvp">
-                        <rect key="frame" x="0.0" y="0.0" width="582" height="596"/>
+                        <rect key="frame" x="0.0" y="0.0" width="752" height="596"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-bO-iR9">
@@ -440,6 +441,21 @@
                                     </subviews>
                                 </view>
                             </box>
+                            <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMA-yN-cug">
+                                <rect key="frame" x="607" y="460" width="104" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <webPreferences key="preferences" identifier="dnaWebView" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
+                            </webView>
+                            <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDX-6e-cQp">
+                                <rect key="frame" x="607" y="321" width="104" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <webPreferences key="preferences" identifier="glossyWebView" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
+                            </webView>
+                            <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-rh-cp5">
+                                <rect key="frame" x="607" y="180" width="104" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <webPreferences key="preferences" identifier="bocalWebView" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
+                            </webView>
                         </subviews>
                     </view>
                     <connections>
@@ -447,7 +463,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="373" y="238"/>
+            <point key="canvasLocation" x="458" y="238"/>
         </scene>
     </scenes>
     <resources>
