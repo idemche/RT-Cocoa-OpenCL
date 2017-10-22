@@ -73,7 +73,7 @@ void		heart_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	get_object_info(&h, js);
 	if (!parse_point(&o->point1, h.p1) || !parse_point(&o->n, h.n))
 		object_error(a, i, "invalid xyz field");
-	parse_color(a, i, &o->color, h.p1);
+	parse_color(a, i, &o->color, h.color);
 	if (!check_vec3(o->n))
 		object_error(a, i, "invalid n");
 	else

@@ -1,0 +1,85 @@
+{
+	"objects": [
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": -120, "y": 100, "z": 70},
+				"r": 160,
+				"color": {"x": 1, "y": 1, "z": 1}
+			},
+			"material": "SPEC",
+			"kd": 0,
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": 180, "y": -45, "z": -200},
+				"r": 140,
+				"color": {"x": 1, "y": 1, "z": 1}
+			},
+			"material": "DIFF",
+			"emission": {"r": 40, "g": 40, "b": 40}
+		},
+		{
+			"type": "SPHERE",
+			"config": {
+				"point": {"x": -250, "y": 200, "z": -400},
+				"r": 150,
+				"color": {"x": 1, "y": 1, "z": 1}
+			},
+			"material": "REFR",
+			"n": 2.5,
+			"kd": 0,
+			"emission": {"r": 0, "g": 0, "b": 0}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 35, "y": 300, "z": -30},
+				"norm": {"x": 0, "y": -1, "z": -1},
+				"color": {"x": 0.7, "y": 0.2, "z": 0.2}
+			}
+		},
+		{
+			"type": "PLANE",
+			"config": {
+				"point": {"x": 35, "y": 550, "z": -280},
+				"norm": {"x": 0, "y": -1, "z": 1},
+				"color": {"x": 0.2, "y": 0.2, "z": 0.7}
+			}
+		},
+		{
+			"type": "CYLINDER",
+			"config": {
+				"point": {"x": 0, "y": 150, "z": 0},
+				"dir": {"x": 0, "y": 0.4, "z": -1},
+				"r": 70,
+				"color": {"x": 0.3, "y": 0.3, "z": 0.3}
+			}
+		},
+		{
+			"type": "CONE",
+			"config": {
+				"point": {"x": -300, "y": -150, "z": -40},
+				"dir": {"x": 0, "y": 1, "z": 1},
+				"angle": 30,
+				"color": {"x": 0.79, "y": 0.17, "z": 0.17}
+			},
+			"material": "SPEC",
+			"kd": 0
+		}
+	],
+	"cam": {
+		"point": {"x": 0, "y": -700, "z": 700},
+		"fov": 66.6,
+		"dir": {"x": 0, "y": 1, "z": -1},
+		"exposition time": 1,
+		"focal length": 800.0,
+		"aperture": 12.0
+	},
+	"environment": {
+		"spp per call": 1
+	}	
+}
+

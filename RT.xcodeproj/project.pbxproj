@@ -27,30 +27,16 @@
 		51181B641F9536F6008AEC25 /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE031F95148E00EE6E5F /* 173_norm.png */; };
 		51181B651F9536F6008AEC25 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE041F95148E00EE6E5F /* 173.png */; };
 		51181B661F9536F6008AEC25 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 51AEAE051F95148E00EE6E5F /* 174_norm.png */; };
-		51181B671F953700008AEC25 /* torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B11F9381C000D9C77F /* torus.json */; };
-		51181B681F953700008AEC25 /* paraboloid.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B21F9381C000D9C77F /* paraboloid.json */; };
 		51181B691F953700008AEC25 /* bh.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B31F9381C000D9C77F /* bh.json */; };
-		51181B6A1F953700008AEC25 /* bocuelipse_env.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B41F9381C000D9C77F /* bocuelipse_env.json */; };
 		51181B6B1F953700008AEC25 /* refl_transp.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B51F9381C000D9C77F /* refl_transp.json */; };
 		51181B6C1F953700008AEC25 /* limited_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B61F9381C000D9C77F /* limited_objects.json */; };
 		51181B6D1F953700008AEC25 /* dna.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B71F9381C000D9C77F /* dna.json */; };
-		51181B6E1F953700008AEC25 /* bocuelipse.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B81F9381C000D9C77F /* bocuelipse.json */; };
 		51181B6F1F953700008AEC25 /* disturbances.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B91F9381C000D9C77F /* disturbances.json */; };
-		51181B701F953700008AEC25 /* negative_check.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BA1F9381C000D9C77F /* negative_check.json */; };
+		51181B701F953700008AEC25 /* negative.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BA1F9381C000D9C77F /* negative.json */; };
 		51181B711F953700008AEC25 /* ex_obj.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BB1F9381C000D9C77F /* ex_obj.json */; };
-		51181B721F953700008AEC25 /* tetrahedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BC1F9381C000D9C77F /* tetrahedron.json */; };
-		51181B731F953700008AEC25 /* octahedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BD1F9381C000D9C77F /* octahedron.json */; };
-		51181B741F953700008AEC25 /* bocal_env.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BE1F9381C000D9C77F /* bocal_env.json */; };
 		51181B751F953700008AEC25 /* textures.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056BF1F9381C000D9C77F /* textures.json */; };
-		51181B761F953700008AEC25 /* env_map_torus.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C01F9381C000D9C77F /* env_map_torus.json */; };
-		51181B771F953700008AEC25 /* cubehole.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C11F9381C000D9C77F /* cubehole.json */; };
-		51181B791F953700008AEC25 /* sphere.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C31F9381C000D9C77F /* sphere.json */; };
-		51181B7A1F953700008AEC25 /* cubohedron.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C41F9381C000D9C77F /* cubohedron.json */; };
-		51181B7B1F953700008AEC25 /* env_map.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C51F9381C000D9C77F /* env_map.json */; };
-		51181B7C1F953700008AEC25 /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C61F9381C000D9C77F /* heart.json */; };
+		51181B761F953700008AEC25 /* toruses.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C01F9381C000D9C77F /* toruses.json */; };
 		51181B7D1F953700008AEC25 /* moebius.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C71F9381C000D9C77F /* moebius.json */; };
-		51181B7E1F953700008AEC25 /* box.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C81F9381C000D9C77F /* box.json */; };
-		51181B7F1F953700008AEC25 /* rgb.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056C91F9381C000D9C77F /* rgb.json */; };
 		51181B801F953700008AEC25 /* bocal.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056CA1F9381C000D9C77F /* bocal.json */; };
 		51181B811F953709008AEC25 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 137056D31F9381C000D9C77F /* image.c */; };
 		51181B821F953709008AEC25 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 137056D91F9381C000D9C77F /* util.c */; };
@@ -210,30 +196,16 @@
 		1069F34F1F8D26C300D7C448 /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
 		1069F3501F8D26C300D7C448 /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
 		13599E8A1F9A0E45006F2A69 /* event_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event_gui.c; sourceTree = "<group>"; };
-		137056B11F9381C000D9C77F /* torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = torus.json; sourceTree = "<group>"; };
-		137056B21F9381C000D9C77F /* paraboloid.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = paraboloid.json; sourceTree = "<group>"; };
 		137056B31F9381C000D9C77F /* bh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bh.json; sourceTree = "<group>"; };
-		137056B41F9381C000D9C77F /* bocuelipse_env.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocuelipse_env.json; sourceTree = "<group>"; };
 		137056B51F9381C000D9C77F /* refl_transp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = refl_transp.json; sourceTree = "<group>"; };
 		137056B61F9381C000D9C77F /* limited_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = limited_objects.json; sourceTree = "<group>"; };
 		137056B71F9381C000D9C77F /* dna.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dna.json; sourceTree = "<group>"; };
-		137056B81F9381C000D9C77F /* bocuelipse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocuelipse.json; sourceTree = "<group>"; };
 		137056B91F9381C000D9C77F /* disturbances.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = disturbances.json; sourceTree = "<group>"; };
-		137056BA1F9381C000D9C77F /* negative_check.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = negative_check.json; sourceTree = "<group>"; };
+		137056BA1F9381C000D9C77F /* negative.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = negative.json; sourceTree = "<group>"; };
 		137056BB1F9381C000D9C77F /* ex_obj.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ex_obj.json; sourceTree = "<group>"; };
-		137056BC1F9381C000D9C77F /* tetrahedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tetrahedron.json; sourceTree = "<group>"; };
-		137056BD1F9381C000D9C77F /* octahedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = octahedron.json; sourceTree = "<group>"; };
-		137056BE1F9381C000D9C77F /* bocal_env.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocal_env.json; sourceTree = "<group>"; };
 		137056BF1F9381C000D9C77F /* textures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = textures.json; sourceTree = "<group>"; };
-		137056C01F9381C000D9C77F /* env_map_torus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map_torus.json; sourceTree = "<group>"; };
-		137056C11F9381C000D9C77F /* cubehole.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubehole.json; sourceTree = "<group>"; };
-		137056C31F9381C000D9C77F /* sphere.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere.json; sourceTree = "<group>"; };
-		137056C41F9381C000D9C77F /* cubohedron.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cubohedron.json; sourceTree = "<group>"; };
-		137056C51F9381C000D9C77F /* env_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = env_map.json; sourceTree = "<group>"; };
-		137056C61F9381C000D9C77F /* heart.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
+		137056C01F9381C000D9C77F /* toruses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = toruses.json; sourceTree = "<group>"; };
 		137056C71F9381C000D9C77F /* moebius.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = moebius.json; sourceTree = "<group>"; };
-		137056C81F9381C000D9C77F /* box.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = box.json; sourceTree = "<group>"; };
-		137056C91F9381C000D9C77F /* rgb.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rgb.json; sourceTree = "<group>"; };
 		137056CA1F9381C000D9C77F /* bocal.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bocal.json; sourceTree = "<group>"; };
 		137056D31F9381C000D9C77F /* image.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = image.c; sourceTree = "<group>"; };
 		137056D51F9381C000D9C77F /* quaternion.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = quaternion.c; sourceTree = "<group>"; };
@@ -532,30 +504,16 @@
 		137056B01F9381C000D9C77F /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				137056B11F9381C000D9C77F /* torus.json */,
-				137056B21F9381C000D9C77F /* paraboloid.json */,
 				137056B31F9381C000D9C77F /* bh.json */,
-				137056B41F9381C000D9C77F /* bocuelipse_env.json */,
 				137056B51F9381C000D9C77F /* refl_transp.json */,
 				137056B61F9381C000D9C77F /* limited_objects.json */,
 				137056B71F9381C000D9C77F /* dna.json */,
-				137056B81F9381C000D9C77F /* bocuelipse.json */,
 				137056B91F9381C000D9C77F /* disturbances.json */,
-				137056BA1F9381C000D9C77F /* negative_check.json */,
+				137056BA1F9381C000D9C77F /* negative.json */,
 				137056BB1F9381C000D9C77F /* ex_obj.json */,
-				137056BC1F9381C000D9C77F /* tetrahedron.json */,
-				137056BD1F9381C000D9C77F /* octahedron.json */,
-				137056BE1F9381C000D9C77F /* bocal_env.json */,
 				137056BF1F9381C000D9C77F /* textures.json */,
-				137056C01F9381C000D9C77F /* env_map_torus.json */,
-				137056C11F9381C000D9C77F /* cubehole.json */,
-				137056C31F9381C000D9C77F /* sphere.json */,
-				137056C41F9381C000D9C77F /* cubohedron.json */,
-				137056C51F9381C000D9C77F /* env_map.json */,
-				137056C61F9381C000D9C77F /* heart.json */,
+				137056C01F9381C000D9C77F /* toruses.json */,
 				137056C71F9381C000D9C77F /* moebius.json */,
-				137056C81F9381C000D9C77F /* box.json */,
-				137056C91F9381C000D9C77F /* rgb.json */,
 				137056CA1F9381C000D9C77F /* bocal.json */,
 			);
 			path = scenes;
@@ -949,45 +907,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51181B7A1F953700008AEC25 /* cubohedron.json in Resources */,
-				51181B731F953700008AEC25 /* octahedron.json in Resources */,
-				51181B721F953700008AEC25 /* tetrahedron.json in Resources */,
 				394C1AB91F91375E000E0B22 /* Standby.storyboard in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
-				51181B671F953700008AEC25 /* torus.json in Resources */,
 				5161E7481F8F8B5900C0D592 /* ServerTools.storyboard in Resources */,
 				51181B6F1F953700008AEC25 /* disturbances.json in Resources */,
 				51181B651F9536F6008AEC25 /* 173.png in Resources */,
 				51181B7D1F953700008AEC25 /* moebius.json in Resources */,
 				51181B661F9536F6008AEC25 /* 174_norm.png in Resources */,
 				1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */,
-				51181B7C1F953700008AEC25 /* heart.json in Resources */,
 				51181B631F9536F2008AEC25 /* 174.png in Resources */,
 				51181B801F953700008AEC25 /* bocal.json in Resources */,
 				51181B6D1F953700008AEC25 /* dna.json in Resources */,
-				51181B681F953700008AEC25 /* paraboloid.json in Resources */,
-				51181B6E1F953700008AEC25 /* bocuelipse.json in Resources */,
 				5175CDD51F9624F400EDC611 /* octa.html in Resources */,
 				51181B6C1F953700008AEC25 /* limited_objects.json in Resources */,
-				51181B701F953700008AEC25 /* negative_check.json in Resources */,
-				51181B761F953700008AEC25 /* env_map_torus.json in Resources */,
-				51181B7F1F953700008AEC25 /* rgb.json in Resources */,
+				51181B701F953700008AEC25 /* negative.json in Resources */,
+				51181B761F953700008AEC25 /* toruses.json in Resources */,
 				51181B691F953700008AEC25 /* bh.json in Resources */,
-				51181B741F953700008AEC25 /* bocal_env.json in Resources */,
 				5175CDD31F96239800EDC611 /* octa.gif in Resources */,
 				1069F2FE1F8CD33600D7C448 /* Assets.xcassets in Resources */,
 				5161E7461F8F8B4200C0D592 /* ClientStandby.storyboard in Resources */,
-				51181B771F953700008AEC25 /* cubehole.json in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				1069F3011F8CD33600D7C448 /* Main.storyboard in Resources */,
-				51181B7E1F953700008AEC25 /* box.json in Resources */,
-				51181B7B1F953700008AEC25 /* env_map.json in Resources */,
 				51181BAD1F953725008AEC25 /* kernels.lol in Resources */,
 				51181B6B1F953700008AEC25 /* refl_transp.json in Resources */,
-				51181B6A1F953700008AEC25 /* bocuelipse_env.json in Resources */,
 				51181B641F9536F6008AEC25 /* 173_norm.png in Resources */,
 				51181B751F953700008AEC25 /* textures.json in Resources */,
-				51181B791F953700008AEC25 /* sphere.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

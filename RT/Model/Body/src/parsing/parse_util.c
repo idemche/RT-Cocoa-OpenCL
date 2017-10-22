@@ -55,7 +55,7 @@ void			parse_emission(t_info *a, VEC3 *result, cJSON *color)
 	if (!cJSON_IsNumber(r) || !cJSON_IsNumber(g) || !cJSON_IsNumber(b) ||
 		r->valuedouble < 0 || g->valuedouble < 0 || b->valuedouble < 0)
 	{
-		scene_error(a, "invalid emission");
+		warning(a, "invalid emission, default 0");
 		*result = i_3(0, 0, 0);
 	}
 	else

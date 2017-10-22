@@ -1311,6 +1311,16 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 	if (!solve_quadratic(&q))
 		return (-1);
 
+	float3 hp1 = ray.o + ray.d * q.t1;
+	float3 hp2 = ray.o + ray.d * q.t2;
+	float3 vec_hp1 = hp1 - point1;
+	float3 vec_hp2 = hp2 - point1;
+
+	if (dot(vec_hp1, object.dir) > object.top)
+		q.t1 = -1;
+	if (dot(vec_hp2, object.dir) > object.top)
+		q.t2 = -1;
+
 	if (q.t1 < EPS && q.t2 < EPS) // I
 		return (-1);
 	else if (q.t1 > EPS && q.t2 > EPS)
@@ -1328,8 +1338,8 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 			}
 			else
 			{
-				*hit_point_tmp = ray.o + ray.d * q.t2;
-				*normal_tmp = *hit_point_tmp - point1;
+				*hit_point_tmp = hp2;
+				*normal_tmp = hp2 - point1;
 				float m = dot(*normal_tmp, object.dir);
 				*normal_tmp = fast_normalize(*normal_tmp - object.dir * (m + object.k));
 				return (q.t2);
@@ -1337,8 +1347,8 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 		}
 		else if (!lean_in_range(negative.range, q.t1))
 		{
-			*hit_point_tmp = ray.o + ray.d * q.t1;
-			*normal_tmp = *hit_point_tmp - point1;
+			*hit_point_tmp = hp1;
+			*normal_tmp = hp1 - point1;
 			float m = dot(*normal_tmp, object.dir);
 			*normal_tmp = fast_normalize(*normal_tmp - object.dir * (m + object.k));
 			return (q.t1);
@@ -1359,8 +1369,8 @@ float			intersect_paraboloid(t_object object, t_ray ray, float3 *normal_tmp, flo
 			}
 			else
 			{
-				*hit_point_tmp = ray.o + ray.d * q.t2;
-				*normal_tmp = *hit_point_tmp - point1;
+				*hit_point_tmp = hp2;
+				*normal_tmp = hp2 - point1;
 				float m = dot(*normal_tmp, object.dir);
 				*normal_tmp = fast_normalize(*normal_tmp - object.dir * (m + object.k));
 				return (q.t2);

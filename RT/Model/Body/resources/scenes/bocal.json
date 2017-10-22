@@ -1,63 +1,6 @@
 {
 	"objects": [
 		{
-			"type": "SPHERE",
-			"config": {
-				"point": {"x": 500, "y": 0, "z": 750},
-				"r": 100,
-				"color": {"r": 1, "g": 1, "b": 1}
-			},
-			"emission": {"r": 60, "g": 60, "b": 60}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 0},
-				"n": {"x": 0, "y": 0, "z": 1},
-				"color": {"r": 0.2, "g": 0.4, "b": 0.8}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 0, "z": 1200},
-				"n": {"x": 0, "y": 0, "z": 1},
-				"color": {"r": 0.008, "g": 0.23, "b": 0.943}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 700, "y": 0, "z": 0},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 0.9, "g": 0.5, "b": 0.543}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": -1900, "y": 0, "z": 0},
-				"n": {"x": 1, "y": 0, "z": 0},
-				"color": {"r": 0.18, "g": 0.2, "b": 0.643}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": 700, "z": 0},
-				"n": {"x": 0, "y": 1, "z": 0},
-				"color": {"r": 0.35, "g": 0.2, "b": 0.83}
-			}
-		},
-		{
-			"type": "PLANE",
-			"config": {
-				"point": {"x": 0, "y": -700, "z": 0},
-				"n": {"x": 0, "y": 1, "z": 0},
-				"color": {"r": 0.54, "g": 0.2, "b": 0.543}
-			}
-		},
-		{
 			"type": "BOCAL",
 			"config": {
 				"top": 200,
@@ -103,7 +46,8 @@
 		"aperture": 10.0
 	},
 	"environment": {
-		"spp per call": 1
+		"spp per call": 1,
+		"map": "environment_maps/poland2.hdr"
 	}
 }
 
