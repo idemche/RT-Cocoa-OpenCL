@@ -43,22 +43,21 @@ static void		get_type(t_info *a, t_json_env *e)
 
 	if (ft_strstr(e->m->valuestring, ".hdr"))
 	{
-		a->environment_map = read_hdr(e->m->valuestring, &a->scene->env_map_w,
-														&a->scene->env_map_h);
-		a->scene->radiance_env_map = 1;
+		if ((a->environment_map = read_hdr(e->m->valuestring,
+			&a->scene->env_map_w, &a->scene->env_map_h)) != NULL)
+			a->scene->radiance_env_map = 1;
 	}
 	else if (ft_strstr(e->m->valuestring, ".png"))
 	{
-		if (lodepng_decode32_file(&tmp, &w, &h, e->m->valuestring))
-			scene_error(a, "lodepng_decode32_file error: environment map");
-		write_float3(a, tmp, w, h);
-		a->scene->radiance_env_map = 0;
-		a->scene->env_map_w = (int)w;
-		a->scene->env_map_h = (int)h;
-		free(tmp);
+		if (!lodepng_decode32_file(&tmp, &w, &h, e->m->valuestring))
+		{
+			write_float3(a, tmp, w, h);
+			a->scene->radiance_env_map = 0;
+			a->scene->env_map_w = (int)w;
+			a->scene->env_map_h = (int)h;
+			free(tmp);
+		}
 	}
-	else
-		scene_error(a, "invalid file type");
 }
 
 void			parse_environment_map(t_info *a, t_json_scene *js)
@@ -72,14 +71,14 @@ void			parse_environment_map(t_info *a, t_json_scene *js)
 	else
 	{
 		if (!cJSON_IsString(e.m))
-			scene_error(a, "invalid environment map field, wtf how?");
+			warning(a, "invalid environment map field, wtf how?");
 		else
 		{
 			if (ft_strcmp(e.m->valuestring, "None"))
 			{
 				get_type(a, &e);
 				if (!a->environment_map)
-					scene_error(a, "invalid environment map file");
+					warning(a, "invalid environment map file");
 				else
 					a->scene->env_map = 1;
 			}

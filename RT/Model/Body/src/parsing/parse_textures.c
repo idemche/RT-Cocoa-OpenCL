@@ -20,14 +20,14 @@ int		get_number_textures(void)
 	if ((fptr = fopen("number.txt", "r")) == NULL)
 	{
 		ft_putstr("Error! opening file");
-		exit(1);
+		return (0);
 	}
 	fscanf(fptr, "%[^\n]", c);
 	fclose(fptr);
 	return (atoi(c));
 }
 
-void	filling_available_texture(t_info *a, int number)
+int		filling_available_texture(t_info *a, int number)
 {
 	FILE	*fptr;
 	char	c[2048];
@@ -37,7 +37,7 @@ void	filling_available_texture(t_info *a, int number)
 	if ((fptr = fopen("textures.txt", "r")) == NULL)
 	{
 		ft_putstr("Error! opening file");
-		exit(1);
+		return (0);
 	}
 	a->available_texture = (char **)malloc(sizeof(char *) * (number + 1));
 	while (fgets(c, 2048, fptr))
@@ -47,6 +47,7 @@ void	filling_available_texture(t_info *a, int number)
 		i++;
 	}
 	fclose(fptr);
+	return (1);
 }
 
 void	check_was_before(t_info *a, int i, int j, int *was_before)
@@ -96,8 +97,9 @@ int		parse_texture(t_info *a)
 	system("ls textures/ | grep '.png$' > textures.txt");
 	number = get_number_textures();
 	if (number == 0)
-		ft_putstr("No textures in folder!\n");
-	filling_available_texture(a, number);
+		return (0);
+	if (!filling_available_texture(a, number))
+		return (0);
 	check_unique_textures(a, number);
 	get_unique_textures(a);
 	write_textures(a, -1, -1, -1);

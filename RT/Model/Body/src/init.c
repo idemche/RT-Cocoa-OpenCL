@@ -21,6 +21,7 @@ static void			init_scene_(t_info *a)
 	a->scene->n_negative_obj = 0;
 	a->scene->env_map = 0;
 	a->scene->radiance_env_map = 0;
+	a->environment_map = NULL;
 }
 
 void				init_scene(t_info *a)

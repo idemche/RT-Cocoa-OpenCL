@@ -89,8 +89,6 @@ void			init(t_info *a, char *json_file)
 	a->scene->image_height = a->client.height;
 	a->scene_is_valid = 1;
 	parse_scene(a, json_file);
-	if (!a->scene_is_valid)
-		ft_error("Invalid scene");
 	ft_putendl_fd("Scene is valid", a->log_fd);
 	close(a->log_fd);
 	parse_texture(a);
