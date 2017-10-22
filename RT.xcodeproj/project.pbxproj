@@ -18,6 +18,7 @@
 		1344FF251F9BAFFA0048467E /* event_gui.c in Sources */ = {isa = PBXBuildFile; fileRef = 1344FF241F9BAFFA0048467E /* event_gui.c */; };
 		1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1370589E1F9386AB00D9C77F /* VoidViewController.storyboard */; };
 		137058A21F9386E000D9C77F /* VoidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137058A11F9386E000D9C77F /* VoidViewController.m */; };
+		1394114A1F9CE40F00FD5580 /* custom.json in Resources */ = {isa = PBXBuildFile; fileRef = 139411491F9CE40F00FD5580 /* custom.json */; };
 		13D39A0B1F9674EA0077F3D3 /* parse_objects_9.c in Sources */ = {isa = PBXBuildFile; fileRef = 13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */; };
 		3030C2B11F9CC66F006E05E7 /* dna.html in Resources */ = {isa = PBXBuildFile; fileRef = 3030C2AF1F9CC66F006E05E7 /* dna.html */; };
 		3030C2B21F9CC66F006E05E7 /* glossy_plane.html in Resources */ = {isa = PBXBuildFile; fileRef = 3030C2B01F9CC66F006E05E7 /* glossy_plane.html */; };
@@ -36,7 +37,6 @@
 		51181B5A1F953388008AEC25 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1069F3481F8D163400D7C448 /* SDL2.framework */; };
 		51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51181B5D1F9533EC008AEC25 /* ScenesViewController.storyboard */; };
 		51181B621F953426008AEC25 /* ScenesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51181B611F953426008AEC25 /* ScenesViewController.m */; };
-		51181B691F953700008AEC25 /* bh.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B31F9381C000D9C77F /* bh.json */; };
 		51181B6B1F953700008AEC25 /* refl_transp.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B51F9381C000D9C77F /* refl_transp.json */; };
 		51181B6C1F953700008AEC25 /* limited_objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B61F9381C000D9C77F /* limited_objects.json */; };
 		51181B6D1F953700008AEC25 /* dna.json in Resources */ = {isa = PBXBuildFile; fileRef = 137056B71F9381C000D9C77F /* dna.json */; };
@@ -178,7 +178,6 @@
 		513F72A31F9CCD37009F7600 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F729F1F9CCD36009F7600 /* 173.png */; };
 		513F72A41F9CCD37009F7600 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72A01F9CCD36009F7600 /* 174_norm.png */; };
 		513F72C21F9CCDFC009F7600 /* main_menu_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72AC1F9CCDFC009F7600 /* main_menu_picture.png */; };
-		513F72C31F9CCDFC009F7600 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72AD1F9CCDFC009F7600 /* placeholder.png */; };
 		513F72C41F9CCDFC009F7600 /* refl_transp.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72AF1F9CCDFC009F7600 /* refl_transp.png */; };
 		513F72C51F9CCDFC009F7600 /* limited_objects.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72B01F9CCDFC009F7600 /* limited_objects.png */; };
 		513F72C61F9CCDFC009F7600 /* dof.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72B11F9CCDFC009F7600 /* dof.png */; };
@@ -221,7 +220,6 @@
 		1069F34F1F8D26C300D7C448 /* RenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderViewController.h; sourceTree = "<group>"; };
 		1069F3501F8D26C300D7C448 /* RenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderViewController.m; sourceTree = "<group>"; };
 		1344FF241F9BAFFA0048467E /* event_gui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = event_gui.c; sourceTree = "<group>"; };
-		137056B31F9381C000D9C77F /* bh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bh.json; sourceTree = "<group>"; };
 		137056B51F9381C000D9C77F /* refl_transp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = refl_transp.json; sourceTree = "<group>"; };
 		137056B61F9381C000D9C77F /* limited_objects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = limited_objects.json; sourceTree = "<group>"; };
 		137056B71F9381C000D9C77F /* dna.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dna.json; sourceTree = "<group>"; };
@@ -378,6 +376,7 @@
 		1370589E1F9386AB00D9C77F /* VoidViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoidViewController.storyboard; sourceTree = "<group>"; };
 		137058A01F9386E000D9C77F /* VoidViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoidViewController.h; sourceTree = "<group>"; };
 		137058A11F9386E000D9C77F /* VoidViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoidViewController.m; sourceTree = "<group>"; };
+		139411491F9CE40F00FD5580 /* custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom.json; sourceTree = "<group>"; };
 		13D39A0A1F9674E90077F3D3 /* parse_objects_9.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parse_objects_9.c; sourceTree = "<group>"; };
 		3030C2AF1F9CC66F006E05E7 /* dna.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = dna.html; sourceTree = "<group>"; };
 		3030C2B01F9CC66F006E05E7 /* glossy_plane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = glossy_plane.html; sourceTree = "<group>"; };
@@ -407,7 +406,6 @@
 		513F729F1F9CCD36009F7600 /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
 		513F72A01F9CCD36009F7600 /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
 		513F72AC1F9CCDFC009F7600 /* main_menu_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_picture.png; sourceTree = "<group>"; };
-		513F72AD1F9CCDFC009F7600 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		513F72AF1F9CCDFC009F7600 /* refl_transp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refl_transp.png; sourceTree = "<group>"; };
 		513F72B01F9CCDFC009F7600 /* limited_objects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = limited_objects.png; sourceTree = "<group>"; };
 		513F72B11F9CCDFC009F7600 /* dof.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dof.png; sourceTree = "<group>"; };
@@ -447,7 +445,6 @@
 			isa = PBXGroup;
 			children = (
 				513F72AC1F9CCDFC009F7600 /* main_menu_picture.png */,
-				513F72AD1F9CCDFC009F7600 /* placeholder.png */,
 				513F72AE1F9CCDFC009F7600 /* PreviewAssets */,
 				5175CDCD1F96208000EDC611 /* HTMLs */,
 			);
@@ -558,6 +555,7 @@
 		137056B01F9381C000D9C77F /* scenes */ = {
 			isa = PBXGroup;
 			children = (
+				139411491F9CE40F00FD5580 /* custom.json */,
 				30CD6F8D1F9CA3F100AF4EDD /* dof.json */,
 				30CD6F901F9CA3F100AF4EDD /* glossy_plane.json */,
 				30CD6F8E1F9CA3F100AF4EDD /* negative.json */,
@@ -565,7 +563,6 @@
 				30CD6F8F1F9CA3F100AF4EDD /* rtv1.json */,
 				30CD6F8B1F9CA3F100AF4EDD /* tetriminoses.json */,
 				30CD6F8A1F9CA3F100AF4EDD /* toruses.json */,
-				137056B31F9381C000D9C77F /* bh.json */,
 				137056B51F9381C000D9C77F /* refl_transp.json */,
 				137056B61F9381C000D9C77F /* limited_objects.json */,
 				137056B71F9381C000D9C77F /* dna.json */,
@@ -1013,6 +1010,7 @@
 				51181B801F953700008AEC25 /* bocal.json in Resources */,
 				51181B6D1F953700008AEC25 /* dna.json in Resources */,
 				30CD6F911F9CA3F200AF4EDD /* toruses.json in Resources */,
+				1394114A1F9CE40F00FD5580 /* custom.json in Resources */,
 				513F72CA1F9CCDFC009F7600 /* negative.png in Resources */,
 				30CD6F971F9CA3F200AF4EDD /* glossy_plane.json in Resources */,
 				30CD6F891F9CA3DE00AF4EDD /* bocal.html in Resources */,
@@ -1022,7 +1020,6 @@
 				513F72A41F9CCD37009F7600 /* 174_norm.png in Resources */,
 				30CD6F951F9CA3F200AF4EDD /* negative.json in Resources */,
 				513F72C51F9CCDFC009F7600 /* limited_objects.png in Resources */,
-				51181B691F953700008AEC25 /* bh.json in Resources */,
 				513F72CE1F9CCDFC009F7600 /* tetriminoses.png in Resources */,
 				513F72C41F9CCDFC009F7600 /* refl_transp.png in Resources */,
 				30CD6F721F9CA17D00AF4EDD /* dna.gif in Resources */,
@@ -1035,7 +1032,6 @@
 				513F72C61F9CCDFC009F7600 /* dof.png in Resources */,
 				513F72C81F9CCDFC009F7600 /* disturbances.png in Resources */,
 				513F72CC1F9CCDFC009F7600 /* toruses.png in Resources */,
-				513F72C31F9CCDFC009F7600 /* placeholder.png in Resources */,
 				30CD6F921F9CA3F200AF4EDD /* tetriminoses.json in Resources */,
 				51181B711F953700008AEC25 /* ex_obj.json in Resources */,
 				30CD6F961F9CA3F200AF4EDD /* rtv1.json in Resources */,

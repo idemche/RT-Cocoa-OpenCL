@@ -66,7 +66,7 @@ void			sdl_loop(t_info *a)
 	{
 		while (SDL_PollEvent(&event))
 			handle_events(a, event, 0);
-		if (a->sequence.is_on)
+		if (a->sequence.is_on == 1)
 			sequence_call(a);
 		else
 		{

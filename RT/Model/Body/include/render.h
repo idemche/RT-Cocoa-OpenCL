@@ -15,10 +15,6 @@
 
 typedef struct	s_object
 {
-	cl_int		type;
-	cl_int		material;
-	cl_int		albedo_n;
-	cl_int		tex_scale;
 	VEC3		emission;
 	VEC3		dir;
 	VEC3		point1;
@@ -34,6 +30,7 @@ typedef struct	s_object
 	VEC3		a;
 	VEC3		b;
 	VEC3		c;
+	cl_float	tex_scale;
 	cl_float	radius;
 	cl_float	radius2;
 	cl_float	bot;
@@ -44,8 +41,15 @@ typedef struct	s_object
 	cl_float	kd;
 	cl_float	refr_index;
 	cl_float	tex_shift;
+	cl_float	dummy1;
 	cl_int		period;
 	cl_int		frequency;
+	cl_int		type;
+	cl_int		material;
+	cl_int		albedo_n;
+	cl_int		dummy2;
+	cl_int		dummy3;
+	cl_int		dummy4;
 }				t_object;
 
 typedef struct	s_camera

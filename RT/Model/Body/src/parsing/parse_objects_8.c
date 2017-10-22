@@ -96,11 +96,14 @@ void		paraboloid_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 		object_error(a, i, "invalid direction vector");
 	else
 		normalise_vec3(&o->dir);
-	if (!cJSON_IsNumber(par.k) || par.k->valuedouble < 0.0)
+	if (!cJSON_IsNumber(par.k) || (o->k = par.k->valuedouble) < 0.0)
 	{
 		object_warning(a, i, "invalid k, default 10");
 		o->k = 10.0;
 	}
-	else
-		o->k = par.k->valuedouble;
+	if (!cJSON_IsNumber(par.top) || (o->top = par.top->valuedouble) < 0.0)
+	{
+		object_warning(a, i, "invalid top, default 100");
+		o->top = 100.0;
+	}
 }

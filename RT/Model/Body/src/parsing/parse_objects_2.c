@@ -43,7 +43,7 @@ void		triangle_parsing(t_info *a, int i, t_object *o, t_json_scene *js)
 	else
 	{
 		if (!parse_point(&o->point1, tr.p1) || !parse_point(&o->point2, tr.p2)
-			|| parse_point(&o->point3, tr.p3))
+			|| !parse_point(&o->point3, tr.p3))
 			object_error(a, i, "invalid point");
 		else
 		{

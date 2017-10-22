@@ -44,7 +44,7 @@ void		generate_pictures(t_info *a, t_tmp_tex *t, int i)
 	get_paths(a, t, i);
 	if (lodepng_decode32_file(&t->tmp_rgba, &t->width, &t->height,
 														t->tex_path_albedo))
-		ft_error("lodepng_decode32_file error: albedo");
+		ft_error("Missing file for albedo texture");
 	if (t->width != 2048 || t->height != 2048)
 		ft_error("invalid texture");
 	memcpy(t->rgba_albedo + 16777216 * i * sizeof(t_uch), t->tmp_rgba,
@@ -52,7 +52,7 @@ void		generate_pictures(t_info *a, t_tmp_tex *t, int i)
 	free(t->tmp_rgba);
 	if (lodepng_decode32_file(&t->tmp_rgba, &t->width, &t->height,
 														t->tex_path_normal))
-		ft_error("lodepng_decode32_file error: normal");
+		ft_error("Missing file for normal texture");
 	if (t->width != 2048 || t->height != 2048)
 		ft_error("invalid texture");
 	memcpy(t->rgba_normal + 16777216 * i * sizeof(t_uch), t->tmp_rgba,
