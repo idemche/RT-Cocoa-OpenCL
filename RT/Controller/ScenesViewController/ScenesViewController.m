@@ -138,7 +138,7 @@
         manager.information->keys.change_scene = (int)[self returnUpdateScene: _pathString];
     }
 }
-- (IBAction)didPressBocuelipseEnv:(NSButton *)sender { //Glossy Plane Now
+- (IBAction)didPressBocuelipse:(NSButton *)sender { //Glossy Plane Now
     _pathString = [[NSBundle mainBundle] pathForResource: @"glossy_plane" ofType:@"json"];
     if (!((InfoSingleton*)[InfoSingleton shared]).serverIsInitiated)
     {

@@ -72,7 +72,7 @@
 		"aperture": 12.0
 	},
 	"environment": {
-		"spp per call": 60,
+		"spp per call": 1,
 		"map": "environment_maps/skies.hdr"
 	},
 	"Video sequence": {

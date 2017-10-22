@@ -27,27 +27,26 @@ int		get_number_textures(void)
 	return (atoi(c));
 }
 
-int		filling_available_texture(t_info *a, int number)
+void	filling_available_texture(t_info *a, int number)
 {
 	FILE	*fptr;
 	char	c[2048];
 	int		i;
 
 	i = 0;
-	if ((fptr = fopen("textures.txt", "r")) == NULL)
-	{
-		ft_putstr("Error! opening file");
-		return (0);
-	}
+	fptr = fopen("textures.txt", "r");
 	a->available_texture = (char **)malloc(sizeof(char *) * (number + 1));
-	while (fgets(c, 2048, fptr))
+	a->available_texture[number] = NULL;
+	if (fptr != NULL)
 	{
-		c[strcspn(c, "\n")] = 0;
-		a->available_texture[i] = ft_strdup(c);
-		i++;
+		while (fgets(c, 2048, fptr))
+		{
+			c[strcspn(c, "\n")] = 0;
+			a->available_texture[i] = ft_strdup(c);
+			i++;
+		}
+		fclose(fptr);
 	}
-	fclose(fptr);
-	return (1);
 }
 
 void	check_was_before(t_info *a, int i, int j, int *was_before)
@@ -96,12 +95,11 @@ int		parse_texture(t_info *a)
 	system("ls textures/ | grep '.png$' | wc -l > number.txt");
 	system("ls textures/ | grep '.png$' > textures.txt");
 	number = get_number_textures();
-	if (number == 0)
-		return (0);
-	if (!filling_available_texture(a, number))
-		return (0);
+	filling_available_texture(a, number);
 	check_unique_textures(a, number);
 	get_unique_textures(a);
+	if (number == 0)
+		return (0);
 	write_textures(a, -1, -1, -1);
 	i = -1;
 	while (++i < a->scene->amount_of_objects)
@@ -113,5 +111,5 @@ int		parse_texture(t_info *a)
 	free(a->available_texture);
 	free(a->unique_tex);
 	system("rm number.txt textures.txt");
-	return (0);
+	return (1);
 }

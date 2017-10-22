@@ -25,32 +25,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="582" height="596"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-bO-iR9">
-                                <rect key="frame" x="160" y="310" width="120" height="125"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="fM2-tb-SpJ">
-                                    <rect key="frame" x="1" y="1" width="118" height="123"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDX-6e-cQp">
-                                            <rect key="frame" x="7" y="10" width="104" height="104"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <webPreferences key="preferences" identifier="glossyWebView" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
-                                        </webView>
-                                        <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mu5-Ky-65Z">
-                                            <rect key="frame" x="7" y="7" width="104" height="109"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="center" borderStyle="border" focusRingType="none" transparent="YES" imageScaling="proportionallyDown" inset="2" id="5j4-gh-yVd">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="didPressBocuelipse:" target="7OW-wf-VOV" id="AFY-5x-LRe"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="6eu-do-wyC">
                                 <rect key="frame" x="20" y="451" width="120" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -76,6 +50,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="uC1-2o-KQg">
                                 <rect key="frame" x="160" y="451" width="120" height="125"/>
@@ -102,6 +77,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="LoZ-pz-8UK">
                                 <rect key="frame" x="302" y="310" width="120" height="125"/>
@@ -128,6 +104,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Kv1-FT-1gG">
                                 <rect key="frame" x="20" y="310" width="120" height="125"/>
@@ -154,6 +131,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="kTf-fv-Awt">
                                 <rect key="frame" x="20" y="169" width="120" height="125"/>
@@ -180,6 +158,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="RUK-a8-cik">
                                 <rect key="frame" x="160" y="169" width="120" height="125"/>
@@ -206,6 +185,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="5JB-vD-KQ3">
                                 <rect key="frame" x="300" y="169" width="120" height="125"/>
@@ -232,6 +212,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="800-lo-J2L">
                                 <rect key="frame" x="20" y="20" width="120" height="125"/>
@@ -258,6 +239,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="14Q-H1-mRi">
                                 <rect key="frame" x="160" y="20" width="120" height="125"/>
@@ -284,6 +266,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="LvJ-Rr-5Do">
                                 <rect key="frame" x="300" y="451" width="120" height="125"/>
@@ -310,6 +293,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="qgd-9T-6tN">
                                 <rect key="frame" x="300" y="20" width="120" height="125"/>
@@ -336,6 +320,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="T8w-wp-SXh">
                                 <rect key="frame" x="442" y="451" width="120" height="121"/>
@@ -362,6 +347,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="7Q7-UA-cBM">
                                 <rect key="frame" x="442" y="310" width="120" height="125"/>
@@ -388,6 +374,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="8YZ-IE-Ozq">
                                 <rect key="frame" x="442" y="169" width="120" height="125"/>
@@ -414,6 +401,7 @@
                                         </button>
                                     </subviews>
                                 </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="9OP-TZ-IA6">
                                 <rect key="frame" x="442" y="20" width="120" height="125"/>
@@ -436,6 +424,33 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="didPressParaboloid:" target="7OW-wf-VOV" id="zml-cq-6O9"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" metaFont="message" size="11"/>
+                            </box>
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="fxf-8y-VPh">
+                                <rect key="frame" x="160" y="310" width="120" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="oTI-Kq-xVe">
+                                    <rect key="frame" x="1" y="1" width="118" height="123"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDX-6e-cQp">
+                                            <rect key="frame" x="7" y="12" width="104" height="101"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <webPreferences key="preferences" identifier="glossyWebView" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                        </webView>
+                                        <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mu5-Ky-65Z">
+                                            <rect key="frame" x="5" y="9" width="108" height="106"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" alignment="center" borderStyle="border" focusRingType="none" transparent="YES" imageScaling="proportionallyDown" inset="2" id="5j4-gh-yVd">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="didPressBocuelipse:" target="7OW-wf-VOV" id="AFY-5x-LRe"/>
                                             </connections>
                                         </button>
                                     </subviews>
