@@ -66,18 +66,30 @@
     InfoSingleton *manager = [InfoSingleton shared];
 	
 	switch (item) {
-		
+        case 0:
+            _SCREEN_WIDTH = 800;
+            _SCREEN_HEIGHT = 800;
+            break ;
+        case 1:
+            _SCREEN_WIDTH = 1280;
+            _SCREEN_HEIGHT = 720;
+            break ;
+        case 2:
+            _SCREEN_WIDTH = 1280;
+            _SCREEN_HEIGHT = 1024;
+            break ;
 		case 4:
-    
 			_SCREEN_WIDTH = 1920;
 			_SCREEN_HEIGHT = 1080;
+            break ;
 		case 3:
-			_SCREEN_WIDTH = 1920;
-			_SCREEN_HEIGHT = 1080;
-		
+			_SCREEN_WIDTH = 1366;
+			_SCREEN_HEIGHT = 768;
+            break ;
 		default:
 			_SCREEN_WIDTH = 800;
 			_SCREEN_HEIGHT = 800;
+            break ;
 	}
     
     manager.information->image_width = _SCREEN_WIDTH;

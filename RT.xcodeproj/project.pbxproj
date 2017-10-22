@@ -173,10 +173,6 @@
 		513F09961F8FC3CF009D802A /* OperationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 513F09951F8FC3CF009D802A /* OperationsManager.m */; };
 		513F099D1F90BEC3009D802A /* NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 513F099C1F90BEC3009D802A /* NSStringExtension.m */; };
 		513F72921F9BA43D009F7600 /* InfoSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 513F72911F9BA43D009F7600 /* InfoSingleton.m */; };
-		513F72A11F9CCD37009F7600 /* 174.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F729D1F9CCD36009F7600 /* 174.png */; };
-		513F72A21F9CCD37009F7600 /* 173_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F729E1F9CCD36009F7600 /* 173_norm.png */; };
-		513F72A31F9CCD37009F7600 /* 173.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F729F1F9CCD36009F7600 /* 173.png */; };
-		513F72A41F9CCD37009F7600 /* 174_norm.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72A01F9CCD36009F7600 /* 174_norm.png */; };
 		513F72C21F9CCDFC009F7600 /* main_menu_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72AC1F9CCDFC009F7600 /* main_menu_picture.png */; };
 		513F72C41F9CCDFC009F7600 /* refl_transp.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72AF1F9CCDFC009F7600 /* refl_transp.png */; };
 		513F72C51F9CCDFC009F7600 /* limited_objects.png in Resources */ = {isa = PBXBuildFile; fileRef = 513F72B01F9CCDFC009F7600 /* limited_objects.png */; };
@@ -401,10 +397,6 @@
 		513F099C1F90BEC3009D802A /* NSStringExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringExtension.m; sourceTree = "<group>"; };
 		513F72901F9BA43D009F7600 /* InfoSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoSingleton.h; sourceTree = "<group>"; };
 		513F72911F9BA43D009F7600 /* InfoSingleton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoSingleton.m; sourceTree = "<group>"; };
-		513F729D1F9CCD36009F7600 /* 174.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174.png; sourceTree = "<group>"; };
-		513F729E1F9CCD36009F7600 /* 173_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173_norm.png; sourceTree = "<group>"; };
-		513F729F1F9CCD36009F7600 /* 173.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 173.png; sourceTree = "<group>"; };
-		513F72A01F9CCD36009F7600 /* 174_norm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 174_norm.png; sourceTree = "<group>"; };
 		513F72AC1F9CCDFC009F7600 /* main_menu_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_picture.png; sourceTree = "<group>"; };
 		513F72AF1F9CCDFC009F7600 /* refl_transp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refl_transp.png; sourceTree = "<group>"; };
 		513F72B01F9CCDFC009F7600 /* limited_objects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = limited_objects.png; sourceTree = "<group>"; };
@@ -534,7 +526,6 @@
 		137056AE1F9381C000D9C77F /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				513F729C1F9CCD36009F7600 /* textures */,
 				137056AF1F9381C000D9C77F /* resources */,
 				137056CC1F9381C000D9C77F /* src */,
 				1370570A1F9381C000D9C77F /* kernels.lol */,
@@ -885,17 +876,6 @@
 			path = InfoSingleton;
 			sourceTree = "<group>";
 		};
-		513F729C1F9CCD36009F7600 /* textures */ = {
-			isa = PBXGroup;
-			children = (
-				513F729D1F9CCD36009F7600 /* 174.png */,
-				513F729E1F9CCD36009F7600 /* 173_norm.png */,
-				513F729F1F9CCD36009F7600 /* 173.png */,
-				513F72A01F9CCD36009F7600 /* 174_norm.png */,
-			);
-			path = textures;
-			sourceTree = "<group>";
-		};
 		513F72AE1F9CCDFC009F7600 /* PreviewAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,11 +982,9 @@
 				30CD6F701F9CA17D00AF4EDD /* bocal.gif in Resources */,
 				51181B5E1F9533EC008AEC25 /* ScenesViewController.storyboard in Resources */,
 				5161E7481F8F8B5900C0D592 /* ServerTools.storyboard in Resources */,
-				513F72A21F9CCD37009F7600 /* 173_norm.png in Resources */,
 				51181B6F1F953700008AEC25 /* disturbances.json in Resources */,
 				51181B7D1F953700008AEC25 /* moebius.json in Resources */,
 				1370589F1F9386AB00D9C77F /* VoidViewController.storyboard in Resources */,
-				513F72A31F9CCD37009F7600 /* 173.png in Resources */,
 				51181B801F953700008AEC25 /* bocal.json in Resources */,
 				51181B6D1F953700008AEC25 /* dna.json in Resources */,
 				30CD6F911F9CA3F200AF4EDD /* toruses.json in Resources */,
@@ -1014,10 +992,8 @@
 				513F72CA1F9CCDFC009F7600 /* negative.png in Resources */,
 				30CD6F971F9CA3F200AF4EDD /* glossy_plane.json in Resources */,
 				30CD6F891F9CA3DE00AF4EDD /* bocal.html in Resources */,
-				513F72A11F9CCD37009F7600 /* 174.png in Resources */,
 				513F72C91F9CCDFC009F7600 /* puyramide.png in Resources */,
 				51181B6C1F953700008AEC25 /* limited_objects.json in Resources */,
-				513F72A41F9CCD37009F7600 /* 174_norm.png in Resources */,
 				30CD6F951F9CA3F200AF4EDD /* negative.json in Resources */,
 				513F72C51F9CCDFC009F7600 /* limited_objects.png in Resources */,
 				513F72CE1F9CCDFC009F7600 /* tetriminoses.png in Resources */,
